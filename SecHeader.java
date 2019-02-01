@@ -45,7 +45,7 @@ public class SecHeader {
       *   <LI>AC1018 - DWG from AutoCAD 2004/2005/2006 (or other product in the "2004", "2005" or "2006" family)
       *   <LI>AC1021 - DWG from AutoCAD 2007/2008/2009 (or other product of the "2007", "2008" and "2009" families)
       *   <LI>AC1024 - DWG from AutoCAD 2010 (or other product of the "2010" family)
-      *   <LI>AC1027 - CAD2013 2014 2015 2016 version.
+      *   <LI>AC1027 - CAD2013 2014 2015 2016 2017 version.
       * </UL>
       */
     public    String   acadver = "AC1015";                // code   1

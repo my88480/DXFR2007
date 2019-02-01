@@ -62,7 +62,7 @@ public class EntVertexTest {
         System.out.println(vertex6.toString());
         System.out.println("");
 
-        System.out.println(vertex6.layer);
+        //System.out.println(vertex6.layer);
     }
 
 }

@@ -23,8 +23,8 @@ import javax.imageio.ImageIO;
 
 
 /**
-*@author  <a href="mailto:809758521@qq.com>David Wu</a>
-*@version 0.5
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
+*@version 0.6
 */
 public class FileDXF {
     /**
@@ -44,7 +44,7 @@ public class FileDXF {
     public String jpg_filename;
 
 
-    public static String hex_handle = "2500";//30AB
+    public static String hex_handle = "2500";
 
     public static int int_handle = Integer.parseInt(hex_handle, 16);
 
@@ -113,7 +113,10 @@ public class FileDXF {
 
     public static String ApplyHandle() {
         String Handle = hex_handle;
+		//System.out.println("Before:" + hex_handle);
         SetNextHandle();
+		//System.out.println("After:" + hex_handle);
+		//System.out.println("Get:" + Handle);
         return Handle;
     }
 
@@ -507,6 +510,25 @@ public class FileDXF {
     }
 
     /**
+     * Constructor (x_value,y_value)
+     * @param x_value -x of start vertex;
+     * @param y_value -y of start vertex;
+     */
+    public void AddPolyline(double[] x_value,double[] y_value) {
+        this.secEntities.entities.add(new EntPolyline(x_value,y_value));
+    }
+
+    /**
+     * Constructor (x_value,y_value,z_value)
+     * @param x_value -x of start vertex;
+     * @param y_value -y of start vertex;
+     * @param z_value -z of start vertex;
+     */
+    public void AddPolyline(double[] x_value,double[] y_value,double[] z_value) {
+        this.secEntities.entities.add(new EntPolyline(x_value,y_value,z_value));
+    }
+
+    /**
      * AddPolyline(points)
      * <pre>Add one Polyline into the Entities' Section
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
@@ -796,13 +818,27 @@ public class FileDXF {
     public List<String> GetDXFData() {
 
         List<String> DXF_STR = new ArrayList<>();
+        List<String> DXF_STR_Header = new ArrayList<>();
+        List<String> DXF_STR_Classes = new ArrayList<>();
+        List<String> DXF_STR_Tables = new ArrayList<>();
+        List<String> DXF_STR_Blocks = new ArrayList<>();
+        List<String> DXF_STR_Entities = new ArrayList<>();
+        List<String> DXF_STR_Objects = new ArrayList<>();
+		
+        DXF_STR_Classes = this.secClasses.GetDXFData();
+        DXF_STR_Tables = this.secTables.GetDXFData();
+        DXF_STR_Blocks = this.secBlocks.GetDXFData();
+        DXF_STR_Entities = this.secEntities.GetDXFData();
+        DXF_STR_Objects = this.secObjects.GetDXFData();
+        //put to the last,for Handle
+		DXF_STR_Header = this.secHeader.GetDXFData();
 
-        DXF_STR.addAll(this.secHeader.GetDXFData());
-        DXF_STR.addAll(this.secClasses.GetDXFData());
-        DXF_STR.addAll(this.secTables.GetDXFData());
-        DXF_STR.addAll(this.secBlocks.GetDXFData());
-        DXF_STR.addAll(this.secEntities.GetDXFData());
-        DXF_STR.addAll(this.secObjects.GetDXFData());
+        DXF_STR.addAll(DXF_STR_Header);
+        DXF_STR.addAll(DXF_STR_Classes);
+        DXF_STR.addAll(DXF_STR_Tables);
+        DXF_STR.addAll(DXF_STR_Blocks);
+        DXF_STR.addAll(DXF_STR_Entities);
+        DXF_STR.addAll(DXF_STR_Objects);
 
         DXF_STR.add("  0");
         DXF_STR.add(this.DXFFileTail);

@@ -49,13 +49,16 @@ public class FileDXFTest {
 
         EntPolyline myPolyline = new EntPolyline();
 
-        myPolyline.AddVertex(new EntVertex(90,50));
-        myPolyline.AddVertex(new EntVertex(80,40));
-        myPolyline.AddVertex(new EntVertex(120,80));
-        myPolyline.AddVertex(new EntVertex(150,100));
-        myPolyline.AddVertex(new EntVertex(180,120));
-        myPolyline.AddVertex(new EntVertex(200,80));
-        //myFileDXF.secEntities.entities.add(myPolyline);
+		//vertexs of the polyline shoud be created by the method of the polyline.
+        //myPolyline.AddVertex(new EntVertex(200,80));
+		
+        myPolyline.AddVertex(new wPoint2D(20,50));
+        myPolyline.AddVertex(new wPoint2D(80,50));
+        myPolyline.AddVertex(new wPoint2D(120,160));
+        myPolyline.AddVertex(new wPoint2D(160,220));
+        myPolyline.AddVertex(new wPoint2D(230,60));
+        myPolyline.AddVertex(new wPoint2D(300,400));
+        myFileDXF.secEntities.entities.add(myPolyline);
 
         //myFileDXF.secEntities.entities.add(new EntVertex(2,2));
         myFileDXF.secEntities.entities.add(new EntLine(-100,40,0,250,150,0));
@@ -72,6 +75,7 @@ public class FileDXFTest {
         myFileDXF.AddEllipse(new wPoint(0,0,0),new wPoint(200,0,0),0.5,0,2*Math.PI);
         myFileDXF.AddEllipse();
 
+        /*
         System.out.println("Test toString method: ");
         System.out.println(myFileDXF);
         System.out.println();
@@ -98,8 +102,8 @@ public class FileDXFTest {
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }
-        /*
         */
+		
         //EntLine myLine;
         //myLine = new EntLine(0,50,300,100);
         //myLine.GetDXFData();

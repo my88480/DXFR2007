@@ -1,11 +1,10 @@
 //package www
-//AutoCAD Entity--Line
+//AutoCAD Entity -- Polyline
 import java.util.*;
-//import java.util.HashMap;
 
 /**
-*@author David Wu<809758521@qq.com>
-*@version 0.5
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
+*@version 0.6
 */
 public class EntPolyline extends EntBase {
     /**
@@ -14,12 +13,28 @@ public class EntPolyline extends EntBase {
     public String EntityName = "POLYLINE";
 
     /**
+     * code  5 - Handle.
+     */
+    public String Handle;
+
+    /**
+     * code  5 - endHandle.
+     */
+    public String endHandle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
+
+    /**
      * code  100 -Class Label.
      */
     public String ClassLabel = "AcDbEntity";
 
     /**
      * code  100 -Sub Class Label.
+	 * AcDb2dPolyline or AcDb3dPolyline
      */
     public String SubClassLabel = "AcDb3dPolyline";
 
@@ -45,29 +60,24 @@ public class EntPolyline extends EntBase {
     /**
      * code  40 - Starting width (optional; default is 0).
      */
-    public
-    double                      begwidth        = 0.0;
+    public    double                      begwidth        = 0.0;
     /**
      *            Starting width coded - true if code 40 is not just default.
      */
-    public
-    boolean                     begwidth_set    = false;
+    public    boolean                     begwidth_set    = false;
     /**
      * code  41 - Ending width (optional; default is 0).
      */
-    public
-    double                      endwidth        = 0.0;
+    public    double                      endwidth        = 0.0;
     /**
      *            Ending width coded - true if code 41 is not just default.
      */
-    public
-    boolean                     endwidth_set    = false;
+    public    boolean                     endwidth_set    = false;
 
     /**
      * code  66 - Vertices-follow flag (always 1 for a polyline).
      */
-    public
-    int                         vtxFollow       = 1;
+    public    int                         vtxFollow       = 1;
 
     /**
      * code  70 - Polyline flag (bit-coded); default is 0.
@@ -84,30 +94,26 @@ public class EntPolyline extends EntBase {
      *             around the vertices of this polyline.
      * </UL>
      */
-    public
-    int                         TypeFlag           = 0;
+    public    int                         TypeFlag           = 8;
 
     /**
      * code  71 - Polygon mesh M vertex count (optional; default = 0).
      */
-    public
-    int                         meshcntM        = 0;
+    public    int                         meshcntM        = 0;
     /**
      * code  72 - Polygon mesh N vertex count (optional; default = 0).
      */
-    public
-    int                         meshcntN        = 0;
+    public    int                         meshcntN        = 0;
 
     /**
      * code  73 - Smooth surface M density (optional; default = 0).
      */
-    public
-    int                         smoothM         = 0;
+    public    int                         smoothM         = 0;
+	
     /**
      * code  74 - Smooth surface N density (optional; default = 0).
      */
-    public
-    int                         smoothN         = 0;
+    public    int                         smoothN         = 0;
 
     /**
      * code  75 - Curves and smooth surface type (optional; default = 0).
@@ -118,9 +124,7 @@ public class EntPolyline extends EntBase {
      *   <LI>8 = Bezier surface.
      * </UL>
      */
-    public
-    int                         surfType        = 0;
-
+    public    int                         surfType        = 0;
 
     /**
      * code 210,220,230 -
@@ -135,6 +139,7 @@ public class EntPolyline extends EntBase {
      * Constructor (empty).
      */
     public EntPolyline() {
+		this.Handle = FileDXF.ApplyHandle();
         this.vertexs = new ArrayList<>();
     }
 
@@ -143,10 +148,13 @@ public class EntPolyline extends EntBase {
      * @param x_value -x of start vertex;
      * @param y_value -y of start vertex;
      */
-    public EntPolyline(double x_value,double y_value) {
+    public EntPolyline(double[] x_value,double[] y_value) {
+		this.Handle = FileDXF.ApplyHandle();
         this.vertexs = new ArrayList<>();
 
-        this.vertexs.add(new EntVertex(x_value,y_value));
+        for (int i=0;i < x_value.length;i++){
+			this.AddVertex(new wPoint(x_value[i],y_value[i]));
+		}
     }
 
     /**
@@ -155,9 +163,13 @@ public class EntPolyline extends EntBase {
      * @param y_value -y of start vertex;
      * @param z_value -z of start vertex;
      */
-    public EntPolyline(double x_value,double y_value,double z_value) {
+    public EntPolyline(double[] x_value,double[] y_value,double[] z_value) {
+		this.Handle = FileDXF.ApplyHandle();
         this.vertexs = new ArrayList<>();
-        this.vertexs.add(new EntVertex(x_value,y_value,z_value));
+        for (int i=0;i < x_value.length;i++){
+			this.AddVertex(new wPoint(x_value[i],y_value[i],z_value[i]));
+		}
+        //this.AddVertex(new EntVertex(x_value,y_value,z_value));
     }
 
     /**
@@ -165,31 +177,49 @@ public class EntPolyline extends EntBase {
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
      */
     public EntPolyline(double[][] points) {
+		this.Handle = FileDXF.ApplyHandle();
         this.vertexs = new ArrayList<>();
 
         for (int i=0; i < points.length; i++) {
             if (points[i].length == 2) {
-                this.vertexs.add(new EntVertex(points[i][0],points[i][1]));
+                this.AddVertex(new wPoint(points[i][0],points[i][1]));
             } else if (points[i].length == 3) {
-                this.vertexs.add(new EntVertex(points[i][0],points[i][1],points[i][2]));
+                this.AddVertex(new wPoint(points[i][0],points[i][1],points[i][2]));
             }
         }
     }
 
+    /**
+     * AddVertex(point)
+     * @param point -one vertex to add class EntPolyline;
+     */
+    public void AddVertex(wPoint2D point) {
+		this.AddVertex(new wPoint(point));
+    }
 
+    /**
+     * AddVertex(point)
+     * @param point -one vertex to add class EntPolyline;
+     */
+    public void AddVertex(wPoint point) {
+		EntVertex myVertex;
+		
+		myVertex = new EntVertex(point);
+		myVertex.ObjectId = this.Handle;
+		myVertex.SubClassLabel2 = "AcDb3dPolylineVertex";
+		myVertex.flags = 32;
+		
+        this.vertexs.add(myVertex);
+    }
 
     /**
      * AddVertex(one_vertex)
      * @param one_vertex -one vertex to add class EntPolyline;
      */
-    public void AddVertex(EntVertex one_vertex) {
-        /*
-        if (this.vertexs.size() < 1){
-        	this.vertexs = new ArrayList<>();
-        }
-        */
-        this.vertexs.add(one_vertex);
-    }
+    //Abandon this method to avoid the vertex's ObjectId is null
+	//public void AddVertex(EntVertex one_vertex) {
+    //    this.vertexs.add(new EntVertex(one_vertex,this.Handle));
+    //}
 
     /**
      * Constructor (one_polyline)
@@ -224,6 +254,8 @@ public class EntPolyline extends EntBase {
         this.xExtrusionDirection = one_polyline.xExtrusionDirection;
         this.yExtrusionDirection = one_polyline.yExtrusionDirection;
         this.zExtrusionDirection = one_polyline.zExtrusionDirection;
+		
+		this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -242,13 +274,13 @@ public class EntPolyline extends EntBase {
         double Length = 0.0;
 
         for (int i = 1; i < this.vertexs.size(); i++) {
-            //Length = Math.pow(vertexs.get(i).base_point.x-vertexs.get(i-1).base_point.x);
-            //Length = Math.sqrt(Math.pow(vertexs.get(i).base_point.x-vertexs.get(i-1).base_point.x));
+            //Length = Math.pow(vertexs.get(i).bPoint.x-vertexs.get(i-1).bPoint.x);
+            //Length = Math.sqrt(Math.pow(vertexs.get(i).bPoint.x-vertexs.get(i-1).bPoint.x));
             double dx,dy,dz;
 
-            dx = this.vertexs.get(i).base_point.x - this.vertexs.get(i-1).base_point.x;
-            dy = this.vertexs.get(i).base_point.y - this.vertexs.get(i-1).base_point.y;
-            dz = this.vertexs.get(i).base_point.z - this.vertexs.get(i-1).base_point.z;
+            dx = this.vertexs.get(i).bPoint.x - this.vertexs.get(i-1).bPoint.x;
+            dy = this.vertexs.get(i).bPoint.y - this.vertexs.get(i-1).bPoint.y;
+            dz = this.vertexs.get(i).bPoint.z - this.vertexs.get(i-1).bPoint.z;
 
             Length = Length + Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2) + Math.pow(dz,2) );
         }
@@ -348,17 +380,37 @@ public class EntPolyline extends EntBase {
     public List<String> GetDXFData() {
 
         List<String> DXF_STR = new ArrayList<>();
-
+		this.endHandle = FileDXF.ApplyHandle();
+		
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
+
+        DXF_STR.add("  5");
+        DXF_STR.add(this.Handle);
 
         DXF_STR.add("330");
         DXF_STR.add("1F");
 
+        DXF_STR.add("100");
+        DXF_STR.add(this.ClassLabel);
+
         DXF_STR.addAll(super.GetDXFData());
+
+        DXF_STR.add("100");
+        DXF_STR.add(this.SubClassLabel);
 
         DXF_STR.add("  66");
         DXF_STR.add(Integer.toString(this.vtxFollow));
+		
+        DXF_STR.add("  10");
+        DXF_STR.add("0.0");
+		
+        DXF_STR.add("  20");
+        DXF_STR.add("0.0");
+		
+        DXF_STR.add("  30");
+        DXF_STR.add("0.0");
+		
         DXF_STR.add("  70");
         DXF_STR.add(Integer.toString(this.TypeFlag));
 
@@ -368,6 +420,17 @@ public class EntPolyline extends EntBase {
 
         DXF_STR.add("  0");
         DXF_STR.add("SEQEND");
+
+        DXF_STR.add("  5");
+        DXF_STR.add(this.endHandle);
+
+        DXF_STR.add("330");
+        DXF_STR.add(this.Handle);
+
+        DXF_STR.add("100");
+        DXF_STR.add(this.ClassLabel);
+
+        DXF_STR.addAll(super.GetDXFData());
 
         return DXF_STR;
     }
