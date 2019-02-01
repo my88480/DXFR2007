@@ -12,12 +12,12 @@ public class EntPolylineTest {
     public static void  main(String[] args) {
         EntPolyline myPolyline = new EntPolyline();
 
-        myPolyline.AddVertex(new EntVertex(2,2));
-        myPolyline.AddVertex(new EntVertex(6,8));
-        myPolyline.AddVertex(new EntVertex(10,10));
-        myPolyline.AddVertex(new EntVertex(15,8));
-        myPolyline.AddVertex(new EntVertex(10,5));
-        myPolyline.AddVertex(new EntVertex(8,0));
+        myPolyline.AddVertex(new wPoint(2,2));
+        myPolyline.AddVertex(new wPoint(6,8));
+        myPolyline.AddVertex(new wPoint(10,10));
+        myPolyline.AddVertex(new wPoint(15,8));
+        myPolyline.AddVertex(new wPoint(10,5));
+        myPolyline.AddVertex(new wPoint(8,0));
 
         System.out.println( myPolyline);
         System.out.println();

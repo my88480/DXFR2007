@@ -1,13 +1,10 @@
-
-
 //package www
 //AutoCAD Entity--Point
 import java.util.*;
-//import java.util.HashMap;
 
 /**
- * @author David Wu <809758521@qq.com>
- * @version V0.2
+ * @author <a href="mailto:809758521@qq.com"> David Wu</a>
+ * @version V0.6
  * Entity Point of AutoCAD DXF file.
  */
 public class EntPoint extends EntBase {
@@ -20,6 +17,11 @@ public class EntPoint extends EntBase {
      * code  5 - Handle.
      */
     public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
 
     /**
      * code  100 -Class Label.
@@ -215,7 +217,7 @@ public class EntPoint extends EntBase {
         DXF_STR.add(this.Handle);
 
          DXF_STR.add("330");
-        DXF_STR.add("1F");
+        DXF_STR.add(this.ObjectId);
 
        //DXF_STR.add("8");
         //DXF_STR.add(this.layer);

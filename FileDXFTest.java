@@ -29,7 +29,10 @@ public class FileDXFTest {
 
         double[][] mypoints = {{0,0},{5,5},{10,8}};
         myFileDXF.AddPolyline(mypoints);
-        */
+        myFileDXF.AddLWPolyline();
+		myFileDXF.AddEllipse();
+		
+		*/
 
         //Add the combined entities,From now restructure to the file FileDXF_ComplexTest
         //myFileDXF.AddRectangle(200,150);

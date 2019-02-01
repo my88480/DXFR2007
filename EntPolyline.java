@@ -380,6 +380,8 @@ public class EntPolyline extends EntBase {
     public List<String> GetDXFData() {
 
         List<String> DXF_STR = new ArrayList<>();
+		
+		//Maybe endHandle is handled when the polyline is created,modified etc.
 		this.endHandle = FileDXF.ApplyHandle();
 		
         DXF_STR.add("  0");

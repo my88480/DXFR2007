@@ -1,10 +1,9 @@
 //package www
 //AutoCAD Entity -- Ellipse
 import java.util.*;
-//import java.util.HashMap;
 
 /**
-*@author David Wu<809758521@qq.com>
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
 *@version 0.5
 */
 public class EntEllipse extends EntBase {
@@ -17,6 +16,11 @@ public class EntEllipse extends EntBase {
      * code  5 - Handle.
      */
     public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
 
     /**
      * code  100 -Class Label.
@@ -86,12 +90,13 @@ public class EntEllipse extends EntBase {
      * @param eAngle_value - end angle of the Ellipse;
      */
     public EntEllipse(wPoint cP,wPoint lP,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.Handle = FileDXF.ApplyHandle();
+		
         this.cPoint = cP;
         this.lPoint = lP;
         this.ratio = ratio_value;
         this.sAngle = sAngle_value;
         this.eAngle = eAngle_value;
-        this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -405,7 +410,7 @@ public class EntEllipse extends EntBase {
         DXF_STR.add(this.Handle);
 
         DXF_STR.add("330");
-        DXF_STR.add("1F");
+        DXF_STR.add(this.ObjectId);
 
         DXF_STR.add("100");
         DXF_STR.add(this.ClassLabel);

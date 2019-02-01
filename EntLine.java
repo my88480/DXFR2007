@@ -1,11 +1,10 @@
 //package www
 //AutoCAD Entity--Line
 import java.util.*;
-//import java.util.HashMap;
 
 /**
-*@author David Wu<809758521@qq.com>
-*@version 0.5
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
+*@version 0.6
 */
 public class EntLine extends EntBase {
     /**
@@ -17,6 +16,11 @@ public class EntLine extends EntBase {
      * code  5 - Handle.
      */
     public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
 
     /**
      * code  100 -Class Label.
@@ -261,7 +265,7 @@ public class EntLine extends EntBase {
         DXF_STR.add(this.Handle);
 
         DXF_STR.add("330");
-        DXF_STR.add("1F");
+        DXF_STR.add(this.ObjectId);
 
         //System.out.println(FileDXF.hex_handle);
         //DXF_STR.add("8");

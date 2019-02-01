@@ -4,8 +4,8 @@ import java.util.*;
 //import java.util.HashMap;
 
 /**
-*@author David Wu<809758521@qq.com>
-*@version 0.5
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
+*@version 0.6
 */
 public class EntCircle extends EntBase {
     /**
@@ -17,6 +17,11 @@ public class EntCircle extends EntBase {
       * code  5 - Handle.
       */
     public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
 
     /**
      * code  100 -Class Label.
@@ -172,6 +177,10 @@ public class EntCircle extends EntBase {
      * <pre>Output example:
      * 0
      * CIRCLE
+	 *   5
+	 * 2511
+	 * 330
+	 * 1F
      * 100
      * AcDbEntity
      * 8
@@ -209,7 +218,7 @@ public class EntCircle extends EntBase {
         DXF_STR.add(this.Handle);
 
         DXF_STR.add("330");
-        DXF_STR.add("1F");
+        DXF_STR.add(this.ObjectId);
 
         DXF_STR.add("  100");
         DXF_STR.add(this.ClassLabel);

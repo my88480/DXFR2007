@@ -1,7 +1,8 @@
 //package www
 //AutoCAD Entity base class
 import java.util.*;
-//import java.util.HashMap;
+
+
 /**
  * @author David Wu <809758521@qq.com>
  * @version V0.2

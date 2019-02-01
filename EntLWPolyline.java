@@ -1,11 +1,10 @@
 //package www
 //AutoCAD Entity -- EntLWPolyline
 import java.util.*;
-//import java.util.HashMap;
 
 /**
-*@author David Wu<809758521@qq.com>
-*@version 0.5
+*@author <a href="mailto:809758521@qq.com"> David Wu</a>
+*@version 0.6
 */
 public class EntLWPolyline extends EntBase {
     /**
@@ -17,6 +16,11 @@ public class EntLWPolyline extends EntBase {
      * code  5 - Handle.
      */
     public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId = "1F";
 
     /**
      * code  100 -Class Label.
@@ -141,12 +145,12 @@ public class EntLWPolyline extends EntBase {
      */
     public EntLWPolyline(double[] x_value,double[] y_value) {
         this.Vertexs = new ArrayList<>();
+		
+        this.Handle = FileDXF.ApplyHandle();
 
         for (int i = 0; i < x_value.length; i++) {
 		    this.Vertexs.add(new wPoint(x_value[i],y_value[i],0));
 		}
-		
-        this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -157,12 +161,12 @@ public class EntLWPolyline extends EntBase {
      */
     public EntLWPolyline(double[] x_value,double[] y_value,double[] z_value) {
         this.Vertexs = new ArrayList<>();
+
+        this.Handle = FileDXF.ApplyHandle();
 		
         for (int i = 0; i < x_value.length; i++) {
 		    this.Vertexs.add(new wPoint(x_value[i],y_value[i],z_value[i]));
 		}
-
-        this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -172,6 +176,8 @@ public class EntLWPolyline extends EntBase {
     public EntLWPolyline(double[][] points) {
         this.Vertexs = new ArrayList<>();
 
+        this.Handle = FileDXF.ApplyHandle();
+		
         for (int i=0; i < points.length; i++) {
             if (points[i].length == 2) {
                 this.Vertexs.add(new wPoint(points[i][0],points[i][1]));
@@ -179,7 +185,6 @@ public class EntLWPolyline extends EntBase {
                 this.Vertexs.add(new wPoint(points[i][0],points[i][1],points[i][2]));
             }
         }
-        this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -320,6 +325,9 @@ public class EntLWPolyline extends EntBase {
 
         DXF_STR.add("  5");
         DXF_STR.add(this.Handle);
+
+        DXF_STR.add("330");
+        DXF_STR.add(this.ObjectId);
 
         DXF_STR.add("  100");
         DXF_STR.add(this.ClassLabel);

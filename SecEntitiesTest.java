@@ -16,14 +16,14 @@ public class SecEntitiesTest {
 
         EntPolyline myPolyline = new EntPolyline();
 
-        myPolyline.AddVertex(new EntVertex(90,0));
-        myPolyline.AddVertex(new EntVertex(80,40));
-        myPolyline.AddVertex(new EntVertex(120,80));
-        myPolyline.AddVertex(new EntVertex(150,100));
-        myPolyline.AddVertex(new EntVertex(180,120));
-        myPolyline.AddVertex(new EntVertex(200,80));
+        myPolyline.AddVertex(new wPoint(90,0));
+        myPolyline.AddVertex(new wPoint(80,40));
+        myPolyline.AddVertex(new wPoint(120,80));
+        myPolyline.AddVertex(new wPoint(150,100));
+        myPolyline.AddVertex(new wPoint(180,120));
+        myPolyline.AddVertex(new wPoint(200,80));
 
-        mySecEntities.entities.add(new EntVertex(2,2));
+        mySecEntities.entities.add(new wPoint(2,2));
         mySecEntities.entities.add(new EntLine(-100,8,0,250,150,0));
         mySecEntities.entities.add(new EntLine(-250,-200,-250,200));
         mySecEntities.entities.add(new EntPoint(10,10,12));
