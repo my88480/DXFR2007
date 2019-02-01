@@ -10,7 +10,10 @@ Supported ENTITIES:<BR>
 ----TEXT<BR>
 ----ELLIPSE<BR>
   
-  
+Parts file<br>
+<img src="examples/R2K_Parts.png" alt="parts" style="max-width:100%;">
+
+
   Vesatile Contructors:
   
 void	AddEllipse()<BR>
