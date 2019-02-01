@@ -9,6 +9,8 @@ Supported ENTITIES:<BR>
 ----POINT<BR>
 ----TEXT<BR>
 ----ELLIPSE<BR>
+----VERTEX<BR>
+----POLYLINE<BR>
   
 Parts file<br>
 <img src="examples/R2K_Parts.png" alt="parts" style="max-width:100%;">
