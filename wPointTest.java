@@ -64,7 +64,7 @@ public class wPointTest {
         }
 
 
-        List<String> dxf_str = point7.GetDXFData();
+        List<String> dxf_str = point7.GetDXF();
         System.out.println("The point's DXF string:");
 		for (String s:dxf_str) {
             System.out.println(s);

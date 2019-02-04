@@ -16,8 +16,6 @@ public class EntArcTest {
         System.out.println(myarc);
         System.out.println();
 
-        myarc.Print2D();
-        myarc.Print3D();
         myarc.PrintAll();
         System.out.println();
 
@@ -28,7 +26,7 @@ public class EntArcTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myarc.GetDXFData();
+        List<String> dxf_str = myarc.GetDXF();
         System.out.println("DXF's Size: "+dxf_str.size());
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));

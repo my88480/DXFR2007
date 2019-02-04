@@ -32,15 +32,11 @@ public class EntTextTest {
     public static void  main(String[] args)  throws Exception {
 
         //EntText text1 = new EntText();
-        //text1.Print2D();
         //System.out.println("length: " + text1.text.length());
         //System.out.println("");
         EntText text2 = new EntText(60,0,16,"This is a test for EntText Hight 16.");
-        text2.Print2D();
         System.out.println("");
         EntText text3 = new EntText(65,0,0,8,"This is mine.\r\nTo test 3D base point TEXT Construction\rline 3\nline 4");
-        text3.Print3D();
-        text3.Print2D();
         System.out.println("");
 
         List<String []>  myMap = text3.GetPairData();
@@ -50,7 +46,7 @@ public class EntTextTest {
         }
         System.out.println();
 
-        List<String> dxf_str = text3.GetDXFData();
+        List<String> dxf_str = text3.GetDXF();
         System.out.println("DXF Data:");
 		for (String s:dxf_str) {
             System.out.println(s);

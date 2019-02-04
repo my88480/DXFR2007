@@ -16,8 +16,6 @@ public class EntLineTest {
         System.out.println(myline);
         System.out.println();
 
-        myline.Print2D();
-        myline.Print3D();
         myline.PrintAll();
         System.out.println();
 
@@ -28,7 +26,7 @@ public class EntLineTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myline.GetDXFData();
+        List<String> dxf_str = myline.GetDXF();
         System.out.println("DXF's Size: "+dxf_str.size());
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));

@@ -7,30 +7,6 @@ import java.util.*;
 *@version 0.5
 */
 public class EntEllipse extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "ELLIPSE";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbEllipse";
 
     /**
     * code  10,20,30 -Center Point location (in WCS).
@@ -47,32 +23,15 @@ public class EntEllipse extends EntBase {
      */
     public     double       ratio          = 0.0;
 
-
     /**
      * code  41 - sAngle Degrees.
      */
     public     double       sAngle          = 0.0;
 
-
     /**
      * code  42 - eAngle Degrees.
      */
     public     double       eAngle          = 0.0;
-
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
 
     /**
      * Constructor (empty)  default Ellipse.
@@ -90,7 +49,10 @@ public class EntEllipse extends EntBase {
      * @param eAngle_value - end angle of the Ellipse;
      */
     public EntEllipse(wPoint cP,wPoint lP,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.Handle = FileDXF.ApplyHandle();
+		this.EntityName = "ELLIPSE";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbEllipse";
 		
         this.cPoint = cP;
         this.lPoint = lP;
@@ -269,28 +231,6 @@ public class EntEllipse extends EntBase {
     }
 
     /**
-     * Print2D()
-     * Terminal output x,y of cPoint and lPoint.(one Ellipse)
-     */
-    public void Print2D() {
-        System.out.println("Center point:  " + "x = " + this.cPoint.x+"   y = " + this.cPoint.y);
-        System.out.println("Long axis point:  " + "x = " + this.lPoint.x+"   y = " + this.lPoint.y);
-        System.out.println("ratio:  "+"x = " + this.ratio);
-        System.out.println("Start angle=  " + this.sAngle+"   End angle= " + this.eAngle);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of cPoint and lPoint.(one Ellipse)
-     */
-    public void Print3D() {
-        System.out.println("Center point:  " + "x = " + this.cPoint.x+"   y = " + this.cPoint.y + "   z = " + this.cPoint.z);
-        System.out.println("Long axis point:  " + "x = " + this.lPoint.x+"   y = " + this.lPoint.y + "   z = " + this.lPoint.z);
-        System.out.println("ratio:  "+"x = " + this.ratio);
-        System.out.println("Start angle=  " + this.sAngle+"   End angle= " + this.eAngle);
-    }
-
-    /**
      * GetRadius()
      * Get the Radius of the Ellipse
      */
@@ -360,7 +300,7 @@ public class EntEllipse extends EntBase {
     }
 
     /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity Ellipse.
      * <pre>Output example:
      *   0
@@ -400,29 +340,12 @@ public class EntEllipse extends EntBase {
      *  42
      * 6.283185307179585</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
-        DXF_STR.add("  0");
-        DXF_STR.add(this.EntityName);
+        DXF_STR.addAll(super.GetDXF());
 
-        DXF_STR.add("  5");
-        DXF_STR.add(this.Handle);
-
-        DXF_STR.add("330");
-        DXF_STR.add(this.ObjectId);
-
-        DXF_STR.add("100");
-        DXF_STR.add(this.ClassLabel);
-
-        //DXF_STR.add("8");
-        //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXFData());
-
-        DXF_STR.add("100");
-        DXF_STR.add(this.SubClassLabel);
-
-        DXF_STR.addAll(cPoint.GetDXFData());
+        DXF_STR.addAll(cPoint.GetDXF());
 
         DXF_STR.add("  11");
         DXF_STR.add(Double.toString(this.lPoint.x));

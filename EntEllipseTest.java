@@ -16,8 +16,6 @@ public class EntEllipseTest {
         System.out.println(myEllipse);
         System.out.println();
 
-        myEllipse.Print2D();
-        myEllipse.Print3D();
         myEllipse.PrintAll();
         System.out.println();
 
@@ -29,7 +27,7 @@ public class EntEllipseTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myEllipse.GetDXFData();
+        List<String> dxf_str = myEllipse.GetDXF();
         System.out.println("DXF's Size: "+dxf_str.size());
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));

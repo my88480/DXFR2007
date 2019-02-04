@@ -8,30 +8,6 @@ import java.util.*;
 *@version 0.6
 */
 public class EntCircle extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "CIRCLE";
-
-    /**
-      * code  5 - Handle.
-      */
-    public String Handle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbCircle";
 
     /**
      * code  10,20,30 -Start Point location (in WCS).
@@ -44,28 +20,17 @@ public class EntCircle extends EntBase {
      */
     public     double       radius          = 0.0;
 
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
-
     /**
      * Constructor (empty).
      */
     public EntCircle() {
+		this.EntityName = "CIRCLE";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbCircle";
+
         this.cPoint = new wPoint();
         this.radius = 0.0;
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -75,9 +40,10 @@ public class EntCircle extends EntBase {
      * @param radius_value -radius of the circle;
      */
     public EntCircle(double x_value,double y_value,double radius_value) {
+		this();
+		
         this.cPoint = new wPoint(x_value,y_value);
         this.radius = radius_value;
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -88,9 +54,10 @@ public class EntCircle extends EntBase {
      * @param radius_value -radius of the circle;
      */
     public EntCircle(double x_value,double y_value,double z_value,double radius_value) {
+		this();
+		
         this.cPoint = new wPoint(x_value,y_value,z_value);
         this.radius = radius_value;
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -99,9 +66,10 @@ public class EntCircle extends EntBase {
     * @param radius_value -radius of the circle;
      */
     public EntCircle(wPoint2D cPoint,double radius_value) {
+		this();
+		
         this.cPoint = new wPoint(cPoint.x,cPoint.y);
         this.radius = radius_value;
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -110,9 +78,10 @@ public class EntCircle extends EntBase {
         * @param radius_value -radius of the circle;
     */
     public EntCircle(wPoint cPoint,double radius_value) {
+		this();
+		
         this.cPoint = cPoint;
         this.radius = radius_value;
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -120,31 +89,14 @@ public class EntCircle extends EntBase {
      * @param one_circle -one object derived from class EntCircle;
      */
     public EntCircle(EntCircle one_circle) {
+		this();
+		
         this.cPoint = one_circle.cPoint;
         this.radius = one_circle.radius;
         this.thickness = one_circle.thickness;
         this.xExtrusionDirection = one_circle.xExtrusionDirection;
         this.yExtrusionDirection = one_circle.yExtrusionDirection;
         this.zExtrusionDirection = one_circle.zExtrusionDirection;
-        Handle = FileDXF.ApplyHandle();
-    }
-
-    /**
-     * Print2D()
-     * Terminal output x,y of cPoint and end_point.(one circle for one point)
-     */
-    public void Print2D() {
-        System.out.println("Start point:  "+"x = " + this.cPoint.x+"   y = " + this.cPoint.y);
-        System.out.println("radius:  "+"x = " + this.radius);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of cPoint and end_point.(one circle for one point)
-     */
-    public void Print3D() {
-        System.out.println("Start point:  "+"x = "+this.cPoint.x+"   y = " + this.cPoint.y+"   z = " + this.cPoint.z);
-        System.out.println("radius:  "+"x = " + this.radius);
     }
 
     /**Perimeter
@@ -172,7 +124,7 @@ public class EntCircle extends EntBase {
     }
 
     /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity circle.
      * <pre>Output example:
      * 0
@@ -208,42 +160,16 @@ public class EntCircle extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
-
-        DXF_STR.add("  0");
-        DXF_STR.add(this.EntityName);
-
-        DXF_STR.add("  5");
-        DXF_STR.add(this.Handle);
-
-        DXF_STR.add("330");
-        DXF_STR.add(this.ObjectId);
-
-        DXF_STR.add("  100");
-        DXF_STR.add(this.ClassLabel);
-
-        //DXF_STR.add("8");
-        //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXFData());
-
-        DXF_STR.add("  100");
-        DXF_STR.add(this.SubClassLabel);
-
-        DXF_STR.addAll(cPoint.GetDXFData());
+		
+        DXF_STR.addAll(super.GetDXF());
+		
+        DXF_STR.addAll(cPoint.GetDXF());
 
         DXF_STR.add("  40");
         DXF_STR.add(Double.toString(this.radius));
-		/*
-        DXF_STR.add("  39");
-        DXF_STR.add(Double.toString(this.thickness));
-        DXF_STR.add("  210");
-        DXF_STR.add(Double.toString(this.xExtrusionDirection));
-        DXF_STR.add("  220");
-        DXF_STR.add(Double.toString(this.yExtrusionDirection));
-        DXF_STR.add("  230");
-        DXF_STR.add(Double.toString(this.zExtrusionDirection));
-		*/
+
         return DXF_STR;
     }
 

@@ -134,12 +134,12 @@ public class SecEntities {
     }
 
     /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * </pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
 
@@ -152,40 +152,40 @@ public class SecEntities {
             Object myEntity=this.entities.get(i);
             if (myEntity instanceof EntLine) {
                 EntLine myLine= (EntLine) myEntity;
-                DXF_STR.addAll(myLine.GetDXFData());
+                DXF_STR.addAll(myLine.GetDXF());
             } else if (myEntity instanceof EntLWPolyline) {
                 EntLWPolyline myLWPolyline = (EntLWPolyline) myEntity;
-                DXF_STR.addAll(myLWPolyline.GetDXFData());
+                DXF_STR.addAll(myLWPolyline.GetDXF());
             } else if (myEntity instanceof EntPolyline) {
                 EntPolyline myPolyline = (EntPolyline) myEntity;
-                DXF_STR.addAll(myPolyline.GetDXFData());
+                DXF_STR.addAll(myPolyline.GetDXF());
             } else if (myEntity instanceof EntPoint) {
                 EntPoint myPoint = (EntPoint) myEntity;
-                DXF_STR.addAll(myPoint.GetDXFData());
+                DXF_STR.addAll(myPoint.GetDXF());
             } else if (myEntity instanceof EntCircle) {
                 EntCircle myCircle = (EntCircle) myEntity;
-                DXF_STR.addAll(myCircle.GetDXFData());
+                DXF_STR.addAll(myCircle.GetDXF());
             } else if (myEntity instanceof EntArc) {
                 EntArc myArc = (EntArc) myEntity;
-                DXF_STR.addAll(myArc.GetDXFData());
+                DXF_STR.addAll(myArc.GetDXF());
             } else if (myEntity instanceof EntText) {
                 EntText myText = (EntText) myEntity;
-                DXF_STR.addAll(myText.GetDXFData());
+                DXF_STR.addAll(myText.GetDXF());
             } else if (myEntity instanceof EntVertex) {
                 //EntVertex should only appeared in objection Polyline, So bypass it.
                 //EntVertex myvertex = (EntVertex) myEntity;
-                //DXF_STR.addAll(myvertex.GetDXFData());
+                //DXF_STR.addAll(myvertex.GetDXF());
             } else if (myEntity instanceof EntEllipse) {
                 EntEllipse myEllipse = (EntEllipse) myEntity;
-                DXF_STR.addAll(myEllipse.GetDXFData());
+                DXF_STR.addAll(myEllipse.GetDXF());
             }
 
-            //this.entities.get(i).GetDXFData();
+            //this.entities.get(i).GetDXF();
 
-            //Method method = this.entities.get(i).getClass().getDeclaredMethod("GetDXFData");
+            //Method method = this.entities.get(i).getClass().getDeclaredMethod("GetDXF");
             //method.invoke(this.entities.get(i));
             //System.out.println(this.entities.get(i).PrintAll());
-            //DXF_STR.addAll(this.entities.get(i).GetDXFData());
+            //DXF_STR.addAll(this.entities.get(i).GetDXF());
         }
 
         DXF_STR.add("  0");
@@ -199,14 +199,14 @@ public class SecEntities {
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXFData();
+        DXF_STR = this.GetDXF();
         returnString = String.join(",",DXF_STR);
         */
 
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXFData();
+        DXF_STR = this.GetDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);

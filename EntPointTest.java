@@ -15,18 +15,12 @@ public class EntPointTest {
     public static void  main(String[] args) {
 
         EntPoint point1 = new EntPoint();
-        point1.Print2D();
         System.out.println("");
         EntPoint point2 = new EntPoint(25,20);
-        point2.Print2D();
         System.out.println("");
         EntPoint point3 = new EntPoint(12,55,22);
-        point3.Print3D();
-        point3.Print2D();
         System.out.println("");
         EntPoint point4 = new EntPoint(point3);
-        point4.Print2D();
-        point4.Print3D();
         point4.PrintAll();
         System.out.println("");
         int xx,yy;
@@ -47,7 +41,7 @@ public class EntPointTest {
         }
         System.out.println();
 
-        List<String> dxf_str = point6.GetDXFData();
+        List<String> dxf_str = point6.GetDXF();
         System.out.println("DXF Data:");
 		for (String s:dxf_str) {
             System.out.println(s);

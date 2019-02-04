@@ -10,12 +10,64 @@ import java.util.*;
  */
 public class EntBase {
     /**
+     * code  0 -Entity name.
+     */
+    public String EntityName;
+
+    /**
+     * code  5 - Handle.
+     */
+    public String Handle;
+
+    /**
+     * code  330 - Object ID.
+     */
+    public String ObjectId;
+
+    /**
+     * code  100 -Class Label.
+     */
+    public String ClassLabel;
+
+    /**
+     * code  100 -Sub Class Label.
+     */
+    public String SubClassLabel ;
+
+    /**
+     * code  100 -Sub Class Label.
+     * AcDb2dVertex or AcDb3dPolylineVertex
+     */
+    public String SubClassLabel2 ;
+
+    /**
      * code  8 -Layer.Default layer ----  "0"
      */
     public String layer = "0";
 
-    public EntBase() {
+    /**
+    * code  39 - Thickness (optional; default  =  0).
+    */
+    public double thickness = 0.0;
 
+    /**
+     * code  50 - Angle of the X axis for the UCS in effect when the point
+     *            was drawn (optional, default  =  0). Used when PDMODE
+     *            is nonzero.
+     */
+    public     double        xang   =  0.0;
+
+    /**
+     * code 210,220,230 -
+     *            Extrusion direction. Present if the extrusion direction is
+     *            not parallel to the world Z axis.
+     */
+    public double   xExtrusionDirection = 0;
+    public double   yExtrusionDirection = 0;
+    public double   zExtrusionDirection = 1;
+
+    public EntBase() {
+		Handle = FileDXF.ApplyHandle();
     }
 
     public EntBase(String layer_value) {
@@ -29,52 +81,70 @@ public class EntBase {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
         }
         System.out.println();
-        //System.out.println("Entity Base");
-        //System.out.println("layer: "+this.layer);
     }
 
     public List<String []> GetPairData() {
         List<String []> params=new ArrayList<>();
 
-        List<String > DXFStr=this.GetDXFData();
+        List<String > DXFStr=this.GetDXF();
 
         for (int i=0; i< DXFStr.size() / 2; i= i + 2) {
             params.add(new String[] {DXFStr.get(i),DXFStr.get(i+1)});
         }
 
-        //params.add(new String[] {"Entity","BASE"});
-        //params.add(new String[] {"layer",this.layer});
-
         return params;
     }
 
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
+
+        DXF_STR.add("  0");
+        DXF_STR.add(this.EntityName);
+		
+        DXF_STR.add("  5");
+        DXF_STR.add(this.Handle);
+
+        DXF_STR.add("330");
+        DXF_STR.add(this.ObjectId);
+
+        DXF_STR.add("  100");
+        DXF_STR.add(this.ClassLabel);
 
         DXF_STR.add("  8");
         DXF_STR.add(layer);
-
+		
+        DXF_STR.add("  100");
+        DXF_STR.add(this.SubClassLabel);
+		
+		if (this.SubClassLabel2 != null){
+			if( this.SubClassLabel2.length() > 0){
+				DXF_STR.add("  100");
+				DXF_STR.add(this.SubClassLabel2);
+			}
+		}	
+			
         return DXF_STR;
     }
 
     public String toString() {
 
         List<String> DXF_STR = new ArrayList<>();
-        String returnString = new String();
+        String str = new String();
+		String lineSeparator = System.lineSeparator();
 
-        DXF_STR = this.GetDXFData();
+        DXF_STR = this.GetDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);
             for (int i = 0; i < mListArray.length; i++) {
                 if (i < mListArray.length - 1) {
-                    returnString += mListArray[i] + "\r\n";
+                    str += mListArray[i] + lineSeparator;
                 } else {
-                    returnString += mListArray[i];
+                    str += mListArray[i];
                 }
             }
         }
 
-        return returnString;
+        return str;
     }
 }

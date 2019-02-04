@@ -7,30 +7,6 @@ import java.util.*;
 *@version 0.6
 */
 public class EntLWPolyline extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "LWPOLYLINE";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbPolyline";
 
     /**
      * code  10,20,30
@@ -46,11 +22,6 @@ public class EntLWPolyline extends EntBase {
      */
     //public List<wPoint> vertexs;
     public List<wPoint> Vertexs;
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
 
     /**
      * code  40 - Starting width (optional; default is 0).
@@ -120,22 +91,16 @@ public class EntLWPolyline extends EntBase {
      */
     public    int  surfType        = 0;
 
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
-
     /**
      * Constructor (empty).
      */
     public EntLWPolyline() {
         this.Vertexs = new ArrayList<>();
-        this.Handle = FileDXF.ApplyHandle();
+		this.EntityName = "LWPOLYLINE";
+		ObjectId = "1F";
+		ClassLabel = "AcDbEntity";
+		SubClassLabel = "AcDbPolyline";
+		
     }
 
     /**
@@ -144,12 +109,10 @@ public class EntLWPolyline extends EntBase {
      * @param y_value -y of start vertex;
      */
     public EntLWPolyline(double[] x_value,double[] y_value) {
-        this.Vertexs = new ArrayList<>();
+		this();
 		
-        this.Handle = FileDXF.ApplyHandle();
-
         for (int i = 0; i < x_value.length; i++) {
-		    this.Vertexs.add(new wPoint(x_value[i],y_value[i],0));
+		    this.Vertexs.add(new wPoint(x_value[i],y_value[i]));
 		}
     }
 
@@ -160,9 +123,7 @@ public class EntLWPolyline extends EntBase {
      * @param z_value -z of start vertex;
      */
     public EntLWPolyline(double[] x_value,double[] y_value,double[] z_value) {
-        this.Vertexs = new ArrayList<>();
-
-        this.Handle = FileDXF.ApplyHandle();
+		this();
 		
         for (int i = 0; i < x_value.length; i++) {
 		    this.Vertexs.add(new wPoint(x_value[i],y_value[i],z_value[i]));
@@ -174,9 +135,7 @@ public class EntLWPolyline extends EntBase {
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
      */
     public EntLWPolyline(double[][] points) {
-        this.Vertexs = new ArrayList<>();
-
-        this.Handle = FileDXF.ApplyHandle();
+		this();
 		
         for (int i=0; i < points.length; i++) {
             if (points[i].length == 2) {
@@ -192,7 +151,7 @@ public class EntLWPolyline extends EntBase {
      * @param one_point -one vertex to add class EntLWPolyline;
      */
     public void AddVertex(wPoint one_point) {
-         this.Vertexs.add(one_point);
+        this.Vertexs.add(one_point);
     }
 
     /**
@@ -200,13 +159,10 @@ public class EntLWPolyline extends EntBase {
      * @param one_LWPolyline -one object derived from class EntLWPolyline;
      */
     public EntLWPolyline(EntLWPolyline one_LWPolyline) {
-        this.EntityName = one_LWPolyline.EntityName;
-        this.ClassLabel = one_LWPolyline.ClassLabel;
-        this.SubClassLabel = one_LWPolyline.SubClassLabel;
+		this();
 
-        this.DummyPoint = new wPoint(one_LWPolyline.DummyPoint);
+        //this.DummyPoint = new wPoint(one_LWPolyline.DummyPoint);
 
-        this.Vertexs = new ArrayList<>();
         //this works ok.
         //this.Vertexs.addAll(one_LWPolyline.Vertexs);
         for(int i=0; i<one_LWPolyline.Vertexs.size(); i++) {
@@ -218,7 +174,7 @@ public class EntLWPolyline extends EntBase {
         this.begwidth_set = one_LWPolyline.begwidth_set;
         this.endwidth = one_LWPolyline.endwidth;
         this.endwidth_set = one_LWPolyline.endwidth_set;
-        //this.vtxFollow = one_LWPolyline.vtxFollow;
+
         this.TypeFlag = one_LWPolyline.TypeFlag;
         this.meshcntM = one_LWPolyline.meshcntM;
         this.meshcntN = one_LWPolyline.meshcntN;
@@ -228,8 +184,6 @@ public class EntLWPolyline extends EntBase {
         this.xExtrusionDirection = one_LWPolyline.xExtrusionDirection;
         this.yExtrusionDirection = one_LWPolyline.yExtrusionDirection;
         this.zExtrusionDirection = one_LWPolyline.zExtrusionDirection;
-
-        this.Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -254,27 +208,7 @@ public class EntLWPolyline extends EntBase {
     }
 
     /**
-      * Print2D()
-      * Terminal output x,y of start_point and end_point.(one line for one point)
-      */
-    public void Print2D() {
-        for (int i = 0; i < this.Vertexs.size(); i++) {
-			System.out.println("LWPolyline's point #" + i + ":\t" + "x = " + this.Vertexs.get(i).x + "\ty = " + this.Vertexs.get(i).y);
-        }
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of start_point and end_point.(one line for one point)
-     */
-    public void Print3D() {
-        for (int i = 0; i < this.Vertexs.size(); i++) {
-			System.out.println("LWPolyline's point #" + i + ":\t" + "x = " + this.Vertexs.get(i).x + "\ty = " + this.Vertexs.get(i).y + "\tz = " + this.Vertexs.get(i).z);
-        }
-    }
-
-    /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      *  0
@@ -316,10 +250,10 @@ public class EntLWPolyline extends EntBase {
      * 20
      *155.6644735368104</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
-
+		/*
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
 
@@ -332,10 +266,13 @@ public class EntLWPolyline extends EntBase {
         DXF_STR.add("  100");
         DXF_STR.add(this.ClassLabel);
 
-        DXF_STR.addAll(super.GetDXFData());
+        DXF_STR.addAll(super.GetDXF());
 
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel);
+		*/
+		
+        DXF_STR.addAll(super.GetDXF());
 
         DXF_STR.add("  90");
         DXF_STR.add(Integer.toString(this.Vertexs.size()));
@@ -347,7 +284,7 @@ public class EntLWPolyline extends EntBase {
         DXF_STR.add(Double.toString(this.fixedwidth));
 
         for (int i  =  0; i < this.Vertexs.size(); i++) {
-            DXF_STR.addAll(this.Vertexs.get(i).GetDXFData());
+            DXF_STR.addAll(this.Vertexs.get(i).GetDXF());
         }
 
         //DXF_STR.add("  0");

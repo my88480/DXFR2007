@@ -101,7 +101,7 @@ public class FileDXFTest {
         System.out.println("");
         System.out.println("DXF file's Content:");
 
-        List<String> dxf_str = myFileDXF.GetDXFData();
+        List<String> dxf_str = myFileDXF.GetDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }
@@ -109,8 +109,8 @@ public class FileDXFTest {
 		
         //EntLine myLine;
         //myLine = new EntLine(0,50,300,100);
-        //myLine.GetDXFData();
-        //myLine.GetDXFData();
+        //myLine.GetDXF();
+        //myLine.GetDXF();
 
         //myFileDXF.AddLine(myLine);
         //myFileDXF.AddLine(0,0,0,180);

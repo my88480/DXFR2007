@@ -57,7 +57,7 @@ public class SecEntitiesTest {
         System.out.println("");
         System.out.println("DXF file's DATA is here:");
 
-        List<String> dxf_str = mySecEntities.GetDXFData();
+        List<String> dxf_str = mySecEntities.GetDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

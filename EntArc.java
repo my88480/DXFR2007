@@ -7,30 +7,6 @@ import java.util.*;
 *@version 0.6
 */
 public class EntArc extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "ARC";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-	
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbArc";
 
     /**
      * code  10,20,30 -Center Point location (in WCS).
@@ -48,32 +24,19 @@ public class EntArc extends EntBase {
      */
     public     double       sAngle          = 0.0;
 
-
     /**
      * code  51 - eAngle Degrees.
      */
     public     double       eAngle          = 0.0;
 
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
-
     /**
      * Constructor (empty).
      */
     public EntArc() {
-        this.Handle = FileDXF.ApplyHandle();
+		this.EntityName = "ARC";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbArc";
 		
         this.cPoint = new wPoint();
         this.radius = 0.0;
@@ -90,7 +53,7 @@ public class EntArc extends EntBase {
      * @param end_angle - end angle of the arc;
      */
     public EntArc(double x_value,double y_value,double radius_value,double start_angle,double end_angle) {
-        this.Handle = FileDXF.ApplyHandle();
+        this();
 		
         this.cPoint = new wPoint(x_value,y_value);
         this.radius = radius_value;
@@ -106,7 +69,7 @@ public class EntArc extends EntBase {
      * @param end_angle - end angle of the arc;
      */
     public EntArc(wPoint2D cPoint,double radius_value,double start_angle,double end_angle) {
-        this.Handle = FileDXF.ApplyHandle();
+        this();
 		
         this.cPoint = new wPoint(cPoint);
         this.radius = radius_value;
@@ -124,7 +87,7 @@ public class EntArc extends EntBase {
      * @param end_angle - end angle of the arc;
      */
     public EntArc(double x_value,double y_value,double z_value,double radius_value,double start_angle,double end_angle) {
-        this.Handle = FileDXF.ApplyHandle();
+        this();
 		
         this.cPoint = new wPoint(x_value,y_value,z_value);
         this.radius = radius_value;
@@ -140,7 +103,7 @@ public class EntArc extends EntBase {
      * @param end_angle - end angle of the arc;
      */
     public EntArc(wPoint cPoint,double radius_value,double start_angle,double end_angle) {
-        this.Handle = FileDXF.ApplyHandle();
+        this();
 		
         this.cPoint = cPoint;
         this.radius = radius_value;
@@ -155,15 +118,15 @@ public class EntArc extends EntBase {
      * @param Pb - End point of the Arc;
      */
     public EntArc(wPoint2D Po,wPoint2D Pa,wPoint2D Pb) {
+        this();
+		
         double radis,start_angle,end_angle;
         double rb;
-		
-        this.Handle = FileDXF.ApplyHandle();
 
         radius = Math.sqrt(Math.pow(Pa.x-Po.x,2) + Math.pow(Pa.y-Po.y,2));
         rb  = Math.sqrt(Math.pow(Pa.x-Po.x,2) + Math.pow(Pa.y-Po.y,2));
 
-        if (Math.abs(rb-radius) > 0.2) {
+        if (Math.abs(rb-radius) > 0.002) {
             System.out.println("Invalid input. delta radius=" + Math.abs(rb-radius));
         }
 
@@ -182,7 +145,7 @@ public class EntArc extends EntBase {
      * @param one_arc -one object derived from class EntArc;
      */
     public EntArc(EntArc one_arc) {
-        this.Handle = FileDXF.ApplyHandle();
+        this();
 		
         this.cPoint = one_arc.cPoint;
         this.radius = one_arc.radius;
@@ -205,26 +168,6 @@ public class EntArc extends EntBase {
             theArc.sAngle = theArc.eAngle;
             theArc.eAngle = angle;
         }
-    }
-
-    /**
-     * Print2D()
-     * Terminal output x,y of cPoint and end_point.(one arc for one point)
-     */
-    public void Print2D() {
-        System.out.println("Start point:  "+"x = " + this.cPoint.x+"   y = " + this.cPoint.y);
-        System.out.println("radius:  "+"x = " + this.radius);
-        System.out.println("Start angle=  " + this.sAngle+"   End angle= " + this.eAngle);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of cPoint and end_point.(one arc for one point)
-     */
-    public void Print3D() {
-        System.out.println("Start point:  "+"x = "+this.cPoint.x+"   y = " + this.cPoint.y+"   z = " + this.cPoint.z);
-        System.out.println("radius:  "+"x = " + this.radius);
-        System.out.println("Start angle=  " + this.sAngle+"   End angle= " + this.eAngle);
     }
 
     /**
@@ -264,7 +207,7 @@ public class EntArc extends EntBase {
     }
 
     /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity arc.
      * <pre>Output example:
      *   0
@@ -300,9 +243,9 @@ public class EntArc extends EntBase {
      *   39
      * 0.0</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
-
+		
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
 
@@ -315,24 +258,17 @@ public class EntArc extends EntBase {
         DXF_STR.add("100");
         DXF_STR.add(this.ClassLabel);
 
-        //DXF_STR.add("8");
-        //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXFData());
+        DXF_STR.add("8");
+        DXF_STR.add(this.layer);
+
         DXF_STR.add("100");
         DXF_STR.add("AcDbCircle");
 
-        DXF_STR.addAll(cPoint.GetDXFData());
+        DXF_STR.addAll(cPoint.GetDXF());
 
         DXF_STR.add("  40");
         DXF_STR.add(Double.toString(this.radius));
-        /*
-        DXF_STR.add("  210");
-        DXF_STR.add(Double.toString(this.xExtrusionDirection));
-        DXF_STR.add("  220");
-        DXF_STR.add(Double.toString(this.yExtrusionDirection));
-        DXF_STR.add("  230");
-        DXF_STR.add(Double.toString(this.zExtrusionDirection));
-        */
+
         DXF_STR.add("100");
         DXF_STR.add(this.SubClassLabel);
 
@@ -342,7 +278,6 @@ public class EntArc extends EntBase {
         DXF_STR.add(Double.toString(this.eAngle));
         //DXF_STR.add("  39");
         //DXF_STR.add(Double.toString(this.thickness));
-
         return DXF_STR;
     }
 

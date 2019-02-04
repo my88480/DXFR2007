@@ -8,35 +8,9 @@ import java.util.*;
 */
 public class EntPolyline extends EntBase {
     /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "POLYLINE";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-
-    /**
      * code  5 - endHandle.
      */
     public String endHandle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-	 * AcDb2dPolyline or AcDb3dPolyline
-     */
-    public String SubClassLabel = "AcDb3dPolyline";
 
     /**
      * code  10,20,30
@@ -51,12 +25,6 @@ public class EntPolyline extends EntBase {
      * code  11,22,31 -End Point location (in WCS).
      */
     public List<EntVertex> vertexs;
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
-
     /**
      * code  40 - Starting width (optional; default is 0).
      */
@@ -125,21 +93,17 @@ public class EntPolyline extends EntBase {
      * </UL>
      */
     public    int                         surfType        = 0;
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
-
     /**
      * Constructor (empty).
      */
     public EntPolyline() {
-		this.Handle = FileDXF.ApplyHandle();
+		this.EntityName = "POLYLINE";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDb3dPolyline";
+
+		this.DummyPoint = new wPoint();
+		
         this.vertexs = new ArrayList<>();
     }
 
@@ -149,8 +113,7 @@ public class EntPolyline extends EntBase {
      * @param y_value -y of start vertex;
      */
     public EntPolyline(double[] x_value,double[] y_value) {
-		this.Handle = FileDXF.ApplyHandle();
-        this.vertexs = new ArrayList<>();
+		this();
 
         for (int i=0;i < x_value.length;i++){
 			this.AddVertex(new wPoint(x_value[i],y_value[i]));
@@ -164,12 +127,11 @@ public class EntPolyline extends EntBase {
      * @param z_value -z of start vertex;
      */
     public EntPolyline(double[] x_value,double[] y_value,double[] z_value) {
-		this.Handle = FileDXF.ApplyHandle();
-        this.vertexs = new ArrayList<>();
+		this();
+
         for (int i=0;i < x_value.length;i++){
 			this.AddVertex(new wPoint(x_value[i],y_value[i],z_value[i]));
 		}
-        //this.AddVertex(new EntVertex(x_value,y_value,z_value));
     }
 
     /**
@@ -177,8 +139,7 @@ public class EntPolyline extends EntBase {
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
      */
     public EntPolyline(double[][] points) {
-		this.Handle = FileDXF.ApplyHandle();
-        this.vertexs = new ArrayList<>();
+		this();
 
         for (int i=0; i < points.length; i++) {
             if (points[i].length == 2) {
@@ -187,6 +148,39 @@ public class EntPolyline extends EntBase {
                 this.AddVertex(new wPoint(points[i][0],points[i][1],points[i][2]));
             }
         }
+    }
+
+    /**
+     * Constructor (one_polyline)
+     * @param one_polyline -one object derived from class EntPolyline;
+     */
+    public EntPolyline(EntPolyline one_polyline) {
+		this();
+     
+		this.DummyPoint = new wPoint(one_polyline.DummyPoint);
+
+        //this works ok.
+        //this.vertexs.addAll(one_polyline.vertexs);
+        for(int i=0; i<one_polyline.vertexs.size(); i++) {
+            this.vertexs.add(one_polyline.vertexs.get(i));
+        }
+
+        this.thickness = one_polyline.thickness;
+        this.begwidth = one_polyline.begwidth;
+        this.begwidth_set = one_polyline.begwidth_set;
+        this.endwidth = one_polyline.endwidth;
+        this.endwidth_set = one_polyline.endwidth_set;
+        this.vtxFollow = one_polyline.vtxFollow;
+        this.TypeFlag = one_polyline.TypeFlag;
+        this.meshcntM = one_polyline.meshcntM;
+        this.meshcntN = one_polyline.meshcntN;
+        this.smoothM = one_polyline.smoothM;
+        this.smoothN = one_polyline.smoothN;
+        this.surfType = one_polyline.surfType;
+        this.xExtrusionDirection = one_polyline.xExtrusionDirection;
+        this.yExtrusionDirection = one_polyline.yExtrusionDirection;
+        this.zExtrusionDirection = one_polyline.zExtrusionDirection;
+
     }
 
     /**
@@ -222,43 +216,6 @@ public class EntPolyline extends EntBase {
     //}
 
     /**
-     * Constructor (one_polyline)
-     * @param one_polyline -one object derived from class EntPolyline;
-     */
-    public EntPolyline(EntPolyline one_polyline) {
-        this.EntityName = one_polyline.EntityName;
-        this.ClassLabel = one_polyline.ClassLabel;
-        this.SubClassLabel = one_polyline.SubClassLabel;
-
-        this.DummyPoint = new wPoint(one_polyline.DummyPoint);
-
-        this.vertexs = new ArrayList<>();
-        //this works ok.
-        //this.vertexs.addAll(one_polyline.vertexs);
-        for(int i=0; i<one_polyline.vertexs.size(); i++) {
-            this.vertexs.add(one_polyline.vertexs.get(i));
-        }
-
-        this.thickness = one_polyline.thickness;
-        this.begwidth = one_polyline.begwidth;
-        this.begwidth_set = one_polyline.begwidth_set;
-        this.endwidth = one_polyline.endwidth;
-        this.endwidth_set = one_polyline.endwidth_set;
-        this.vtxFollow = one_polyline.vtxFollow;
-        this.TypeFlag = one_polyline.TypeFlag;
-        this.meshcntM = one_polyline.meshcntM;
-        this.meshcntN = one_polyline.meshcntN;
-        this.smoothM = one_polyline.smoothM;
-        this.smoothN = one_polyline.smoothN;
-        this.surfType = one_polyline.surfType;
-        this.xExtrusionDirection = one_polyline.xExtrusionDirection;
-        this.yExtrusionDirection = one_polyline.yExtrusionDirection;
-        this.zExtrusionDirection = one_polyline.zExtrusionDirection;
-		
-		this.Handle = FileDXF.ApplyHandle();
-    }
-
-    /**
     * GetSize()
     * Get the number of the vertexs of the polyline;
     */
@@ -288,64 +245,7 @@ public class EntPolyline extends EntBase {
     }
 
     /**
-      * Print2D()
-      * Terminal output x,y of start_point and end_point.(one line for one point)
-      */
-    public void Print2D() {
-        //System.out.println("Start point:  "+"x = "+start_point.x+"   y = "+start_point.y);
-        //System.out.println("End point:  "+"x = "+end_point.x+"   y = "+end_point.y);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of start_point and end_point.(one line for one point)
-     */
-    public void Print3D() {
-        //System.out.println("Start point:  "+"x = "+start_point.x+"   y = "+start_point.y+"   z = "+start_point.z);
-        //System.out.println("End point:  "+"x = "+end_point.x+"   y = "+end_point.y+"   z = "+end_point.z);
-    }
-
-
-    /**
-     * GetMapData()
-     * @return Map of elements description of Entity LINE.
-     * <pre>Output example:
-     * Map's Size: 10
-     * key= Entity                     value= LINE
-     * key= zExtrusionDirection                        value= 1.0
-     * key= ClassLabel                 value= AcDbEntity
-     * key= xExtrusionDirection                        value= 0.0
-     * key= SubClassLabel                      value= AcDbLine
-     * key= thickness                  value= 0.0
-     * key= yExtrusionDirection                        value= 0.0
-     * key= x                  value= 50.2314
-     * key= y                  value= 30.12546
-     * key= z                  value= 80.01234567890124</pre>
-     */
-    public List<String []> GetPairData() {
-        List<String []> params=new ArrayList<>();
-
-        params.add(new String[] {"Entity",this.EntityName});
-
-        params.addAll(super.GetPairData());
-
-        params.add(new String[] {"ClassLabel",this.ClassLabel});
-        params.add(new String[] {"SubClassLabel",this.SubClassLabel});
-        params.add(new String[] {"  8",super.layer});
-
-        params.add(new String[] {"  66",Integer.toString(this.vtxFollow)});
-        params.add(new String[] {"  70",Integer.toString(this.TypeFlag)});
-
-        for (int i  =  0; i < this.vertexs.size(); i++) {
-            params.addAll(this.vertexs.get(i).GetPairData());
-        }
-        params.add(new String[] {"  0","SEQEND"});
-
-        return params;
-    }
-
-    /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * 0
@@ -377,47 +277,26 @@ public class EntPolyline extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
 		
 		//Maybe endHandle is handled when the polyline is created,modified etc.
 		this.endHandle = FileDXF.ApplyHandle();
+
 		
-        DXF_STR.add("  0");
-        DXF_STR.add(this.EntityName);
-
-        DXF_STR.add("  5");
-        DXF_STR.add(this.Handle);
-
-        DXF_STR.add("330");
-        DXF_STR.add("1F");
-
-        DXF_STR.add("100");
-        DXF_STR.add(this.ClassLabel);
-
-        DXF_STR.addAll(super.GetDXFData());
-
-        DXF_STR.add("100");
-        DXF_STR.add(this.SubClassLabel);
-
+		DXF_STR.addAll(super.GetDXF());
+		
         DXF_STR.add("  66");
         DXF_STR.add(Integer.toString(this.vtxFollow));
 		
-        DXF_STR.add("  10");
-        DXF_STR.add("0.0");
-		
-        DXF_STR.add("  20");
-        DXF_STR.add("0.0");
-		
-        DXF_STR.add("  30");
-        DXF_STR.add("0.0");
-		
+        DXF_STR.addAll(DummyPoint.GetDXF());
+
         DXF_STR.add("  70");
         DXF_STR.add(Integer.toString(this.TypeFlag));
 
         for (int i  =  0; i < this.vertexs.size(); i++) {
-            DXF_STR.addAll(this.vertexs.get(i).GetDXFData());
+            DXF_STR.addAll(this.vertexs.get(i).GetDXF());
         }
 
         DXF_STR.add("  0");
@@ -432,7 +311,8 @@ public class EntPolyline extends EntBase {
         DXF_STR.add("100");
         DXF_STR.add(this.ClassLabel);
 
-        DXF_STR.addAll(super.GetDXFData());
+        DXF_STR.add("  8");
+        DXF_STR.add(this.layer);
 
         return DXF_STR;
     }

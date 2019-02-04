@@ -34,7 +34,6 @@ public class EntPolylineTest {
             System.out.println("NO. " + i);
             System.out.println(myPolyline.vertexs.get(i));
             System.out.println(myPolyline.vertexs.get(i).bPoint.x);
-            myPolyline.vertexs.get(i).Print3D();
             myPolyline.vertexs.get(i).PrintAll();
             System.out.println();
         }
@@ -49,7 +48,7 @@ public class EntPolylineTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myPolyline.GetDXFData();
+        List<String> dxf_str = myPolyline.GetDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

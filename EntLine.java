@@ -7,30 +7,6 @@ import java.util.*;
 *@version 0.6
 */
 public class EntLine extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "LINE";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbLine";
 
     /**
      * code  10,20,30 -Start Point location (in WCS).
@@ -39,34 +15,18 @@ public class EntLine extends EntBase {
     wPoint sPoint;
     wPoint ePoint;
 
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
-
-    /**
-     * code 210,220,230 -
-     *            Extrusion direction. Present if the extrusion direction is
-     *            not parallel to the world Z axis.
-     */
-    public double   xExtrusionDirection = 0;
-    public double   yExtrusionDirection = 0;
-    public double   zExtrusionDirection = 1;
 
     /**
      * Constructor (empty).
      */
     public EntLine() {
+		this.EntityName = "LINE";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbLine";
+		
         this.sPoint = new wPoint();
         this.ePoint = new wPoint();
-
-        Handle = FileDXF.ApplyHandle();
-
-        /*
-        x = 0.0;
-        y = 0.0;
-        z = 0.0;
-        */
     }
 
     /**
@@ -77,17 +37,9 @@ public class EntLine extends EntBase {
      * @param ye_value -y of end point;
      */
     public EntLine(double xs_value,double ys_value,double xe_value,double ye_value) {
-        this.sPoint = new wPoint(xs_value,ys_value);
+        this();
+		this.sPoint = new wPoint(xs_value,ys_value);
         this.ePoint = new wPoint(xe_value,ye_value);
-
-        Handle = FileDXF.ApplyHandle();
-
-
-        /*
-        x = x_value;
-        y = y_value;
-        z = 0.0;
-        */
     }
 
     /**
@@ -100,15 +52,9 @@ public class EntLine extends EntBase {
      * @param ze_value -z of end point;
      */
     public EntLine(double xs_value,double ys_value,double zs_value,double xe_value,double ye_value,double ze_value) {
+        this();
         this.sPoint = new wPoint(xs_value,ys_value,zs_value);
         this.ePoint = new wPoint(xe_value,ye_value,ze_value);
-
-        Handle = FileDXF.ApplyHandle();
-        /*
-        x = x_value;
-        y = y_value;
-        z = z_value;
-        */
     }
 
     /**
@@ -117,10 +63,9 @@ public class EntLine extends EntBase {
      * @param ePoint -y of start point;
      */
     public EntLine(wPoint2D sPoint,wPoint2D ePoint) {
+        this();
         this.sPoint = new wPoint(sPoint.x,sPoint.y,0.0);
         this.ePoint = new wPoint(ePoint.x,ePoint.y,0.0);
-
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -129,10 +74,9 @@ public class EntLine extends EntBase {
      * @param ePoint -y of start point;
      */
     public EntLine(wPoint sPoint,wPoint ePoint) {
+        this();
         this.sPoint = new wPoint(sPoint);
         this.ePoint = new wPoint(ePoint);
-
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -140,6 +84,7 @@ public class EntLine extends EntBase {
      * @param one_line -one object derived from class EntLine;
      */
     public EntLine(EntLine one_line) {
+        this();
         this.sPoint = one_line.sPoint;
         this.ePoint = one_line.ePoint;
 
@@ -147,8 +92,6 @@ public class EntLine extends EntBase {
         this.xExtrusionDirection = one_line.xExtrusionDirection;
         this.yExtrusionDirection = one_line.yExtrusionDirection;
         this.zExtrusionDirection = one_line.zExtrusionDirection;
-
-        Handle = FileDXF.ApplyHandle();
     }
 
     /**
@@ -200,26 +143,7 @@ public class EntLine extends EntBase {
     }
 
     /**
-    * Print2D()
-    * Terminal output x,y of sPoint and ePoint.(one line for one point)
-    */
-    public void Print2D() {
-        System.out.println("Start point:  "+"x = "+sPoint.x+"   y = "+sPoint.y);
-        System.out.println("End point:  "+"x = "+ePoint.x+"   y = "+ePoint.y);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of sPoint and ePoint.(one line for one point)
-     */
-    public void Print3D() {
-        System.out.println("Start point:  "+"x = "+sPoint.x+"   y = "+sPoint.y+"   z = "+sPoint.z);
-        System.out.println("End point:  "+"x = "+ePoint.x+"   y = "+ePoint.y+"   z = "+ePoint.z);
-    }
-
-
-    /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * 0
@@ -253,38 +177,13 @@ public class EntLine extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
-        DXF_STR.add("  0");
-        DXF_STR.add(this.EntityName);
+        DXF_STR.addAll(super.GetDXF());
 		
-        DXF_STR.add("  5");
-        DXF_STR.add(this.Handle);
+        DXF_STR.addAll(sPoint.GetDXF());
 
-        DXF_STR.add("330");
-        DXF_STR.add(this.ObjectId);
-
-        DXF_STR.add("  100");
-        DXF_STR.add(this.ClassLabel);
-
-        //System.out.println(FileDXF.hex_handle);
-        //DXF_STR.add("8");
-        //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXFData());
-
-        DXF_STR.add("  100");
-        DXF_STR.add(this.SubClassLabel);
-
-        DXF_STR.addAll(sPoint.GetDXFData());
-        /*
-        DXF_STR.add("10");
-        DXF_STR.add(Double.toString(sPoint.x));
-        DXF_STR.add("20");
-        DXF_STR.add(Double.toString(sPoint.y));
-        DXF_STR.add("30");
-        DXF_STR.add(Double.toString(sPoint.z));
-        */
         DXF_STR.add("  11");
         DXF_STR.add(Double.toString(ePoint.x));
         DXF_STR.add("  21");
@@ -292,16 +191,6 @@ public class EntLine extends EntBase {
         DXF_STR.add("  31");
         DXF_STR.add(Double.toString(ePoint.z));
 
-		/*
-        DXF_STR.add("  39");
-        DXF_STR.add(Double.toString(thickness));
-        DXF_STR.add("  210");
-        DXF_STR.add(Double.toString(xExtrusionDirection));
-        DXF_STR.add("  220");
-        DXF_STR.add(Double.toString(yExtrusionDirection));
-        DXF_STR.add("  230");
-        DXF_STR.add(Double.toString(zExtrusionDirection));
-		*/
         return DXF_STR;
     }
 

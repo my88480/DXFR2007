@@ -16,8 +16,6 @@ public class EntCircleTest {
         System.out.println(mycircle);
         System.out.println();
 
-        mycircle.Print2D();
-        mycircle.Print3D();
         mycircle.PrintAll();
         System.out.println();
 
@@ -28,7 +26,7 @@ public class EntCircleTest {
         }
         System.out.println();
 
-        List<String> dxf_str = mycircle.GetDXFData();
+        List<String> dxf_str = mycircle.GetDXF();
         System.out.println("DXF's Size: "+dxf_str.size());
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));

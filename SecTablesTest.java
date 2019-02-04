@@ -30,7 +30,7 @@ public class SecTablesTest {
         System.out.println("");
         System.out.println("DXF file's Content:");
 
-        List<String> dxf_str = mySecTables.GetDXFData();
+        List<String> dxf_str = mySecTables.GetDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

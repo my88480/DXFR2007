@@ -15,18 +15,10 @@ public class EntVertexTest {
     public static void  main(String[] args) {
 
         EntVertex vertex1 = new EntVertex();
-        vertex1.Print2D();
-        System.out.println("");
         EntVertex vertex2 = new EntVertex(25,20);
-        vertex2.Print2D();
-        System.out.println("");
         EntVertex vertex3 = new EntVertex(12,55,22);
-        vertex3.Print3D();
-        vertex3.Print2D();
         System.out.println("");
         EntVertex vertex4 = new EntVertex(vertex3);
-        vertex4.Print2D();
-        vertex4.Print3D();
         vertex4.PrintAll();
         System.out.println("");
         int xx,yy;
@@ -47,7 +39,7 @@ public class EntVertexTest {
         }
         System.out.println();
 
-        List<String> dxf_str = vertex6.GetDXFData();
+        List<String> dxf_str = vertex6.GetDXF();
 
 		for (String s:dxf_str) {
             System.out.println(s);

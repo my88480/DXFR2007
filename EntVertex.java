@@ -9,48 +9,11 @@ import java.util.*;
  * Entity Vertex of AutoCAD DXF file.
  */
 public class EntVertex extends EntBase {
-    /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "VERTEX";
-
-    /**
-     * code  5 - Handle.
-     */
-    public String Handle;
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId ;
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbVertex";
-
-    /**
-     * code  100 -Sub Class Label.
-     * AcDb2dVertex or AcDb3dPolylineVertex
-     */
-    public String SubClassLabel2 = "AcDb3dPolylineVertex";
 
     /**
      * code  10,20,30 -Point location (in WCS).
      */
     public wPoint bPoint;
-
-    //bPoint = new wPoint();  //Should not be here.move to the constructor.
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
 
     /**
      * code  40 - Starting width. (optional; default is 0).
@@ -122,12 +85,24 @@ public class EntVertex extends EntBase {
     public    int                         meshidx4        = 0;
 
     /**
+     * Constructor (empty).
+     */
+    public EntVertex() {
+		this.EntityName = "VERTEX";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbVertex";
+		this.SubClassLabel2 = "AcDb2dVertex";  //AcDb2dVertex or AcDb3dPolylineVertex
+        this.bPoint = new wPoint();
+    }
+
+    /**
      * Constructor (wPoint)
      * @param point
      */
     public EntVertex(wPoint point) {
-        this.bPoint = point;
-        this.Handle = FileDXF.ApplyHandle();
+        this();
+		this.bPoint = point;
     }
 
     /**
@@ -135,15 +110,9 @@ public class EntVertex extends EntBase {
      * @param point
      */
     public EntVertex(wPoint point,String objectID) {
-        this(new wPoint(point));
+        this();
+		this.bPoint = point;
 		this.ObjectId = objectID;
-    }
-
-    /**
-     * Constructor (empty).
-     */
-    public EntVertex() {
-        this(new wPoint());
     }
 
     /**
@@ -151,7 +120,8 @@ public class EntVertex extends EntBase {
      * @param x_value
      */
     public EntVertex(double x_value) {
-        this(new wPoint(x_value));
+        this();
+		this.bPoint = new wPoint(x_value);
     }
 
     /**
@@ -160,7 +130,8 @@ public class EntVertex extends EntBase {
      * @param y_value
      */
     public EntVertex(double x_value,double y_value) {
-        this(new wPoint(x_value,y_value));
+        this();
+		this.bPoint = new wPoint(x_value,y_value);
     }
 
     /**
@@ -170,7 +141,8 @@ public class EntVertex extends EntBase {
      * @param z_value
      */
     public EntVertex(double x_value,double y_value,double z_value) {
-        this(new wPoint(x_value,y_value,z_value));
+        this();
+		this.bPoint = new wPoint(x_value,y_value,z_value);
     }
 
     /**
@@ -180,7 +152,8 @@ public class EntVertex extends EntBase {
      * @param z_value
      */
     public EntVertex(double x_value,double y_value,double z_value,String objectID) {
-        this(new wPoint(x_value,y_value,z_value));
+        this();
+		this.bPoint = new wPoint(x_value,y_value,z_value);
 		this.ObjectId = objectID;
     }
 
@@ -190,7 +163,8 @@ public class EntVertex extends EntBase {
      * @param objectID
      */
     public EntVertex(wPoint2D point,String objectID) {
-        this(new wPoint(point));
+        this();
+		this.bPoint = new wPoint(point);
 		this.ObjectId = objectID;
     }
 
@@ -199,14 +173,9 @@ public class EntVertex extends EntBase {
      * @param oneVertex
      */
     public EntVertex(EntVertex oneVertex) {
-        this.Handle = FileDXF.ApplyHandle();
-
-		this.EntityName = oneVertex.EntityName;
+        this();
 		this.ObjectId = oneVertex.ObjectId;
-		this.ClassLabel = oneVertex.ClassLabel;
-		this.SubClassLabel = oneVertex.SubClassLabel;
-		this.SubClassLabel2 = oneVertex.SubClassLabel2;
-        this.bPoint = oneVertex.bPoint;
+		this.bPoint = oneVertex.bPoint;
     }
 
     /**
@@ -214,36 +183,13 @@ public class EntVertex extends EntBase {
      * @param oneVertex
      */
     public EntVertex(EntVertex oneVertex,String objectID) {
-        this.Handle = FileDXF.ApplyHandle();
-		
+        this();
 		this.ObjectId = objectID;
-		
-		this.EntityName = oneVertex.EntityName;
-		this.ObjectId = oneVertex.ObjectId;
-		this.ClassLabel = oneVertex.ClassLabel;
-		this.SubClassLabel = oneVertex.SubClassLabel;
-		this.SubClassLabel2 = oneVertex.SubClassLabel2;
         this.bPoint = oneVertex.bPoint;
     }
 
     /**
-     * Print2D()
-     * Terminal output x,y of the vertex.
-     */
-    public void Print2D() {
-        System.out.println("x = " + bPoint.x + "   y = " + bPoint.y);
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of the vertex.
-     */
-    public void Print3D() {
-        System.out.println("x = " + bPoint.x+"   y = " + bPoint.y+"   z = " + bPoint.z);
-    }
-
-    /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity vertex.
      * <pre>Output example:
 	 *   0
@@ -270,9 +216,9 @@ public class EntVertex extends EntBase {
 	 * 	32
 	</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
-
+		/*
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
 
@@ -287,15 +233,15 @@ public class EntVertex extends EntBase {
 
         //DXF_STR.add("8");
         //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXFData());
 
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel);
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel2);
+		*/
+        DXF_STR.addAll(super.GetDXF());
 
-
-        DXF_STR.addAll(this.bPoint.GetDXFData());
+        DXF_STR.addAll(this.bPoint.GetDXF());
 
         //DXF_STR.add("  39");
         //DXF_STR.add(Double.toString(this.thickness));

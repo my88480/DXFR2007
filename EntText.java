@@ -10,29 +10,9 @@ import java.io.*;
  */
 public class EntText extends EntBase {
     /**
-     * code  0 -Entity name.
-     */
-    public String EntityName = "TEXT";
-
-    /**
      * code  5 - Handle.
      */
     public String Handle[];
-
-    /**
-     * code  330 - Object ID.
-     */
-    public String ObjectId = "1F";
-
-    /**
-     * code  100 -Class Label.
-     */
-    public String ClassLabel = "AcDbEntity";
-
-    /**
-     * code  100 -Sub Class Label.
-     */
-    public String SubClassLabel = "AcDbText";
 
     /**
      * code  10,20,30 -Text location (in WCS).
@@ -58,26 +38,22 @@ public class EntText extends EntBase {
      */
     public    double	rotang          = 0.0;
 
-
     /**
      * code  41 - Relative X scale factor.
      *            For fit-type text (optional; default = 1.0).
      */
     public    double	relxscale  = 1.0;
 
-
     /**
      * code  51 - Oblique angle (optional default = 0).
      */
     public    double obliqueang = 0.0;
-
 
     /**
      * code   7 - Text style name (optional; default = "STANDARD").
      *            Set to style table reference.
      */
     public    String  style="Stardand";
-
 
     /**
      * code  71 - Text generation flags.
@@ -87,7 +63,6 @@ public class EntText extends EntBase {
      * </UL>
      */
     public    int	textgenflags  = 0;
-
 
     /**
      * code  72 - Horizontal alignment (optional, default = 0).
@@ -104,7 +79,6 @@ public class EntText extends EntBase {
      */
     public    int horzalignflags  = 0;
 
-
     /**
      * code  73 - Vertical alignment (optional, default = 0).
      *            Integer codes (not bitcoded)
@@ -118,7 +92,6 @@ public class EntText extends EntBase {
      */
     public    int  vertalignflags  = 0;
 
-
     /**
      * code  11,21,31 -
      *      Alignment point.
@@ -129,12 +102,6 @@ public class EntText extends EntBase {
      *      (In OCS).
      */
     public    wPoint  second_point ;
-
-
-    /**
-    * code  39 - Thickness (optional; default  =  0).
-    */
-    public double thickness = 0.0;
 
     public  String unicode(String source) {
         StringBuffer sb = new StringBuffer();
@@ -179,7 +146,12 @@ public class EntText extends EntBase {
      * Constructor (empty).
      */
     public EntText() {
-        this.bPoint = new wPoint();
+		this.EntityName = "TEXT";
+		this.ObjectId = "1F";
+		this.ClassLabel = "AcDbEntity";
+		this.SubClassLabel = "AcDbText";
+        
+		this.bPoint = new wPoint();
         this.second_point = new wPoint();
         this.height = 5.0;
         //this.text = null;
@@ -191,7 +163,9 @@ public class EntText extends EntBase {
      * Constructor (x)
      */
     public EntText(String str) {
-        this.bPoint = new wPoint();
+        this();
+		
+		this.bPoint = new wPoint();
         this.second_point = new wPoint();
         this.height = 5.0;
         this.text = str;
@@ -203,6 +177,8 @@ public class EntText extends EntBase {
      * @param x_value
      */
     public EntText(double x_value,double height_value,String str) {
+        this();
+		
         this.bPoint = new wPoint(x_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -216,6 +192,8 @@ public class EntText extends EntBase {
      * @param y_value
      */
     public EntText(double x_value,double y_value,double height_value,String str) {
+        this();
+		
         this.bPoint = new wPoint(x_value,y_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -230,6 +208,8 @@ public class EntText extends EntBase {
      * @param str -content of the text
      */
     public EntText(wPoint2D bPoint,double height_value,String str) {
+        this();
+		
         this.bPoint = new wPoint(bPoint);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -246,6 +226,8 @@ public class EntText extends EntBase {
      * @param str -content of the text
      */
     public EntText(double x_value,double y_value,double z_value,double height_value,String str) {
+        this();
+		
         this.bPoint = new wPoint(x_value,y_value,z_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -260,6 +242,8 @@ public class EntText extends EntBase {
      * @param str -content of the text
      */
     public EntText(wPoint bPoint,double height_value,String str) {
+        this();
+		
         this.bPoint = bPoint;
         this.second_point = new wPoint();
         this.height = height_value;
@@ -272,6 +256,8 @@ public class EntText extends EntBase {
      * @param oneText
      */
     public EntText(EntText oneText) {
+        this();
+		
         this.bPoint = new wPoint(oneText.bPoint);
         this.second_point = new wPoint(oneText.second_point);
 
@@ -290,37 +276,7 @@ public class EntText extends EntBase {
     }
 
     /**
-     * Print2D()
-     * Terminal output x,y of the text.
-     */
-    public void Print2D() {
-        if (this.text.length()>0) {
-
-            for (int i = 0; i < splitText.length && splitText[0].length() > 0 ; i++) {
-                System.out.println("x = " + this.bPoint.x + "   y = " + (this.bPoint.y - (1.0 + 2.0 / 3.0) * this.height * i));
-                System.out.println("height = "+this.height);
-                System.out.println("TEXT: " + splitText[i]);
-            }
-
-        }
-    }
-
-    /**
-     * Print3D()
-     * Terminal output x,y,z of the text.
-     */
-    public void Print3D() {
-        if (this.text.length()>0) {
-            for (int i=0; i<splitText.length; i++) {
-                System.out.println("x = " + this.bPoint.x + "   y = " + (this.bPoint.y - (1.0 + 2.0 / 3.0) * this.height * i) + "   z = "+ this.bPoint.z);
-                System.out.println("height = "+this.height);
-                System.out.println("TEXT:   " + splitText[i]);
-            }
-        }
-    }
-
-    /**
-     * GetDXFData()
+     * GetDXF()
      * @return the dxf data of entity text.
      * <pre>Output example:
     *   0
@@ -372,48 +328,26 @@ public class EntText extends EntBase {
     * 100
     * AcDbText</pre>
      */
-    public List<String> GetDXFData() {
+    public List<String> GetDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
         if (this.text.length()>0) {
             for (int i=0; i<splitText.length; i++) {
-                DXF_STR.add("  0");
-                DXF_STR.add(this.EntityName);
+				
+				super.Handle = this.Handle[i];
+                DXF_STR.addAll(super.GetDXF());
 
-                DXF_STR.add("  5");
-                //DXF_STR.add(this.Handle);
-                DXF_STR.add(Handle[i]);
-
-				DXF_STR.add("330");
-				DXF_STR.add(this.ObjectId);
-
-                DXF_STR.add("  100");
-                DXF_STR.add(this.ClassLabel);
-
-                DXF_STR.addAll(super.GetDXFData());
-
-                DXF_STR.add("  100");
-                DXF_STR.add(this.SubClassLabel);
-
-                //DXF_STR.addAll(this.bPoint.GetDXFData());
-                /*
-                DXF_STR.add("  10");
-                DXF_STR.add(Double.toString(iPoint[i].x));
-                DXF_STR.add("  20");
-                DXF_STR.add(Double.toString(iPoint[i].y));
-                DXF_STR.add("  30");
-                DXF_STR.add(Double.toString(iPoint[i].z));
-                */
-                DXF_STR.addAll(iPoint[i].GetDXFData());
+                DXF_STR.addAll(iPoint[i].GetDXF());
 
                 DXF_STR.add("  40");
                 DXF_STR.add(Double.toString(this.height));
+				
                 DXF_STR.add("  1");
-                //DXF_STR.add(this.text);
                 DXF_STR.add(unicode(splitText[i]));
 
                 DXF_STR.add("  39");
                 DXF_STR.add(Double.toString(this.thickness));
+				
                 DXF_STR.add("  50");
                 DXF_STR.add(Double.toString(this.rotang));
 
