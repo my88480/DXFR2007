@@ -292,6 +292,7 @@ public class EntLine extends EntBase {
         DXF_STR.add(Double.toString(ePoint.z));
 
         DXF_STR.add("  39");
+		/*
         DXF_STR.add(Double.toString(thickness));
         DXF_STR.add("  210");
         DXF_STR.add(Double.toString(xExtrusionDirection));
@@ -299,7 +300,7 @@ public class EntLine extends EntBase {
         DXF_STR.add(Double.toString(yExtrusionDirection));
         DXF_STR.add("  230");
         DXF_STR.add(Double.toString(zExtrusionDirection));
-
+		*/
         return DXF_STR;
     }
 

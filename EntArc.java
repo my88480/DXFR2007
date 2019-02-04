@@ -314,8 +314,6 @@ public class EntArc extends EntBase {
 
         DXF_STR.add("100");
         DXF_STR.add(this.ClassLabel);
-        DXF_STR.add("330");
-        DXF_STR.add("1F");
 
         //DXF_STR.add("8");
         //DXF_STR.add(this.layer);

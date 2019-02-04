@@ -234,6 +234,7 @@ public class EntCircle extends EntBase {
 
         DXF_STR.add("  40");
         DXF_STR.add(Double.toString(this.radius));
+		/*
         DXF_STR.add("  39");
         DXF_STR.add(Double.toString(this.thickness));
         DXF_STR.add("  210");
@@ -242,7 +243,7 @@ public class EntCircle extends EntBase {
         DXF_STR.add(Double.toString(this.yExtrusionDirection));
         DXF_STR.add("  230");
         DXF_STR.add(Double.toString(this.zExtrusionDirection));
-
+		*/
         return DXF_STR;
     }
 

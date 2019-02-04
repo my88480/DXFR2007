@@ -210,14 +210,15 @@ public class EntPoint extends EntBase {
 
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
-        DXF_STR.add("  100");
-        DXF_STR.add(this.ClassLabel);
-
+		
         DXF_STR.add("  5");
         DXF_STR.add(this.Handle);
 
-         DXF_STR.add("330");
+        DXF_STR.add("330");
         DXF_STR.add(this.ObjectId);
+
+        DXF_STR.add("  100");
+        DXF_STR.add(this.ClassLabel);
 
        //DXF_STR.add("8");
         //DXF_STR.add(this.layer);
@@ -237,7 +238,8 @@ public class EntPoint extends EntBase {
         */
         DXF_STR.add("  39");
         DXF_STR.add(Double.toString(thickness));
-        DXF_STR.add("  50");
+        /*
+		DXF_STR.add("  50");
         DXF_STR.add(Double.toString(xang));
         DXF_STR.add("  210");
         DXF_STR.add(Double.toString(xExtrusionDirection));
@@ -245,7 +247,7 @@ public class EntPoint extends EntBase {
         DXF_STR.add(Double.toString(yExtrusionDirection));
         DXF_STR.add("  230");
         DXF_STR.add(Double.toString(zExtrusionDirection));
-
+		*/
         return DXF_STR;
     }
 
