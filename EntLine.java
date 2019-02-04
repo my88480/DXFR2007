@@ -258,14 +258,15 @@ public class EntLine extends EntBase {
 
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
-        DXF_STR.add("  100");
-        DXF_STR.add(this.ClassLabel);
-
+		
         DXF_STR.add("  5");
         DXF_STR.add(this.Handle);
 
         DXF_STR.add("330");
         DXF_STR.add(this.ObjectId);
+
+        DXF_STR.add("  100");
+        DXF_STR.add(this.ClassLabel);
 
         //System.out.println(FileDXF.hex_handle);
         //DXF_STR.add("8");
@@ -291,8 +292,8 @@ public class EntLine extends EntBase {
         DXF_STR.add("  31");
         DXF_STR.add(Double.toString(ePoint.z));
 
-        DXF_STR.add("  39");
 		/*
+        DXF_STR.add("  39");
         DXF_STR.add(Double.toString(thickness));
         DXF_STR.add("  210");
         DXF_STR.add(Double.toString(xExtrusionDirection));
