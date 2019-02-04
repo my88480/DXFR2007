@@ -149,3 +149,4 @@ Unicode convert：
   
   This project supports 180W+ Entities.
  
+Our goal: elegant structure, less codes, more powerful
