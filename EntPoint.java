@@ -8,6 +8,7 @@ import java.util.*;
  * Entity Point of AutoCAD DXF file.
  */
 public class EntPoint extends EntBase {
+	GC_EntPoint gc_EntPoint;
 
     /**
      * code  10,20,30 -Point location (in WCS).
@@ -137,12 +138,12 @@ public class EntPoint extends EntBase {
 		*/
        //DXF_STR.add("8");
         //DXF_STR.add(this.layer);
-        DXF_STR.addAll(super.GetDXF());
+        //DXF_STR.addAll(super.GetDXF());
 
         //DXF_STR.add("  100");
         //DXF_STR.add(this.SubClassLabel);
 
-        DXF_STR.addAll(this.bPoint.GetDXF());
+        //DXF_STR.addAll(this.bPoint.GetDXF());
         /*
         DXF_STR.add("10");
         DXF_STR.add(Double.toString(bPoint.x));
@@ -151,8 +152,8 @@ public class EntPoint extends EntBase {
         DXF_STR.add("30");
         DXF_STR.add(Double.toString(bPoint.z));
         */
-        DXF_STR.add("  39");
-        DXF_STR.add(Double.toString(thickness));
+        //DXF_STR.add("  39");
+        //DXF_STR.add(Double.toString(thickness));
         /*
 		DXF_STR.add("  50");
         DXF_STR.add(Double.toString(xang));
@@ -163,6 +164,8 @@ public class EntPoint extends EntBase {
         DXF_STR.add("  230");
         DXF_STR.add(Double.toString(zExtrusionDirection));
 		*/
+		gc_EntPoint = new GC_EntPoint(this);
+		DXF_STR.addAll(gc_EntPoint.getDXF());		
         return DXF_STR;
     }
 

@@ -56,7 +56,7 @@ public class EntPointTest {
         System.out.println(point6.toString());
         System.out.println("");
 
-        System.out.println(point6.layer);
+        System.out.println(point6.Layer);
     }
 
 }

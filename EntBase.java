@@ -43,7 +43,7 @@ public class EntBase {
     /**
      * code  8 -Layer.Default layer ----  "0"
      */
-    public String layer = "0";
+    public String Layer = "0";
 
     /**
     * code  39 - Thickness (optional; default  =  0).
@@ -71,7 +71,7 @@ public class EntBase {
     }
 
     public EntBase(String layer_value) {
-        layer = layer_value;
+        Layer = layer_value;
     }
 
     public void PrintAll() {
@@ -111,7 +111,7 @@ public class EntBase {
         DXF_STR.add(this.ClassLabel);
 
         DXF_STR.add("  8");
-        DXF_STR.add(layer);
+        DXF_STR.add(this.Layer);
 		
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel);

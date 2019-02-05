@@ -259,7 +259,7 @@ public class EntArc extends EntBase {
         DXF_STR.add(this.ClassLabel);
 
         DXF_STR.add("8");
-        DXF_STR.add(this.layer);
+        DXF_STR.add(this.Layer);
 
         DXF_STR.add("100");
         DXF_STR.add("AcDbCircle");

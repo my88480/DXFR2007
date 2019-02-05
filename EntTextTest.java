@@ -57,7 +57,7 @@ public class EntTextTest {
         System.out.println(text3.toString());
         System.out.println("");
 
-        System.out.println(text3.layer);
+        System.out.println(text3.Layer);
         System.out.println(text3.style);
 
         text3.PrintAll();
