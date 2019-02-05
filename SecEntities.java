@@ -88,7 +88,9 @@ public class SecEntities {
             } else if (myEntity instanceof EntVertex) {
                 EntVertex myVertex = (EntVertex) myEntity;
                 myVertex.PrintAll();
-            }
+            }else {
+				System.out.println("Unacquainted Entity type!");
+			}	
         }
     }
 
