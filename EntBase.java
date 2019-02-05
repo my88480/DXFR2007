@@ -86,7 +86,7 @@ public class EntBase {
     public List<String []> GetPairData() {
         List<String []> params=new ArrayList<>();
 
-        List<String > DXFStr=this.GetDXF();
+        List<String > DXFStr=this.getDXF();
 
         for (int i=0; i< DXFStr.size() / 2; i= i + 2) {
             params.add(new String[] {DXFStr.get(i),DXFStr.get(i+1)});
@@ -95,7 +95,7 @@ public class EntBase {
         return params;
     }
 
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
         DXF_STR.add("  0");
@@ -132,7 +132,7 @@ public class EntBase {
         String str = new String();
 		String lineSeparator = System.lineSeparator();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);

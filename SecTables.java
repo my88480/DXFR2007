@@ -91,12 +91,12 @@ for (String [] key : myMap) {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * </pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
         /*
@@ -121,14 +121,14 @@ for (String [] key : myMap) {
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
         returnString = String.join(",",DXF_STR);
         */
 
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);

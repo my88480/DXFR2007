@@ -276,7 +276,7 @@ public class EntText extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity text.
      * <pre>Output example:
     *   0
@@ -328,16 +328,16 @@ public class EntText extends EntBase {
     * 100
     * AcDbText</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
         if (this.text.length()>0) {
             for (int i=0; i<splitText.length; i++) {
 				
 				super.Handle = this.Handle[i];
-                DXF_STR.addAll(super.GetDXF());
+                DXF_STR.addAll(super.getDXF());
 
-                DXF_STR.addAll(iPoint[i].GetDXF());
+                DXF_STR.addAll(iPoint[i].getDXF());
 
                 DXF_STR.add("  40");
                 DXF_STR.add(Double.toString(this.height));

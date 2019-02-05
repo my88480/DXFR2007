@@ -26,7 +26,7 @@ public class EntCircleTest {
         }
         System.out.println();
 
-        List<String> dxf_str = mycircle.GetDXF();
+        List<String> dxf_str = mycircle.getDXF();
         System.out.println("DXF's Size: "+dxf_str.size());
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));

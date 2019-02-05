@@ -39,7 +39,7 @@ public class EntVertexTest {
         }
         System.out.println();
 
-        List<String> dxf_str = vertex6.GetDXF();
+        List<String> dxf_str = vertex6.getDXF();
 
 		for (String s:dxf_str) {
             System.out.println(s);

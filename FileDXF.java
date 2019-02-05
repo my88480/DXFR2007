@@ -810,12 +810,12 @@ public class FileDXF {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of the DXF file.
      * <pre>Output example:
      *	</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
         List<String> DXF_STR_Header = new ArrayList<>();
@@ -825,13 +825,13 @@ public class FileDXF {
         List<String> DXF_STR_Entities = new ArrayList<>();
         List<String> DXF_STR_Objects = new ArrayList<>();
 		
-        DXF_STR_Classes = this.secClasses.GetDXF();
-        DXF_STR_Tables = this.secTables.GetDXF();
-        DXF_STR_Blocks = this.secBlocks.GetDXF();
-        DXF_STR_Entities = this.secEntities.GetDXF();
-        DXF_STR_Objects = this.secObjects.GetDXF();
+        DXF_STR_Classes = this.secClasses.getDXF();
+        DXF_STR_Tables = this.secTables.getDXF();
+        DXF_STR_Blocks = this.secBlocks.getDXF();
+        DXF_STR_Entities = this.secEntities.getDXF();
+        DXF_STR_Objects = this.secObjects.getDXF();
         //put to the last,for Handle
-		DXF_STR_Header = this.secHeader.GetDXF();
+		DXF_STR_Header = this.secHeader.getDXF();
 
         DXF_STR.addAll(DXF_STR_Header);
         DXF_STR.addAll(DXF_STR_Classes);
@@ -857,14 +857,14 @@ public class FileDXF {
         List<String> DXF_STR = new ArrayList<>();
         String str = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
         str = String.join(",",DXF_STR);
         */
 
         List<String> DXF_STR = new ArrayList<>();
         String str = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);
@@ -905,7 +905,7 @@ public class FileDXF {
         }
 
         Writer out = new FileWriter(file);
-        List<String> dxf_str = this.GetDXF();
+        List<String> dxf_str = this.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             out.write(dxf_str.get(i) + System.getProperty("line.separator"));
         }
@@ -930,7 +930,7 @@ public class FileDXF {
 
         /*
         Writer out = new FileWriter(file);
-        List<String> dxf_str = this.GetDXF();
+        List<String> dxf_str = this.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             out.write(dxf_str.get(i) + System.getProperty("line.separator"));
         }
@@ -974,7 +974,7 @@ public class FileDXF {
         File file = new File(this.dxf_filename);
 
         Writer out = new FileWriter(file);
-        List<String> dxf_str = this.GetDXF();
+        List<String> dxf_str = this.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             out.write(dxf_str.get(i) + System.getProperty("line.separator"));
         }

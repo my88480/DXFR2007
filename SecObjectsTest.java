@@ -30,7 +30,7 @@ public class SecObjectsTest {
         System.out.println("");
         System.out.println("DXF file's Content:");
 
-        List<String> dxf_str = mySecObjects.GetDXF();
+        List<String> dxf_str = mySecObjects.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

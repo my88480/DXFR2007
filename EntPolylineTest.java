@@ -48,7 +48,7 @@ public class EntPolylineTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myPolyline.GetDXF();
+        List<String> dxf_str = myPolyline.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

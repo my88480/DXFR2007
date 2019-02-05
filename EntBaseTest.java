@@ -29,7 +29,7 @@ public class EntBaseTest {
         System.out.println();
 
 
-        List<String> dxf_str = ent_base.GetDXF();
+        List<String> dxf_str = ent_base.getDXF();
         System.out.println(dxf_str);
         System.out.println("");
 

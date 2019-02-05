@@ -46,7 +46,7 @@ public class EntTextTest {
         }
         System.out.println();
 
-        List<String> dxf_str = text3.GetDXF();
+        List<String> dxf_str = text3.getDXF();
         System.out.println("DXF Data:");
 		for (String s:dxf_str) {
             System.out.println(s);

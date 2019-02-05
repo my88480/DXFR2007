@@ -49,7 +49,7 @@ public class EntLWPolylineTest {
         }
         System.out.println();
 
-        List<String> dxf_str = myLWPolyline.GetDXF();
+        List<String> dxf_str = myLWPolyline.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }

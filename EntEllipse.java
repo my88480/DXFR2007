@@ -300,7 +300,7 @@ public class EntEllipse extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity Ellipse.
      * <pre>Output example:
      *   0
@@ -340,12 +340,12 @@ public class EntEllipse extends EntBase {
      *  42
      * 6.283185307179585</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 
-        DXF_STR.addAll(cPoint.GetDXF());
+        DXF_STR.addAll(cPoint.getDXF());
 
         DXF_STR.add("  11");
         DXF_STR.add(Double.toString(this.lPoint.x));

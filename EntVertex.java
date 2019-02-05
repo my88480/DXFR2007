@@ -189,7 +189,7 @@ public class EntVertex extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity vertex.
      * <pre>Output example:
 	 *   0
@@ -216,7 +216,7 @@ public class EntVertex extends EntBase {
 	 * 	32
 	</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 		/*
         DXF_STR.add("  0");
@@ -239,9 +239,9 @@ public class EntVertex extends EntBase {
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel2);
 		*/
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 
-        DXF_STR.addAll(this.bPoint.GetDXF());
+        DXF_STR.addAll(this.bPoint.getDXF());
 
         //DXF_STR.add("  39");
         //DXF_STR.add(Double.toString(this.thickness));

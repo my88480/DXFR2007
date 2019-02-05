@@ -245,7 +245,7 @@ public class EntPolyline extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * 0
@@ -277,7 +277,7 @@ public class EntPolyline extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
 		
@@ -285,18 +285,18 @@ public class EntPolyline extends EntBase {
 		this.endHandle = FileDXF.ApplyHandle();
 
 		
-		DXF_STR.addAll(super.GetDXF());
+		DXF_STR.addAll(super.getDXF());
 		
         DXF_STR.add("  66");
         DXF_STR.add(Integer.toString(this.vtxFollow));
 		
-        DXF_STR.addAll(DummyPoint.GetDXF());
+        DXF_STR.addAll(DummyPoint.getDXF());
 
         DXF_STR.add("  70");
         DXF_STR.add(Integer.toString(this.TypeFlag));
 
         for (int i  =  0; i < this.vertexs.size(); i++) {
-            DXF_STR.addAll(this.vertexs.get(i).GetDXF());
+            DXF_STR.addAll(this.vertexs.get(i).getDXF());
         }
 
         DXF_STR.add("  0");

@@ -124,7 +124,7 @@ public class EntCircle extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity circle.
      * <pre>Output example:
      * 0
@@ -160,12 +160,12 @@ public class EntCircle extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 		
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 		
-        DXF_STR.addAll(cPoint.GetDXF());
+        DXF_STR.addAll(cPoint.getDXF());
 
         DXF_STR.add("  40");
         DXF_STR.add(Double.toString(this.radius));

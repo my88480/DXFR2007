@@ -93,7 +93,7 @@ public class EntPoint extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity point.
      * <pre>Output example:
      * 0
@@ -121,7 +121,7 @@ public class EntPoint extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 		/*
         DXF_STR.add("  0");
@@ -138,12 +138,12 @@ public class EntPoint extends EntBase {
 		*/
        //DXF_STR.add("8");
         //DXF_STR.add(this.layer);
-        //DXF_STR.addAll(super.GetDXF());
+        //DXF_STR.addAll(super.getDXF());
 
         //DXF_STR.add("  100");
         //DXF_STR.add(this.SubClassLabel);
 
-        //DXF_STR.addAll(this.bPoint.GetDXF());
+        //DXF_STR.addAll(this.bPoint.getDXF());
         /*
         DXF_STR.add("10");
         DXF_STR.add(Double.toString(bPoint.x));

@@ -281,12 +281,12 @@ for (String [] key : myMap) {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * 1.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
         /*
@@ -302,23 +302,23 @@ for (String [] key : myMap) {
 
         DXF_STR.add("  9");
         DXF_STR.add("$INSBASE");
-        DXF_STR.addAll(this.inserBasePoint.GetDXF());
+        DXF_STR.addAll(this.inserBasePoint.getDXF());
 
         DXF_STR.add("  9");
         DXF_STR.add("$EXTMIN");
-        DXF_STR.addAll(this.extmin.GetDXF());
+        DXF_STR.addAll(this.extmin.getDXF());
 
         DXF_STR.add("  9");
         DXF_STR.add("$EXTMAX");
-        DXF_STR.addAll(this.extmax.GetDXF());
+        DXF_STR.addAll(this.extmax.getDXF());
 
         DXF_STR.add("  9");
         DXF_STR.add("$LIMMIN");
-        DXF_STR.addAll(this.limmin.GetDXF());
+        DXF_STR.addAll(this.limmin.getDXF());
 
         DXF_STR.add("  9");
         DXF_STR.add("$LIMMAX");
-        DXF_STR.addAll(this.limmax.GetDXF());
+        DXF_STR.addAll(this.limmax.getDXF());
 
 
         DXF_STR.add("  0");
@@ -343,14 +343,14 @@ for (String [] key : myMap) {
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
         returnString = String.join(",",DXF_STR);
         */
 
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);

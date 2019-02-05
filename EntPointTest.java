@@ -41,7 +41,7 @@ public class EntPointTest {
         }
         System.out.println();
 
-        List<String> dxf_str = point6.GetDXF();
+        List<String> dxf_str = point6.getDXF();
         System.out.println("DXF Data:");
 		for (String s:dxf_str) {
             System.out.println(s);

@@ -167,7 +167,7 @@ public class wPoint2D {
         return params;
     }
 
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
         DXF_STR.add("  10");
@@ -183,7 +183,7 @@ public class wPoint2D {
         List<String> DXF_STR = new ArrayList<>();
         String returnString = new String();
 
-        DXF_STR = this.GetDXF();
+        DXF_STR = this.getDXF();
 
         if (null != DXF_STR && DXF_STR.size() > 0) {
             String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);

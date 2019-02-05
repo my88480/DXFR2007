@@ -143,7 +143,7 @@ public class EntLine extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      * 0
@@ -177,12 +177,12 @@ public class EntLine extends EntBase {
      * 230
      * 1.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 		
-        DXF_STR.addAll(sPoint.GetDXF());
+        DXF_STR.addAll(sPoint.getDXF());
 
         DXF_STR.add("  11");
         DXF_STR.add(Double.toString(ePoint.x));

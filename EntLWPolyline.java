@@ -208,7 +208,7 @@ public class EntLWPolyline extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity line.
      * <pre>Output example:
      *  0
@@ -250,7 +250,7 @@ public class EntLWPolyline extends EntBase {
      * 20
      *155.6644735368104</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
 		/*
@@ -266,13 +266,13 @@ public class EntLWPolyline extends EntBase {
         DXF_STR.add("  100");
         DXF_STR.add(this.ClassLabel);
 
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 
         DXF_STR.add("  100");
         DXF_STR.add(this.SubClassLabel);
 		*/
 		
-        DXF_STR.addAll(super.GetDXF());
+        DXF_STR.addAll(super.getDXF());
 
         DXF_STR.add("  90");
         DXF_STR.add(Integer.toString(this.Vertexs.size()));
@@ -284,7 +284,7 @@ public class EntLWPolyline extends EntBase {
         DXF_STR.add(Double.toString(this.fixedwidth));
 
         for (int i  =  0; i < this.Vertexs.size(); i++) {
-            DXF_STR.addAll(this.Vertexs.get(i).GetDXF());
+            DXF_STR.addAll(this.Vertexs.get(i).getDXF());
         }
 
         //DXF_STR.add("  0");

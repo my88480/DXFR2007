@@ -207,7 +207,7 @@ public class EntArc extends EntBase {
     }
 
     /**
-     * GetDXF()
+     * getDXF()
      * @return the dxf data of entity arc.
      * <pre>Output example:
      *   0
@@ -243,7 +243,7 @@ public class EntArc extends EntBase {
      *   39
      * 0.0</pre>
      */
-    public List<String> GetDXF() {
+    public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
 		
         DXF_STR.add("  0");
@@ -264,7 +264,7 @@ public class EntArc extends EntBase {
         DXF_STR.add("100");
         DXF_STR.add("AcDbCircle");
 
-        DXF_STR.addAll(cPoint.GetDXF());
+        DXF_STR.addAll(cPoint.getDXF());
 
         DXF_STR.add("  40");
         DXF_STR.add(Double.toString(this.radius));
