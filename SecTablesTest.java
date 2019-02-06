@@ -12,7 +12,7 @@ public class SecTablesTest {
     public static void  main(String[] args)  throws Exception {
         SecTables mySecTables = new SecTables();
 
-        mySecTables.PrintAll();
+        mySecTables.printAll();
         System.out.println();
 
         System.out.println("Test toString method: ");

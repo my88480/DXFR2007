@@ -34,7 +34,7 @@ public class EntPolylineTest {
             System.out.println("NO. " + i);
             System.out.println(myPolyline.vertexs.get(i));
             System.out.println(myPolyline.vertexs.get(i).bPoint.x);
-            myPolyline.vertexs.get(i).PrintAll();
+            myPolyline.vertexs.get(i).printAll();
             System.out.println();
         }
 

@@ -20,18 +20,18 @@ public class wPoint2DTest {
 
         wPoint2D point4=new wPoint2D(point2);
         point4.Print2D();
-        point4.PrintAll();
+        point4.printAll();
         System.out.println("");
 
         int xx,yy;
         xx=5;
         yy=7;
         wPoint2D point5=new wPoint2D(xx,yy);
-        point5.PrintAll();
+        point5.printAll();
         System.out.println("");
 
         wPoint2D point6=new wPoint2D(255.01234567890123456789,2545.01234567890123456789);
-        point6.PrintAll();
+        point6.printAll();
         System.out.println("");
 
         System.out.println(point6.toString());

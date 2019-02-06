@@ -19,17 +19,17 @@ public class EntVertexTest {
         EntVertex vertex3 = new EntVertex(12,55,22);
         System.out.println("");
         EntVertex vertex4 = new EntVertex(vertex3);
-        vertex4.PrintAll();
+        vertex4.printAll();
         System.out.println("");
         int xx,yy;
         xx = 5;
         yy = 7;
         EntVertex vertex5 = new EntVertex(xx,yy);
-        vertex5.PrintAll();
+        vertex5.printAll();
         System.out.println("");
 
         EntVertex vertex6 = new EntVertex(5.2314,3.12546,8.01234567890123456789);
-        vertex6.PrintAll();
+        vertex6.printAll();
         System.out.println("");
 
         List<String []> myMap = vertex6.GetPairData();

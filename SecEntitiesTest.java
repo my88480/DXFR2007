@@ -62,7 +62,7 @@ public class SecEntitiesTest {
             System.out.println(dxf_str.get(i));
         }
 
-        mySecEntities.PrintAll();
+        mySecEntities.printAll();
     }
 
 }

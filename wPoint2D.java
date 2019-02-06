@@ -141,28 +141,25 @@ public class wPoint2D {
         return Distance;
     }
 
-    /**
-     * Print x_value and y_value of the wPoint2D object.
-     */
-    public void Print2D() {
-        System.out.println("x="+this.x+"   y="+this.y);
+    public void printAll() {
+        List<String []>  myMap = this.GetPairData();
+        System.out.println("Entity List's Size: " + myMap.size());
+		for (String [] key : myMap) {
+            System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
+        }
+        System.out.println();
     }
-
-    /**
-     * Print x_value and y_value of the wPoint2D object.
-     */
-    public void PrintAll() {
-        System.out.println("x="+this.x);
-        System.out.println("y="+this.y);
-    }
-
 
     public List<String []> GetPairData() {
-        List<String []> params=new ArrayList<>();
+        List<String []> params =new ArrayList<>();
 
-        //Error Code: params.add(new String[2] {"x",Double.toString(this.x)});
-        params.add(new String[] {"x",Double.toString(this.x)});
-        params.add(new String[] {"y",Double.toString(this.y)});
+        List<String > DXFStr = new ArrayList<>();
+		
+		DXFStr = this.getDXF();
+		
+        for (int i = 0; i< DXFStr.size(); i = i + 2) {
+            params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
+        }
 
         return params;
     }

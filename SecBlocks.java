@@ -49,12 +49,12 @@ public class SecBlocks {
     }
 
     /**
-     * PrintAll()
+     * printAll()
      * <pre>Terminal output the description of start_point and end_point.(serveral lines)
      * Output example:
      * </pre>
      */
-    public void PrintAll() {
+    public void printAll() {
         List<String []>  myMap = this.GetPairData();
         System.out.println("Entity List's Size: "+myMap.size());
 		for (String [] key : myMap) {
@@ -79,7 +79,7 @@ public class SecBlocks {
     public List<String []> GetPairData() {
         List<String []> params=new ArrayList<>();
 
-        for (int i=0; i< StdSectionStr_R2K.length / 2; i= i + 2) {
+        for (int i=0; i< StdSectionStr_R2K.length; i= i + 2) {
             params.add(new String[] {StdSectionStr_R2K[i],StdSectionStr_R2K[i+1]});
         }
         /*

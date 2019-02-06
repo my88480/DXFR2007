@@ -13,24 +13,24 @@ public class FileDXFTest {
 
         FileDXF myFileDXF = new FileDXF();
 
-        myFileDXF.AddPoint(2,2);
-        myFileDXF.AddPoint(3,3,0);
-        myFileDXF.AddLine(0,-80,300,-80);
-        myFileDXF.AddCircle(0,0,80);
-        myFileDXF.AddLine(0,-80,0,300,-80,0);
-        myFileDXF.AddCircle(0,0,120);
+        myFileDXF.addPoint(2,2);
+        myFileDXF.addPoint(3,3,0);
+        myFileDXF.addLine(0,-80,300,-80);
+        myFileDXF.addCircle(0,0,80);
+        myFileDXF.addLine(0,-80,0,300,-80,0);
+        myFileDXF.addCircle(0,0,120);
 
         /*
         Others:
-        myFileDXF.AddArc(0,0,90,0,90);
-        myFileDXF.AddArc(0,0,0,90,0,90);
-        myFileDXF.AddText(0,0,8,"Test");
-        myFileDXF.AddText(0,0,0,8,"Test");
+        myFileDXF.addArc(0,0,90,0,90);
+        myFileDXF.addArc(0,0,0,90,0,90);
+        myFileDXF.addText(0,0,8,"Test");
+        myFileDXF.addText(0,0,0,8,"Test");
 
         double[][] mypoints = {{0,0},{5,5},{10,8}};
-        myFileDXF.AddPolyline(mypoints);
-        myFileDXF.AddLWPolyline();
-		myFileDXF.AddEllipse();
+        myFileDXF.addPolyline(mypoints);
+        myFileDXF.addLWPolyline();
+		myFileDXF.addEllipse();
 		
 		*/
 
@@ -75,8 +75,8 @@ public class FileDXFTest {
 
         myFileDXF.secEntities.entities.add(new EntText(0,0,0,8,"This is mine.÷–Œƒ≤‚ ‘\r\nApache Flink 1.7.0 Release Announcement\nMessage from David Wu\nState schema evolution now works out-of-the-box\rthe integration of complex event processing with streaming SQL "));
 
-        myFileDXF.AddEllipse(new wPoint(0,0,0),new wPoint(200,0,0),0.5,0,2*Math.PI);
-        myFileDXF.AddEllipse();
+        myFileDXF.addEllipse(new wPoint(0,0,0),new wPoint(200,0,0),0.5,0,2*Math.PI);
+        myFileDXF.addEllipse();
 
         /*
         System.out.println("Test toString method: ");
@@ -112,12 +112,12 @@ public class FileDXFTest {
         //myLine.getDXF();
         //myLine.getDXF();
 
-        //myFileDXF.AddLine(myLine);
-        //myFileDXF.AddLine(0,0,0,180);
+        //myFileDXF.addLine(myLine);
+        //myFileDXF.addLine(0,0,0,180);
 
         //Test succeed
         //for (int i=0;i<1800000;i++){
-        //	myFileDXF.AddLine(0,i,100,i+50);
+        //	myFileDXF.addLine(0,i,100,i+50);
         //}
 
         myFileDXF.DXF_WRITER();

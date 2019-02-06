@@ -16,7 +16,7 @@ public class EntEllipseTest {
         System.out.println(myEllipse);
         System.out.println();
 
-        myEllipse.PrintAll();
+        myEllipse.printAll();
         System.out.println();
 
         List<String []>  myMap = myEllipse.GetPairData();
@@ -38,7 +38,7 @@ public class EntEllipseTest {
         wPoint2D	Pb = new wPoint2D(2.1626945149204699,263.37176812099699);
 
         EntEllipse myEllipse2 = new EntEllipse(Po,Pa,Pb);
-        myarc2.PrintAll();
+        myarc2.printAll();
         */
     }
 

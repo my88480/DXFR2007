@@ -21,17 +21,17 @@ public class EntPointTest {
         EntPoint point3 = new EntPoint(12,55,22);
         System.out.println("");
         EntPoint point4 = new EntPoint(point3);
-        point4.PrintAll();
+        point4.printAll();
         System.out.println("");
         int xx,yy;
         xx = 5;
         yy = 7;
         EntPoint point5 = new EntPoint(xx,yy);
-        point5.PrintAll();
+        point5.printAll();
         System.out.println("");
 
         EntPoint point6 = new EntPoint(5.2314,3.12546,8.01234567890123456789);
-        point6.PrintAll();
+        point6.printAll();
         System.out.println("");
 
         List<String []>  myMap = point6.GetPairData();

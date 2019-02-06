@@ -13,7 +13,7 @@ public class SecHeaderTest {
 
         SecHeader mySecHeader = new SecHeader();
 
-        mySecHeader.PrintAll();
+        mySecHeader.printAll();
         System.out.println();
 
         System.out.println("Test toString method: ");

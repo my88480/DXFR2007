@@ -88,46 +88,26 @@ public class wPoint {
         return distance;
     }
 
-    /**
-     * Print x_value and y_value of the wPoint object.
-     */
-    public void Print2D() {
-        System.out.println("x="+this.x+"   y="+this.y);
+    public void printAll() {
+        List<String []>  myMap = this.GetPairData();
+        System.out.println("Entity List's Size: " + myMap.size());
+		for (String [] key : myMap) {
+            System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
+        }
+        System.out.println();
     }
 
-    public void Print3D() {
-        System.out.println("x="+this.x+"   y="+this.y+"   z="+this.z);
-    }
-
-    public void PrintAll() {
-        System.out.println("x="+this.x);
-        System.out.println("y="+this.y);
-        System.out.println("z="+this.z);
-    }
-    /*
-    	public Map<String,String> GetMapData(){
-    		Map<String,String> params=new IdentityHashMap<>();
-    		params.put("x",Double.toString(this.x));
-    		params.put("y",Double.toString(this.y));
-    		params.put("z",Double.toString(this.z));
-    		return params;
-    	}
-    */
     public List<String []> GetPairData() {
-        List<String []> params=new ArrayList<>();
+        List<String []> params =new ArrayList<>();
 
-        //Error Code: params.add(new String[2] {"x",Double.toString(this.x)});
-        params.add(new String[] {"x",Double.toString(this.x)});
-        params.add(new String[] {"y",Double.toString(this.y)});
-        params.add(new String[] {"z",Double.toString(this.z)});
+        List<String > DXFStr = new ArrayList<>();
+		
+		DXFStr = this.getDXF();
+		
+        for (int i = 0; i< DXFStr.size(); i = i + 2) {
+            params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
+        }
 
-        /*Restruct the code, because the same keys ocurred sometimes.
-        Map<String,String> params=new HashMap<>();
-        params.put("x",Double.toString(x));
-        params.put("y",Double.toString(y));
-        params.put("z",Double.toString(z));
-
-        */
         return params;
     }
 

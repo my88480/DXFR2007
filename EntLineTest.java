@@ -16,7 +16,7 @@ public class EntLineTest {
         System.out.println(myline);
         System.out.println();
 
-        myline.PrintAll();
+        myline.printAll();
         System.out.println();
 
         List<String []>  myMap = myline.GetPairData();

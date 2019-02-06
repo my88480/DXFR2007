@@ -196,12 +196,12 @@ public class SecHeader {
 
 
     /**
-     * PrintAll()
+     * printAll()
      * <pre>Terminal output the description of start_point and end_point.(serveral lines)
      * Output example:
      * </pre>
      */
-    public void PrintAll() {
+    public void printAll() {
         List<String []>  myMap = this.GetPairData();
         System.out.println("Entity List's Size: "+myMap.size());
 for (String [] key : myMap) {
@@ -214,19 +214,19 @@ for (String [] key : myMap) {
         System.out.println("$ACADVER: " + this.acadver);
 
         System.out.println("$INSBASE: ");
-        this.inserBasePoint.PrintAll();
+        this.inserBasePoint.printAll();
 
         System.out.println("$EXTMIN: ");
-        this.extmin.PrintAll();
+        this.extmin.printAll();
 
         System.out.println("$EXTMAX: ");
-        this.extmax.PrintAll();
+        this.extmax.printAll();
 
         System.out.println("$LIMMIN: ");
-        this.limmin.PrintAll();
+        this.limmin.printAll();
 
         System.out.println("$LIMMAX: ");
-        this.limmax.PrintAll();
+        this.limmax.printAll();
 
         System.out.println("SectionTail: " + this.SectionTail);
         */
@@ -242,7 +242,7 @@ for (String [] key : myMap) {
     public List<String []> GetPairData() {
         List<String []> params=new ArrayList<>();
 
-        for (int i=0; i< StdSectionStr_R2K01.length / 2; i= i + 2) {
+        for (int i=0; i< StdSectionStr_R2K01.length; i= i + 2) {
             params.add(new String[] {StdSectionStr_R2K01[i],StdSectionStr_R2K01[i+1]});
         }
 

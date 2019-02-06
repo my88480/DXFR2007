@@ -26,18 +26,18 @@ public class wPointTest {
         wPoint point4=new wPoint(point3);
         point4.Print2D();
         point4.Print3D();
-        point4.PrintAll();
+        point4.printAll();
         System.out.println("");
 
         int xx,yy;
         xx=5;
         yy=7;
         wPoint point5=new wPoint(xx,yy);
-        point5.PrintAll();
+        point5.printAll();
         System.out.println("");
 
         wPoint point6=new wPoint(255.01234567890123456789,2545.01234567890123456789,8.01234567890123456789);
-        point6.PrintAll();
+        point6.printAll();
         System.out.println("");
 
         System.out.println(point6.toString());

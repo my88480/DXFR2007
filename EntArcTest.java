@@ -16,19 +16,19 @@ public class EntArcTest {
         System.out.println(myarc);
         System.out.println();
 
-        myarc.PrintAll();
+        myarc.printAll();
         System.out.println();
 
         List<String []>  myMap = myarc.GetPairData();
-        System.out.println("List's Size: "+myMap.size());
+        System.out.println("List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
         }
         System.out.println();
 
         List<String> dxf_str = myarc.getDXF();
-        System.out.println("DXF's Size: "+dxf_str.size());
-        for (int i  =  0; i < dxf_str.size(); i++) {
+        System.out.println("DXF's Size: " + dxf_str.size());
+        for (int i = 0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }
 
@@ -37,10 +37,10 @@ public class EntArcTest {
         wPoint2D	Pb = new wPoint2D(2.1626945149204699,263.37176812099699);
 
         EntArc myarc2 = new EntArc(Po,Pa,Pb);
-        myarc2.PrintAll();
+        myarc2.printAll();
 
-        for (double a=-1.0; a<=1.0; a=a+0.1) {
-            System.out.println("a=" + a + "  angle=" + Math.acos(a)*180.0/Math.PI);
+        for (double a = -1.0; a <= 1.0; a= a + 0.1) {
+            System.out.println("a=" + a + "  angle=" + Math.acos(a) * 180.0 / Math.PI);
         }
     }
 

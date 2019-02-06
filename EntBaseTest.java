@@ -18,7 +18,7 @@ public class EntBaseTest {
         System.out.println(ent_base);
         System.out.println();
 
-        ent_base.PrintAll();
+        ent_base.printAll();
         System.out.println("");
 
         List<String []>  myMap = ent_base.GetPairData();
@@ -38,7 +38,7 @@ public class EntBaseTest {
             System.out.println(dxf_str.get(i));
         }
 
-        ent_base.PrintAll();
+        ent_base.printAll();
 
     }
 

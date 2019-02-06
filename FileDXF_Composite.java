@@ -64,24 +64,24 @@ public class FileDXF_Composite extends FileDXF{
 			
 			switch (type){
 				case 1:
-					this.AddLine(Po,Pa);
-					this.AddLine(Po,Pb);
-					this.AddArc(Pc,Pa,Pb);
+					this.addLine(Po,Pa);
+					this.addLine(Po,Pb);
+					this.addArc(Pc,Pa,Pb);
 					break;
 				case 2:
-					this.AddLine(Po,Pa);
-					this.AddLine(Po,Pb);
-					this.AddCircle(Pc,r);
+					this.addLine(Po,Pa);
+					this.addLine(Po,Pb);
+					this.addCircle(Pc,r);
 					break;
 				case 3:
-					this.AddLine(Po,Pa);
-					this.AddLine(Po,Pb);
+					this.addLine(Po,Pa);
+					this.addLine(Po,Pb);
 					break;
 				case 4:
-					this.AddLine(Po,Pa);
+					this.addLine(Po,Pa);
 					break;
 				case 5:
-					this.AddLine(Po,Pb);
+					this.addLine(Po,Pb);
 					break;
 				default:
 					break;
@@ -145,25 +145,25 @@ public class FileDXF_Composite extends FileDXF{
 			
 			switch (type){
 				case 1:
-					this.AddLine(Pd,Pe);
-					this.AddLine(Pd,Pa);
-					this.AddLine(Pe,Pb);
-					this.AddArc(Pc,Pa,Pb);
+					this.addLine(Pd,Pe);
+					this.addLine(Pd,Pa);
+					this.addLine(Pe,Pb);
+					this.addArc(Pc,Pa,Pb);
 					break;
 				case 2:
-					this.AddLine(Pd,Pe);
-					this.AddLine(Pd,Pa);
-					this.AddLine(Pe,Pb);
-					this.AddCircle(Pc,r);
+					this.addLine(Pd,Pe);
+					this.addLine(Pd,Pa);
+					this.addLine(Pe,Pb);
+					this.addCircle(Pc,r);
 					break;
 				case 3:
-					this.AddLine(Pd,Pe);
-					this.AddLine(Pd,Pa);
-					this.AddLine(Pe,Pb);
+					this.addLine(Pd,Pe);
+					this.addLine(Pd,Pa);
+					this.addLine(Pe,Pb);
 					break;
 				case 4:
-					this.AddLine(Pd,Pa);
-					this.AddLine(Pe,Pb);
+					this.addLine(Pd,Pa);
+					this.addLine(Pe,Pb);
 					break;
 				default:
 					break;
@@ -218,26 +218,26 @@ public class FileDXF_Composite extends FileDXF{
 			
 			switch (type){
 				case 1:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
-					this.AddArc(PC,PA,PB);
-					this.AddArc(Pc,Pb,Pa);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
+					this.addArc(PC,PA,PB);
+					this.addArc(Pc,Pb,Pa);
 					break;
 				case 2:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
-					this.AddCircle(Pc,r);
-					this.AddCircle(PC,R);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
+					this.addCircle(Pc,r);
+					this.addCircle(PC,R);
 					break;
 				case 3:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
 					break;
 				case 4:
-					this.AddLine(Pa,PA);
+					this.addLine(Pa,PA);
 					break;
 				case 5:
-					this.AddLine(Pb,PB);
+					this.addLine(Pb,PB);
 					break;
 				default:
 					break;
@@ -299,10 +299,10 @@ public class FileDXF_Composite extends FileDXF{
 		p3 = new wPoint2D(point2);
 		p4 = new wPoint2D(point1.x,point2.y);
 		
-        this.AddLine(p1,p2);
-        this.AddLine(p2,p3);
-        this.AddLine(p3,p4);
-        this.AddLine(p4,p1);
+        this.addLine(p1,p2);
+        this.addLine(p2,p3);
+        this.addLine(p3,p4);
+        this.addLine(p4,p1);
     }
 
     /**
@@ -319,9 +319,9 @@ public class FileDXF_Composite extends FileDXF{
 		
 		sPoint = new wPoint2D(bPoint.x + radius * Math.cos(Math.toRadians(sAngle)),bPoint.y + radius * Math.sin(Math.toRadians(sAngle)));
 		ePoint = new wPoint2D(bPoint.x + radius * Math.cos(Math.toRadians(eAngle)),bPoint.y + radius * Math.sin(Math.toRadians(eAngle)));
-        this.AddArc(bPoint,sPoint,ePoint);
-        this.AddLine(bPoint,sPoint);
-        this.AddLine(bPoint,ePoint);
+        this.addArc(bPoint,sPoint,ePoint);
+        this.addLine(bPoint,sPoint);
+        this.addLine(bPoint,ePoint);
     }
 	
  	/**
@@ -359,16 +359,16 @@ public class FileDXF_Composite extends FileDXF{
     }
 
 	/**
-     * AddCircle(radius)
+     * addCircle(radius)
      * <pre>Add one arc into the Entities' Section
      * @param radius - radius of the arc;
  	 *	</pre>
     */
-    public void AddCircle(double radius) {
+    public void addCircle(double radius) {
 		wPoint2D bPoint;
 		
 		bPoint = new wPoint2D(0,0);
-		this.AddCircle(bPoint,radius);
+		this.addCircle(bPoint,radius);
     }
 
    /**
@@ -387,14 +387,14 @@ public class FileDXF_Composite extends FileDXF{
 		
 		sPoint = new wPoint2D(bPoint.x + r1 * Math.cos(Math.toRadians(sAngle)), bPoint.y + r1 * Math.sin(Math.toRadians(sAngle)));
 		ePoint = new wPoint2D(bPoint.x + r1 * Math.cos(Math.toRadians(eAngle)), bPoint.y + r1 * Math.sin(Math.toRadians(eAngle)));
-        this.AddArc(bPoint,r1,sAngle,eAngle);
+        this.addArc(bPoint,r1,sAngle,eAngle);
 		
 		SPoint = new wPoint2D(bPoint.x + r2 * Math.cos(Math.toRadians(sAngle)), bPoint.y + r2 * Math.sin(Math.toRadians(sAngle)));
 		EPoint = new wPoint2D(bPoint.x + r2 * Math.cos(Math.toRadians(eAngle)), bPoint.y + r2 * Math.sin(Math.toRadians(eAngle)));
-        this.AddArc(new EntArc(bPoint,r2,sAngle,eAngle));
+        this.addArc(new EntArc(bPoint,r2,sAngle,eAngle));
 		
-        this.AddLine(new EntLine(SPoint,sPoint));
-        this.AddLine(new EntLine(EPoint,ePoint));
+        this.addLine(new EntLine(SPoint,sPoint));
+        this.addLine(new EntLine(EPoint,ePoint));
     }
 	
    /**

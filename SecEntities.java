@@ -56,38 +56,38 @@ public class SecEntities {
     }
 
     /**
-     * PrintAll()
+     * printAll()
      * <pre>Terminal output the description of start_point and end_point.(serveral lines)
      * Output example:
      * </pre>
      */
-    public void PrintAll() {
+    public void printAll() {
         for (int i  =  0; i < this.entities.size(); i++) {
             Object myEntity=this.entities.get(i);
             if (myEntity instanceof EntLine) {
                 EntLine myLine= (EntLine) myEntity;
-                myLine.PrintAll();
+                myLine.printAll();
             } else if (myEntity instanceof EntLWPolyline) {
                 EntLWPolyline myLWPolyline = (EntLWPolyline) myEntity;
-                myLWPolyline.PrintAll();
+                myLWPolyline.printAll();
             } else if (myEntity instanceof EntPolyline) {
                 EntPolyline myPolyline = (EntPolyline) myEntity;
-                myPolyline.PrintAll();
+                myPolyline.printAll();
             } else if (myEntity instanceof EntPoint) {
                 EntPoint myPoint = (EntPoint) myEntity;
-                myPoint.PrintAll();
+                myPoint.printAll();
             } else if (myEntity instanceof EntCircle) {
                 EntCircle myCircle = (EntCircle) myEntity;
-                myCircle.PrintAll();
+                myCircle.printAll();
             } else if (myEntity instanceof EntArc) {
                 EntArc myArc = (EntArc) myEntity;
-                myArc.PrintAll();
+                myArc.printAll();
             } else if (myEntity instanceof EntText) {
                 EntText myText = (EntText) myEntity;
-                myText.PrintAll();
+                myText.printAll();
             } else if (myEntity instanceof EntVertex) {
                 EntVertex myVertex = (EntVertex) myEntity;
-                myVertex.PrintAll();
+                myVertex.printAll();
             }else {
 				System.out.println("Unacquainted Entity type!");
 			}	
@@ -186,7 +186,7 @@ public class SecEntities {
 
             //Method method = this.entities.get(i).getClass().getDeclaredMethod("GetDXF");
             //method.invoke(this.entities.get(i));
-            //System.out.println(this.entities.get(i).PrintAll());
+            //System.out.println(this.entities.get(i).printAll());
             //DXF_STR.addAll(this.entities.get(i).getDXF());
         }
 

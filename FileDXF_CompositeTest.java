@@ -14,21 +14,21 @@ public class FileDXF_CompositeTest{
 		FileDXF_Composite myCompositeGraphic = new FileDXF_Composite();
 		
 		/*
-		myCompositeGraphic.AddPoint(2,2);
-		myCompositeGraphic.AddPoint(3,3,0);
-		myCompositeGraphic.AddLine(0,-80,300,-80);
-		myCompositeGraphic.AddLine(0,-80,0,300,-80,0);
-		myCompositeGraphic.AddCircle(0,0,80);
-		myCompositeGraphic.AddCircle(0,0,0,80);
+		myCompositeGraphic.addPoint(2,2);
+		myCompositeGraphic.addPoint(3,3,0);
+		myCompositeGraphic.addLine(0,-80,300,-80);
+		myCompositeGraphic.addLine(0,-80,0,300,-80,0);
+		myCompositeGraphic.addCircle(0,0,80);
+		myCompositeGraphic.addCircle(0,0,0,80);
 
 		Others:
-		myCompositeGraphic.AddArc(0,0,90,0,90);
-		myCompositeGraphic.AddArc(0,0,0,90,0,90);
-		myCompositeGraphic.AddText(0,0,8,"Test");
-		myCompositeGraphic.AddText(0,0,0,8,"Test");
+		myCompositeGraphic.addArc(0,0,90,0,90);
+		myCompositeGraphic.addArc(0,0,0,90,0,90);
+		myCompositeGraphic.addText(0,0,8,"Test");
+		myCompositeGraphic.addText(0,0,0,8,"Test");
 		
 		double[][] mypoints = {{0,0},{5,5},{10,8}};		
-		myCompositeGraphic.AddPolyline(mypoints);
+		myCompositeGraphic.addPolyline(mypoints);
 		
 		//Add the combined entities
 		
@@ -79,7 +79,7 @@ public class FileDXF_CompositeTest{
 		System.out.println("");
 		System.out.println("DXF file's Content:");
 		
-        List<String> dxf_str = myCompositeGraphic.GetDXFData();
+        List<String> dxf_str = myCompositeGraphic.getDXF();
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i)); 
         }
@@ -88,7 +88,7 @@ public class FileDXF_CompositeTest{
 		//myCompositeGraphic.AddRectangle(200,150);
 		//myCompositeGraphic.AddSector(new wPoint2D(50,25),50,45,90);
 		myCompositeGraphic.AddDonut(new wPoint2D(0,0),30,50,30,60);
-		myCompositeGraphic.PrintAll();
+		myCompositeGraphic.printAll();
 		
 		//myCompositeGraphic.dxf_filename = "sss.dxf";
 		

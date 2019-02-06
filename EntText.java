@@ -137,7 +137,7 @@ public class EntText extends EntBase {
         iPoint = new wPoint[splitText.length];
         for (int i=0; i<splitText.length; i++) {
 
-            Handle[i] = FileDXF.ApplyHandle();
+            Handle[i] = FileDXF.applyHandle();
             iPoint[i] = new wPoint(this.bPoint.x,this.bPoint.y - (1.0 + 2.0 / 3.0) * this.height * i,this.bPoint.z);
         }
     }

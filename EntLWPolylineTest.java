@@ -35,7 +35,7 @@ public class EntLWPolylineTest {
             System.out.println(myLWPolyline.Vertexs.get(i));
             System.out.println(myLWPolyline.Vertexs.get(i).x);
             myLWPolyline.Vertexs.get(i).Print3D();
-            myLWPolyline.Vertexs.get(i).PrintAll();
+            myLWPolyline.Vertexs.get(i).printAll();
             System.out.println();
         }
 

@@ -33,6 +33,7 @@ public class EntArc extends EntBase {
      * Constructor (empty).
      */
     public EntArc() {
+		super();
 		this.EntityName = "ARC";
 		this.ObjectId = "1F";
 		this.ClassLabel = "AcDbEntity";
@@ -245,7 +246,7 @@ public class EntArc extends EntBase {
      */
     public List<String> getDXF() {
         List<String> DXF_STR = new ArrayList<>();
-		
+		/*
         DXF_STR.add("  0");
         DXF_STR.add(this.EntityName);
 
@@ -263,7 +264,12 @@ public class EntArc extends EntBase {
 
         DXF_STR.add("100");
         DXF_STR.add("AcDbCircle");
-
+		*/
+		
+		this.SubClassLabel = "AcDbCircle";
+        DXF_STR.addAll(super.getDXF());
+		this.SubClassLabel = "AcDbArc";
+		
         DXF_STR.addAll(cPoint.getDXF());
 
         DXF_STR.add("  40");

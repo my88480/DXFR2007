@@ -111,16 +111,16 @@ public class FileDXF {
         this.secObjects = dxf_file.secObjects;
     }
 
-    public static String ApplyHandle() {
+    public static String applyHandle() {
         String Handle = hex_handle;
 		//System.out.println("Before:" + hex_handle);
-        SetNextHandle();
+        setNextHandle();
 		//System.out.println("After:" + hex_handle);
 		//System.out.println("Get:" + Handle);
         return Handle;
     }
 
-    public static void SetNextHandle() {
+    public static void setNextHandle() {
         int_handle += 1;
         hex_handle = Integer.toHexString(int_handle).toUpperCase();
         if (hex_handle.equals("BD") || hex_handle.equals("105")) {
@@ -130,60 +130,60 @@ public class FileDXF {
     }
 
     /**
-     * AddPoint(x_value,y_value)
+     * addPoint(x_value,y_value)
      * <pre>Add one Point into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
      *	</pre>
     */
-    public void AddPoint(double x_value,double y_value) {
+    public void addPoint(double x_value,double y_value) {
         this.secEntities.entities.add(new EntPoint(x_value,y_value));
     }
 
     /**
-     * AddPoint(point)
+     * addPoint(point)
      * <pre>Add one Point into the Entities' Section
      * @param point - 2D point;
      *	</pre>
     */
-    public void AddPoint(wPoint2D point) {
+    public void addPoint(wPoint2D point) {
         this.secEntities.entities.add(point);
     }
 
     /**
-     * AddPoint(x_value,y_value,z_value)
+     * addPoint(x_value,y_value,z_value)
      * <pre>Add one Point into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
      * @param z_value - Axis Z;
      *	</pre>
     */
-    public void AddPoint(double x_value,double y_value, double z_value) {
+    public void addPoint(double x_value,double y_value, double z_value) {
         this.secEntities.entities.add(new EntPoint(x_value,y_value,z_value));
     }
 
     /**
-     * AddPoint(point)
+     * addPoint(point)
      * <pre>Add one Point into the Entities' Section
      * @param point - 3D point;
      *	</pre>
     */
-    public void AddPoint(wPoint point) {
+    public void addPoint(wPoint point) {
         this.secEntities.entities.add(point);
     }
 
     /**
-     * AddPoint(myPoint)
+     * addPoint(myPoint)
      * <pre>Add one Point into the Entities' Section
      * @param myPoint - Point Entity;
      *	</pre>
     */
-    public void AddPoint(EntPoint myPoint) {
+    public void addPoint(EntPoint myPoint) {
         this.secEntities.entities.add(myPoint);
     }
 
     /**
-     * AddLine(xs_value,ys_value,xe_value,ye_value)
+     * addLine(xs_value,ys_value,xe_value,ye_value)
      * <pre>Add one line into the Entities' Section
      * @param xs_value - Axis X;
      * @param ys_value - Axis Y;
@@ -191,58 +191,58 @@ public class FileDXF {
      * @param ye_value - Axis Y;
      *	</pre>
     */
-    public void AddLine(double xs_value,double ys_value,double xe_value,double ye_value) {
+    public void addLine(double xs_value,double ys_value,double xe_value,double ye_value) {
         this.secEntities.entities.add(new EntLine(xs_value,ys_value,xe_value,ye_value));
     }
 
     /**
-     * AddLine(xe_value,ye_value)
+     * addLine(xe_value,ye_value)
      * <pre>Add one line into the Entities' Section
      * @param xe_value - Axis X;
      * @param ye_value - Axis Y;
      *	</pre>
     */
-    public void AddLine(double xe_value,double ye_value) {
-        this.AddLine(0,0,xe_value,ye_value);
+    public void addLine(double xe_value,double ye_value) {
+        this.addLine(0,0,xe_value,ye_value);
     }
 
     /**
-     * AddLine(sPoint,xe_value,ye_value)
+     * addLine(sPoint,xe_value,ye_value)
      * <pre>Add one line into the Entities' Section
      * @param sPoint - Axis Y;
      * @param xe_value - Axis X;
      * @param ye_value - Axis Y;
      *	</pre>
     */
-    public void AddLine(wPoint2D sPoint,double xe_value,double ye_value) {
-        this.AddLine(sPoint.x,sPoint.y,xe_value,ye_value);
+    public void addLine(wPoint2D sPoint,double xe_value,double ye_value) {
+        this.addLine(sPoint.x,sPoint.y,xe_value,ye_value);
     }
 
     /**
-     * AddLine(xs_value,ys_value,ePoint)
+     * addLine(xs_value,ys_value,ePoint)
      * <pre>Add one line into the Entities' Section
      * @param xs_value - Axis X;
      * @param ys_value - Axis Y;
      * @param ePoint - wPoint2D End Point;
      *	</pre>
     */
-    public void AddLine(double xs_value,double ys_value,wPoint2D ePoint) {
-        this.AddLine(xs_value,ys_value,ePoint.x,ePoint.y);
+    public void addLine(double xs_value,double ys_value,wPoint2D ePoint) {
+        this.addLine(xs_value,ys_value,ePoint.x,ePoint.y);
     }
 
     /**
-     * AddLine(sPoint,ePoint)
+     * addLine(sPoint,ePoint)
      * <pre>Add one line into the Entities' Section
      * @param sPoint - Start point of the line;
      * @param ePoint - End point of the line;
      *	</pre>
     */
-    public void AddLine(wPoint2D sPoint,wPoint2D ePoint) {
+    public void addLine(wPoint2D sPoint,wPoint2D ePoint) {
         this.secEntities.entities.add(new EntLine(sPoint,ePoint));
     }
 
     /**
-     * AddLine(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value)
+     * addLine(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value)
      * <pre>Add one line into the Entities' Section
      * @param xs_value - Axis X;
      * @param ys_value - Axis Y;
@@ -252,50 +252,50 @@ public class FileDXF {
      * @param ze_value - Axis Z;
      *	</pre>
     */
-    public void AddLine(double xs_value,double ys_value,double zs_value,double xe_value,double ye_value,double ze_value) {
+    public void addLine(double xs_value,double ys_value,double zs_value,double xe_value,double ye_value,double ze_value) {
         this.secEntities.entities.add(new EntLine(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value));
     }
 
     /**
-     * AddLine(xe_value,ye_value,ze_value)
+     * addLine(xe_value,ye_value,ze_value)
      * <pre>Add one line into the Entities' Section
      * @param xe_value - Axis X;
      * @param ye_value - Axis Y;
      * @param ze_value - Axis Z;
      *	</pre>
     */
-    public void AddLine(double xe_value,double ye_value,double ze_value) {
-        this.AddLine(0,0,0,xe_value,ye_value,ze_value);
+    public void addLine(double xe_value,double ye_value,double ze_value) {
+        this.addLine(0,0,0,xe_value,ye_value,ze_value);
     }
 
     /**
-     * AddLine(sPoint,ePoint)
+     * addLine(sPoint,ePoint)
      * <pre>Add one line into the Entities' Section
      * @param sPoint - Start point of the line;
      * @param ePoint - End point of the line;
      *	</pre>
     */
-    public void AddLine(wPoint sPoint,wPoint ePoint) {
+    public void addLine(wPoint sPoint,wPoint ePoint) {
         this.secEntities.entities.add(new EntLine(sPoint,ePoint));
     }
 
     /**
-     * AddLine(myLine)
+     * addLine(myLine)
      * <pre>Add one line into the Entities' Section
      * @param myLine - Line Entity;
      *	</pre>
     */
-    public void AddLine(EntLine myLine) {
+    public void addLine(EntLine myLine) {
         this.secEntities.entities.add(new EntLine(myLine));
     }
 
     /**
-    * AddCircle(radius)
+    * addCircle(radius)
     * <pre>Add one Circle into the Entities' Section
     * @param radius - radius;
     *	</pre>
         */
-    public void AddCircle(double radius) {
+    public void addCircle(double radius) {
         wPoint2D cPoint;
 
         cPoint = new wPoint2D(0,0);
@@ -303,19 +303,19 @@ public class FileDXF {
     }
 
     /**
-      * AddCircle(x_value,y_value,radius)
+      * addCircle(x_value,y_value,radius)
       * <pre>Add one Circle into the Entities' Section
       * @param x_value - Axis X;
       * @param y_value - Axis Y;
       * @param radius - radius;
      *	</pre>
      */
-    public void AddCircle(double x_value,double y_value,double radius) {
+    public void addCircle(double x_value,double y_value,double radius) {
         this.secEntities.entities.add(new EntCircle(x_value,y_value,radius));
     }
 
     /**
-     * AddCircle(x_value,y_value,z_value, radius)
+     * addCircle(x_value,y_value,z_value, radius)
      * <pre>Add one Circle into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
@@ -323,44 +323,44 @@ public class FileDXF {
      * @param radius - radius;
      *	</pre>
     */
-    public void AddCircle(double x_value,double y_value, double z_value,double radius) {
+    public void addCircle(double x_value,double y_value, double z_value,double radius) {
         this.secEntities.entities.add(new EntCircle(x_value,y_value,z_value,radius));
     }
 
     /**
-     * AddCircle(cPoint,radius)
+     * addCircle(cPoint,radius)
      * <pre>Add one Circle into the Entities' Section
      * @param cPoint - enter point of the circle;
      * @param radius - radius;
      *	</pre>
     */
-    public void AddCircle(wPoint2D cPoint,double radius) {
+    public void addCircle(wPoint2D cPoint,double radius) {
         this.secEntities.entities.add(new EntCircle(cPoint,radius));
     }
 
     /**
-     * AddCircle(cPoint,radius)
+     * addCircle(cPoint,radius)
      * <pre>Add one Circle into the Entities' Section
      * @param cPoint - enter point of the circle;
      * @param radius - radius;
      *	</pre>
     */
-    public void AddCircle(wPoint cPoint,double radius) {
+    public void addCircle(wPoint cPoint,double radius) {
         this.secEntities.entities.add(new EntCircle(cPoint,radius));
     }
 
     /**
-     * AddCircle(myCircle)
+     * addCircle(myCircle)
      * <pre>Add one Circle into the Entities' Section
      * @param myCircle - Circle entity;
      *	</pre>
     */
-    public void AddCircle(EntCircle myCircle) {
+    public void addCircle(EntCircle myCircle) {
         this.secEntities.entities.add(new EntCircle(myCircle));
     }
 
     /**
-     * AddArc(x_value,y_value,radius,start_angle,end_angle)
+     * addArc(x_value,y_value,radius,start_angle,end_angle)
      * <pre>Add one arc into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
@@ -369,12 +369,12 @@ public class FileDXF {
      * @param end_angle - end_angle;
      *	</pre>
     */
-    public void AddArc(double x_value,double y_value,double radius,double start_angle,double end_angle) {
+    public void addArc(double x_value,double y_value,double radius,double start_angle,double end_angle) {
         this.secEntities.entities.add(new EntArc(x_value,y_value,radius,start_angle,end_angle));
     }
 
     /**
-     * AddArc(cPoint,,radius,start_angle,end_angle)
+     * addArc(cPoint,,radius,start_angle,end_angle)
      * <pre>Add one arc into the Entities' Section
      * @param cPoint - Center point of the arc;
      * @param radius - radius;
@@ -382,12 +382,12 @@ public class FileDXF {
      * @param end_angle - end_angle;
      *	</pre>
     */
-    public void AddArc(wPoint2D cPoint,double radius,double start_angle,double end_angle) {
+    public void addArc(wPoint2D cPoint,double radius,double start_angle,double end_angle) {
         this.secEntities.entities.add(new EntArc(cPoint,radius,start_angle,end_angle));
     }
 
     /**
-     * AddArc(x_value,y_value,z_value, radius,start_angle,end_angle)
+     * addArc(x_value,y_value,z_value, radius,start_angle,end_angle)
      * <pre>Add one arc into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
@@ -397,24 +397,24 @@ public class FileDXF {
      * @param end_angle - end_angle;
      *	</pre>
     */
-    public void AddArc(double x_value,double y_value, double z_value,double radius,double start_angle,double end_angle) {
+    public void addArc(double x_value,double y_value, double z_value,double radius,double start_angle,double end_angle) {
         this.secEntities.entities.add(new EntArc(x_value,y_value,z_value,radius,start_angle,end_angle));
     }
 
     /**
-     * AddArc(radius,start_angle,end_angle)
+     * addArc(radius,start_angle,end_angle)
      * <pre>Add one arc into the Entities' Section
      * @param radius - radius;
      * @param start_angle - start_angle;
      * @param end_angle - end_angle;
      *	</pre>
     */
-    public void AddArc(double radius,double start_angle,double end_angle) {
+    public void addArc(double radius,double start_angle,double end_angle) {
         this.secEntities.entities.add(new EntArc(0,0,0,radius,start_angle,end_angle));
     }
 
     /**
-     * AddArc(cPoint,radius,start_angle,end_angle)
+     * addArc(cPoint,radius,start_angle,end_angle)
      * <pre>Add one arc into the Entities' Section
      * @param cPoint - Center point of the arc;
      * @param radius - radius;
@@ -422,34 +422,34 @@ public class FileDXF {
      * @param end_angle - end_angle;
      *	</pre>
     */
-    public void AddArc(wPoint cPoint,double radius,double start_angle,double end_angle) {
+    public void addArc(wPoint cPoint,double radius,double start_angle,double end_angle) {
         this.secEntities.entities.add(new EntArc(cPoint,radius,start_angle,end_angle));
     }
 
     /**
-     * AddArc(cPoint,sPoint,ePoint)
+     * addArc(cPoint,sPoint,ePoint)
      * <pre>Add one arc into the Entities' Section
      * @param cPoint - Center point of the arc;
      * @param sPoint - Start point of the arc;
      * @param ePoint - End point of the arc;
      *	</pre>
     */
-    public void AddArc(wPoint2D cPoint,wPoint2D sPoint,wPoint2D ePoint) {
+    public void addArc(wPoint2D cPoint,wPoint2D sPoint,wPoint2D ePoint) {
         this.secEntities.entities.add(new EntArc(cPoint,sPoint,ePoint));
     }
 
     /**
-     * AddArc(myArc)
+     * addArc(myArc)
      * <pre>Add one arc into the Entities' Section
      * @param myArc - one Arc Entity;
      *	</pre>
     */
-    public void AddArc(EntArc myArc) {
+    public void addArc(EntArc myArc) {
         this.secEntities.entities.add(new EntArc(myArc));
     }
 
     /**
-     * AddText(x_value,y_value,height_value,str))
+     * addText(x_value,y_value,height_value,str))
      * <pre>Add one Text into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
@@ -457,24 +457,24 @@ public class FileDXF {
      * @param str - TEXT's string;
      *	</pre>
     */
-    public void AddText(double x_value,double y_value ,double height_value,String str) {
+    public void addText(double x_value,double y_value ,double height_value,String str) {
         this.secEntities.entities.add(new EntText(x_value,y_value,height_value,str));
     }
 
     /**
-     * AddText(bPoint,height_value,str))
+     * addText(bPoint,height_value,str))
      * <pre>Add one Text into the Entities' Section
      * @param bPoint - insert point of the text;
      * @param height_value - font's height;
      * @param str - TEXT's string;
      *	</pre>
     */
-    public void AddText(wPoint2D bPoint,double height_value,String str) {
+    public void addText(wPoint2D bPoint,double height_value,String str) {
         this.secEntities.entities.add(new EntText(bPoint,height_value,str));
     }
 
     /**
-     * AddText(x_value,y_value,z_value,height_value,str)
+     * addText(x_value,y_value,z_value,height_value,str)
      * <pre>Add one Text into the Entities' Section
      * @param x_value - Axis X;
      * @param y_value - Axis Y;
@@ -483,29 +483,29 @@ public class FileDXF {
      * @param str - TEXT's string;
      *	</pre>
     */
-    public void AddText(double x_value,double y_value ,double z_value,double height_value,String str) {
+    public void addText(double x_value,double y_value ,double z_value,double height_value,String str) {
         this.secEntities.entities.add(new EntText(x_value,y_value,z_value,height_value,str));
     }
 
     /**
-     * AddText(bPoint,height_value,str))
+     * addText(bPoint,height_value,str))
      * <pre>Add one Text into the Entities' Section
      * @param bPoint - insert point of the text;
      * @param height_value - font's height;
      * @param str - TEXT's string;
      *	</pre>
     */
-    public void AddText(wPoint bPoint,double height_value,String str) {
+    public void addText(wPoint bPoint,double height_value,String str) {
         this.secEntities.entities.add(new EntText(bPoint,height_value,str));
     }
 
     /**
-     * AddText(myText))
+     * addText(myText))
      * <pre>Add one Text into the Entities' Section
      * @param myText - Text Entity;
      *	</pre>
     */
-    public void AddText(EntText myText) {
+    public void addText(EntText myText) {
         this.secEntities.entities.add(new EntText(myText));
     }
 
@@ -514,7 +514,7 @@ public class FileDXF {
      * @param x_value -x of start vertex;
      * @param y_value -y of start vertex;
      */
-    public void AddPolyline(double[] x_value,double[] y_value) {
+    public void addPolyline(double[] x_value,double[] y_value) {
         this.secEntities.entities.add(new EntPolyline(x_value,y_value));
     }
 
@@ -524,61 +524,61 @@ public class FileDXF {
      * @param y_value -y of start vertex;
      * @param z_value -z of start vertex;
      */
-    public void AddPolyline(double[] x_value,double[] y_value,double[] z_value) {
+    public void addPolyline(double[] x_value,double[] y_value,double[] z_value) {
         this.secEntities.entities.add(new EntPolyline(x_value,y_value,z_value));
     }
 
     /**
-     * AddPolyline(points)
+     * addPolyline(points)
      * <pre>Add one Polyline into the Entities' Section
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
      *	</pre>
     */
-    public void AddPolyline(double[][] points) {
+    public void addPolyline(double[][] points) {
         this.secEntities.entities.add(new EntPolyline(points));
     }
 
     /**
-     * AddPolyline(myPolyline)
+     * addPolyline(myPolyline)
      * <pre>Add one Polyline into the Entities' Section
      * @param myPolyline - Polyline Entity;
      *	</pre>
     */
-    public void AddPolyline(EntPolyline myPolyline) {
+    public void addPolyline(EntPolyline myPolyline) {
         this.secEntities.entities.add(new EntPolyline(myPolyline));
     }
 
     /**
-     * AddLWPolyline(empty).
+     * addLWPolyline(empty).
      */
-    public void AddLWPolyline() {
+    public void addLWPolyline() {
         this.secEntities.entities.add(new EntLWPolyline());
     }
 
     /**
-     * AddLWPolyline(x_value,y_value)
+     * addLWPolyline(x_value,y_value)
      * @param x_value -x of start vertex;
      * @param y_value -y of start vertex;
      */
-    public void AddLWPolyline(double[] x_value,double[] y_value) {
+    public void addLWPolyline(double[] x_value,double[] y_value) {
         this.secEntities.entities.add(new EntLWPolyline(x_value,y_value));
     }
 
     /**
-     * AddLWPolyline(x_value,y_value,z_value)
+     * addLWPolyline(x_value,y_value,z_value)
      * @param x_value -x of start vertex;
      * @param y_value -y of start vertex;
      * @param z_value -z of start vertex;
      */
-    public void AddLWPolyline(double[] x_value,double[] y_value,double[] z_value) {
+    public void addLWPolyline(double[] x_value,double[] y_value,double[] z_value) {
         this.secEntities.entities.add(new EntLWPolyline(x_value,y_value,z_value));
     }
 
     /**
-     * AddLWPolyline(points)
+     * addLWPolyline(points)
      * @param points - two dimensions array of double, x - points[i][0], y - points[i][1];
      */
-    public void AddLWPolyline(double[][] points) {
+    public void addLWPolyline(double[][] points) {
         this.secEntities.entities.add(new EntLWPolyline(points));
     }
 
@@ -586,49 +586,49 @@ public class FileDXF {
      * AddVertex(one_point)
      * @param one_point -one vertex to add class EntLWPolyline;
      */
-    public void AddLWPolylineVertex(EntLWPolyline theLWPolyline,wPoint one_point) {
+    public void addLWPolylineVertex(EntLWPolyline theLWPolyline,wPoint one_point) {
          theLWPolyline.Vertexs.add(one_point);
     }
 
     /**
-     * AddLWPolyline(one_LWPolyline)
+     * addLWPolyline(one_LWPolyline)
      * @param one_LWPolyline -one object derived from class EntLWPolyline;
      */
-    public void AddLWPolyline(EntLWPolyline one_LWPolyline) {
+    public void addLWPolyline(EntLWPolyline one_LWPolyline) {
         this.secEntities.entities.add(new EntLWPolyline(one_LWPolyline));
     }
 	
     /**
-     * AddEllipse(empty)  default Ellipse.
+     * addEllipse(empty)  default Ellipse.
      */
-    public void AddEllipse() {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(10,0,0),0.5,0,2 * Math.PI);
+    public void addEllipse() {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(10,0,0),0.5,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
+     * addEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
      * @param cP - center point of the Ellipse;
      * @param lP - End point of the Ellipse on the long axis;
      * @param ratio_value - Ratio of the Ellipse;
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(wPoint cP,wPoint lP,double ratio_value,double sAngle_value,double eAngle_value) {
+    public void addEllipse(wPoint cP,wPoint lP,double ratio_value,double sAngle_value,double eAngle_value) {
         this.secEntities.entities.add(new EntEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value));
     }
 
     /**
-     * AddEllipse(cP,lP,ratio_value)
+     * addEllipse(cP,lP,ratio_value)
      * @param cP - center point of the Ellipse;
      * @param lP - End point of the Ellipse on the long axis;
      * @param ratio_value - Ratio of the Ellipse;
      */
-    public void AddEllipse(wPoint cP,wPoint lP,double ratio_value) {
-        this.AddEllipse(cP,lP,ratio_value,0,2 * Math.PI);
+    public void addEllipse(wPoint cP,wPoint lP,double ratio_value) {
+        this.addEllipse(cP,lP,ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
+     * addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
      * @param xc_value - x of the Ellipse's center point;
      * @param yc_value - y of the Ellipse's center point;
      * @param zc_value - z of the Ellipse's center point;
@@ -639,12 +639,12 @@ public class FileDXF {
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(double xc_value,double yc_value,double zc_value,double xl_value,double yl_value,double zl_value,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.AddEllipse(new wPoint(xc_value,yc_value,zc_value),new wPoint(xl_value,yl_value,zl_value),ratio_value,sAngle_value,eAngle_value);
+    public void addEllipse(double xc_value,double yc_value,double zc_value,double xl_value,double yl_value,double zl_value,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.addEllipse(new wPoint(xc_value,yc_value,zc_value),new wPoint(xl_value,yl_value,zl_value),ratio_value,sAngle_value,eAngle_value);
     }
 
     /**
-     * AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
+     * addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
      * @param xc_value - x of the Ellipse's center point;
      * @param yc_value - y of the Ellipse's center point;
      * @param xl_value - x of the Ellipse's long axis point;
@@ -653,24 +653,24 @@ public class FileDXF {
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(double xc_value,double yc_value,double xl_value,double yl_value,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.AddEllipse(new wPoint(xc_value,yc_value),new wPoint(xl_value,yl_value),ratio_value,sAngle_value,eAngle_value);
+    public void addEllipse(double xc_value,double yc_value,double xl_value,double yl_value,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.addEllipse(new wPoint(xc_value,yc_value),new wPoint(xl_value,yl_value),ratio_value,sAngle_value,eAngle_value);
     }
 
     /**
-     * AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value)
+     * addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value)
      * @param xc_value - x of the Ellipse's center point;
      * @param yc_value - y of the Ellipse's center point;
      * @param xl_value - x of the Ellipse's long axis point;
      * @param yl_value - y of the Ellipse's long axis point;
      * @param ratio_value - ratio of the Ellipse(short axis / long axis);
      */
-    public void AddEllipse(double xc_value,double yc_value,double xl_value,double yl_value,double ratio_value) {
-        this.AddEllipse(new wPoint(xc_value,yc_value),new wPoint(xl_value,yl_value),ratio_value,0,2 * Math.PI);
+    public void addEllipse(double xc_value,double yc_value,double xl_value,double yl_value,double ratio_value) {
+        this.addEllipse(new wPoint(xc_value,yc_value),new wPoint(xl_value,yl_value),ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(x_value,y_value,z_value,ratio_value,sAngle_value,eAngle_value)
+     * addEllipse(x_value,y_value,z_value,ratio_value,sAngle_value,eAngle_value)
      * @param x_value -x of the Ellipse's long axis point;
      * @param y_value -y of the Ellipse's long axis point;
      * @param z_value -z of the Ellipse's long axis point;
@@ -678,122 +678,121 @@ public class FileDXF {
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(double x_value,double y_value,double z_value,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,z_value),ratio_value,sAngle_value,eAngle_value);
+    public void addEllipse(double x_value,double y_value,double z_value,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,z_value),ratio_value,sAngle_value,eAngle_value);
     }
 
     /**
-     * AddEllipse(x_value,y_value,z_value,ratio_value)
+     * addEllipse(x_value,y_value,z_value,ratio_value)
      * @param x_value -x of the Ellipse's long axis point;
      * @param y_value -y of the Ellipse's long axis point;
      * @param z_value -z of the Ellipse's long axis point;
      * @param ratio_value - ratio of the Ellipse;
      */
-    public void AddEllipse(double x_value,double y_value,double z_value,double ratio_value) {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,z_value),ratio_value,0,2 * Math.PI);
+    public void addEllipse(double x_value,double y_value,double z_value,double ratio_value) {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,z_value),ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(x_value,y_value,ratio_value)
+     * addEllipse(x_value,y_value,ratio_value)
      * @param x_value -x of the Ellipse's long axis point;
      * @param y_value -y of the Ellipse's long axis point;
      * @param ratio_value -ratio of the Ellipse;
      */
-    public void AddEllipse(double x_value,double y_value,double ratio_value) {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,0),ratio_value,0,2 * Math.PI);
+    public void addEllipse(double x_value,double y_value,double ratio_value) {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(x_value,y_value,0),ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(cP,Radius,radius)
+     * addEllipse(cP,Radius,radius)
      * @param cP - long axis point of the Ellipse;
      * @param Radius - Radius(Long Axis) of the Ellipse;
      * @param radius - radius(Short Axis) of the Ellipse;
      */
-    public void AddEllipse(wPoint2D cP,double Radius,double radius) {
-        this.AddEllipse(new wPoint(cP),new wPoint(cP.x + Radius,cP.y,0),radius / Radius,0,2 * Math.PI);
+    public void addEllipse(wPoint2D cP,double Radius,double radius) {
+        this.addEllipse(new wPoint(cP),new wPoint(cP.x + Radius,cP.y,0),radius / Radius,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(lP,ratio_value,sAngle_value,eAngle_value)
+     * addEllipse(lP,ratio_value,sAngle_value,eAngle_value)
      * @param lP - long axis point of the Ellipse;
      * @param ratio_value -ratio of the Ellipse;
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(wPoint2D lP,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(lP),ratio_value,sAngle_value,eAngle_value);
+    public void addEllipse(wPoint2D lP,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(lP),ratio_value,sAngle_value,eAngle_value);
     }
 
     /**
-     * AddEllipse(lP,ratio_value)
+     * addEllipse(lP,ratio_value)
      * @param lP - long axis point of the Ellipse;
      * @param ratio_value -ratio of the Ellipse;
      */
-    public void AddEllipse(wPoint2D lP,double ratio_value) {
-        this.AddEllipse(new wPoint(0,0,0),new wPoint(lP),ratio_value,0,2 * Math.PI);
+    public void addEllipse(wPoint2D lP,double ratio_value) {
+        this.addEllipse(new wPoint(0,0,0),new wPoint(lP),ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
+     * addEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
      * @param cP - center point of the Ellipse;
      * @param lP - long axis point of the Ellipse;
      * @param ratio_value -ratio of the Ellipse;
      * @param sAngle_value - start angle of the Ellipse;
      * @param eAngle_value - end angle of the Ellipse;
      */
-    public void AddEllipse(wPoint2D cP,wPoint2D lP,double ratio_value,double sAngle_value,double eAngle_value) {
-        this.AddEllipse(new wPoint(cP),new wPoint(lP),ratio_value,sAngle_value,eAngle_value);
+    public void addEllipse(wPoint2D cP,wPoint2D lP,double ratio_value,double sAngle_value,double eAngle_value) {
+        this.addEllipse(new wPoint(cP),new wPoint(lP),ratio_value,sAngle_value,eAngle_value);
     }
 
     /**
-     * AddEllipse(cP,lP,ratio_value)
+     * addEllipse(cP,lP,ratio_value)
      * @param cP - center point of the Ellipse;
      * @param lP - long axis point of the Ellipse;
      * @param ratio_value -ratio of the Ellipse;
      */
-    public void AddEllipse(wPoint2D cP,wPoint2D lP,double ratio_value) {
-        this.AddEllipse(new wPoint(cP),new wPoint(lP),ratio_value,0,2 * Math.PI);
+    public void addEllipse(wPoint2D cP,wPoint2D lP,double ratio_value) {
+        this.addEllipse(new wPoint(cP),new wPoint(lP),ratio_value,0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(Pc,Pa,Pb)
+     * addEllipse(Pc,Pa,Pb)
      * @param Pc - Center point of the Ellipse;
      * @param Pa - Long axis point of the Ellipse;
      * @param Pb - Short axis point of the Ellipse;
      */
-    public void AddEllipse(wPoint2D Pc,wPoint2D Pa,wPoint2D Pb) {
-        this.AddEllipse(new wPoint(Pc),new wPoint(Pa),Pc.GetDistance(Pb) / Pc.GetDistance(Pa),0,2 * Math.PI);
+    public void addEllipse(wPoint2D Pc,wPoint2D Pa,wPoint2D Pb) {
+        this.addEllipse(new wPoint(Pc),new wPoint(Pa),Pc.GetDistance(Pb) / Pc.GetDistance(Pa),0,2 * Math.PI);
     }
 
     /**
-     * AddEllipse(oneEllipse)
+     * addEllipse(oneEllipse)
      * @param oneEllipse -one object derived from class EntEllipse;
      */
-    public void AddEllipse(EntEllipse oneEllipse) {
-        this.AddEllipse(oneEllipse.cPoint,oneEllipse.lPoint,oneEllipse.ratio,oneEllipse.sAngle,oneEllipse.eAngle);
+    public void addEllipse(EntEllipse oneEllipse) {
+        this.addEllipse(oneEllipse.cPoint,oneEllipse.lPoint,oneEllipse.ratio,oneEllipse.sAngle,oneEllipse.eAngle);
     }
 
     /**
-     * PrintAll()
+     * printAll()
      * <pre>Terminal output the description of DXF file
      * Output example:
      *	</pre>
-    */
-    public void PrintAll() {
-        this.secHeader.PrintAll();
-        this.secClasses.PrintAll();
-        this.secTables.PrintAll();
-        this.secBlocks.PrintAll();
-        this.secEntities.PrintAll();
-        this.secObjects.PrintAll();
+    public void printAll() {
+        this.secHeader.printAll();
+        this.secClasses.printAll();
+        this.secTables.printAll();
+        this.secBlocks.printAll();
+        this.secEntities.printAll();
+        this.secObjects.printAll();
     }
+    */
 
     /**
      * GetPairData()
      * @return Map of elements description of DXF file.
      * <pre>Output example:
      *	</pre>
-     */
     public List<String []> GetPairData() {
         List<String []> params=new ArrayList<>();
 
@@ -805,6 +804,30 @@ public class FileDXF {
         params.addAll(this.secObjects.GetPairData());
 
         params.add(new String[] {"  0",this.DXFFileTail});
+
+        return params;
+    }
+     */
+
+    public void printAll() {
+        List<String []>  myMap = this.GetPairData();
+        System.out.println("Entity List's Size: " + myMap.size());
+		for (String [] key : myMap) {
+            System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
+        }
+        System.out.println();
+    }
+
+    public List<String []> GetPairData() {
+        List<String []> params =new ArrayList<>();
+
+        List<String > DXFStr = new ArrayList<>();
+		
+		DXFStr = this.getDXF();
+		
+        for (int i = 0; i< DXFStr.size(); i = i + 2) {
+            params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
+        }
 
         return params;
     }

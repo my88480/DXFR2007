@@ -60,7 +60,7 @@ public class EntTextTest {
         System.out.println(text3.Layer);
         System.out.println(text3.style);
 
-        text3.PrintAll();
+        text3.printAll();
 
         //System.out.println(string2HexString(System.getProperty("line.separator")+" \r  " + "\n"));
 

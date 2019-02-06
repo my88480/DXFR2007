@@ -67,16 +67,16 @@ public class EntBase {
     public double   zExtrusionDirection = 1;
 
     public EntBase() {
-		Handle = FileDXF.ApplyHandle();
+		Handle = FileDXF.applyHandle();
     }
 
     public EntBase(String layer_value) {
         Layer = layer_value;
     }
 
-    public void PrintAll() {
+    public void printAll() {
         List<String []>  myMap = this.GetPairData();
-        System.out.println("Entity List's Size: "+myMap.size());
+        System.out.println("Entity List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
         }
@@ -84,12 +84,14 @@ public class EntBase {
     }
 
     public List<String []> GetPairData() {
-        List<String []> params=new ArrayList<>();
+        List<String []> params =new ArrayList<>();
 
-        List<String > DXFStr=this.getDXF();
-
-        for (int i=0; i< DXFStr.size() / 2; i= i + 2) {
-            params.add(new String[] {DXFStr.get(i),DXFStr.get(i+1)});
+        List<String > DXFStr = new ArrayList<>();
+		
+		DXFStr = this.getDXF();
+		
+        for (int i = 0; i< DXFStr.size(); i = i + 2) {
+            params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
         }
 
         return params;

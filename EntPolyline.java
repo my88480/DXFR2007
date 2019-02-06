@@ -282,7 +282,7 @@ public class EntPolyline extends EntBase {
         List<String> DXF_STR = new ArrayList<>();
 		
 		//Maybe endHandle is handled when the polyline is created,modified etc.
-		this.endHandle = FileDXF.ApplyHandle();
+		this.endHandle = FileDXF.applyHandle();
 
 		
 		DXF_STR.addAll(super.getDXF());

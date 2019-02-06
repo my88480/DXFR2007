@@ -16,7 +16,7 @@ public class EntCircleTest {
         System.out.println(mycircle);
         System.out.println();
 
-        mycircle.PrintAll();
+        mycircle.printAll();
         System.out.println();
 
         List<String []>  myMap = mycircle.GetPairData();

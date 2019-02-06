@@ -12,7 +12,7 @@ public class SecBlocksTest {
     public static void  main(String[] args)  throws Exception {
         SecBlocks mySecBlocks = new SecBlocks();
 
-        mySecBlocks.PrintAll();
+        mySecBlocks.printAll();
         System.out.println();
 
         System.out.println("Test toString method: ");
