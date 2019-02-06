@@ -82,6 +82,18 @@ public class GC_wPoint extends GroupCode{
 		return P;
 	}
 	
+	public void setValue(wPoint P){
+		GC_x.setValue(Double.toString(P.x));
+		GC_y.setValue(Double.toString(P.y));
+		GC_z.setValue(Double.toString(P.z));
+	}
+	
+	public void setValue(wPoint2D P){
+		GC_x.setValue(Double.toString(P.x));
+		GC_y.setValue(Double.toString(P.y));
+		GC_z.setValue(Double.toString(0.0));
+	}
+	
 	public void setxValue(double x){
 		GC_x.setValue(x);
 	}	
