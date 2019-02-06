@@ -60,36 +60,36 @@ public class EntPoint extends EntBase {
     }
 
     /**
-     * Constructor (onepoint)
-     * @param onepoint
+     * Constructor (P)
+     * @param P
      */
-    public EntPoint(wPoint2D onepoint) {
+    public EntPoint(wPoint2D P) {
         this();
-		bPoint = new wPoint(onepoint);
+		bPoint = new wPoint(P);
     }
 
     /**
-     * Constructor (onepoint)
-     * @param onepoint
+     * Constructor (P)
+     * @param P
      */
-    public EntPoint(wPoint onepoint) {
+    public EntPoint(wPoint P) {
         this();
-		bPoint = onepoint;
+		bPoint = P;
     }
 
     /**
      * Constructor (EntPoint)
-     * @param onepoint
+     * @param P
      */
-    public EntPoint(EntPoint onepoint) {
+    public EntPoint(EntPoint P) {
         this();
-		bPoint = onepoint.bPoint;
+		bPoint = P.bPoint;
 
-        this.thickness = onepoint.thickness;
-        this.xang = onepoint.xang;
-        this.xExtrusionDirection = onepoint.xExtrusionDirection;
-        this.yExtrusionDirection = onepoint.yExtrusionDirection;
-        this.zExtrusionDirection = onepoint.zExtrusionDirection;
+        this.thickness = P.thickness;
+        this.xang = P.xang;
+        this.xExtrusionDirection = P.xExtrusionDirection;
+        this.yExtrusionDirection = P.yExtrusionDirection;
+        this.zExtrusionDirection = P.zExtrusionDirection;
     }
 
     /**

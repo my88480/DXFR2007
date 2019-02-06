@@ -37,12 +37,20 @@ public class GroupCode{
 		this.Value = Float.toString(value);
 	}
 
+	public void setValue(char value){
+		this.Value = Character.toString(value);
+	}
+	
 	public void setValue(String value){
 		this.Value = value;
 	}
 	
 	public void setValue(boolean value){
 		this.Value = Boolean.toString(value);
+	}
+	
+	public void setValue(short value){
+		this.Value = Short.toString(value);
 	}
 	
 	public void setValue(int value){
