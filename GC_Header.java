@@ -7,7 +7,7 @@ public class GC_Header extends GroupCode{
 		this.Vars = new ArrayList<>();
 	}
 	
-	public void AddVar(GC_Variable var){
+	public void addVar(GC_Variable var){
 		this.Vars.add(var);
 	}
 	
@@ -30,7 +30,7 @@ public class GC_Header extends GroupCode{
 		GC_wPoint myGC_point = new GC_wPoint(10,22,55);
 		
 		GC_Variable myGC_Var = new GC_Variable("INBASE",myGC_point);
-		myGC_Header.AddVar(myGC_Var);
+		myGC_Header.addVar(myGC_Var);
 		
 		System.out.println(myGC_Header.getDXF());
 		System.out.println();
