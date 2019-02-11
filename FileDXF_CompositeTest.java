@@ -36,12 +36,12 @@ public class FileDXF_CompositeTest{
 
 		EntPolyline myPolyline = new EntPolyline();
 
-		myPolyline.AddVertex(new EntVertex(90,50));
-		myPolyline.AddVertex(new EntVertex(80,40));
-		myPolyline.AddVertex(new EntVertex(120,80));
-		myPolyline.AddVertex(new EntVertex(150,100));
-		myPolyline.AddVertex(new EntVertex(180,120));
-		myPolyline.AddVertex(new EntVertex(200,80));
+		myPolyline.addVertex(new EntVertex(90,50));
+		myPolyline.addVertex(new EntVertex(80,40));
+		myPolyline.addVertex(new EntVertex(120,80));
+		myPolyline.addVertex(new EntVertex(150,100));
+		myPolyline.addVertex(new EntVertex(180,120));
+		myPolyline.addVertex(new EntVertex(200,80));
 		
 		myCompositeGraphic.secEntities.entities.add(new EntVertex(2,2));
 		myCompositeGraphic.secEntities.entities.add(new EntLine(-100,40,0,250,150,0));
@@ -68,7 +68,7 @@ public class FileDXF_CompositeTest{
 			System.out.println(myCompositeGraphic.secEntities.entities.get(i)); 
 		}
 		
-	   	List<String []>  myMap = myCompositeGraphic.GetPairData();
+	   	List<String []>  myMap = myCompositeGraphic.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
 		for (String [] key : myMap) {
 		   System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -85,9 +85,9 @@ public class FileDXF_CompositeTest{
         }
 		
 	
-		//myCompositeGraphic.AddRectangle(200,150);
-		//myCompositeGraphic.AddSector(new wPoint2D(50,25),50,45,90);
-		myCompositeGraphic.AddDonut(new wPoint2D(0,0),30,50,30,60);
+		//myCompositeGraphic.addRectangle(200,150);
+		//myCompositeGraphic.addSector(new wPoint2D(50,25),50,45,90);
+		myCompositeGraphic.addDonut(new wPoint2D(0,0),30,50,30,60);
 		myCompositeGraphic.printAll();
 		
 		//myCompositeGraphic.dxf_filename = "sss.dxf";

@@ -45,7 +45,7 @@ public class FileDXF_Composite extends FileDXF{
 		double l,l_tan;
 		wPoint2D Pa,Pb;
 		
-		l = Po.GetDistance(Pc);
+		l = Po.getDistance(Pc);
 		if (l > r){
 			l_tan = Math.sqrt(Math.pow(l,2)-Math.pow(r,2));
 			beita = Math.asin(r/l);
@@ -108,7 +108,7 @@ public class FileDXF_Composite extends FileDXF{
 		double ll,l,l_tan;
 		wPoint2D Pa,Pb,Pd,Pe;
 		
-		l = Po.GetDistance(Pc);
+		l = Po.getDistance(Pc);
 		if (l > r){
 			alpha = Po.Angle2P(Pc);
 			beita = alpha - Math.PI / 2;
@@ -191,7 +191,7 @@ public class FileDXF_Composite extends FileDXF{
 		double l,l_tan;
 		wPoint2D PA,PB,Pa,Pb;
 		
-		l = Pc.GetDistance(PC);
+		l = Pc.getDistance(PC);
 		if (l > (R + r)){
 			l_tan = Math.sqrt(Math.pow(l,2)-Math.pow(R-r,2));
 			beita = Math.asin((R-r)/l);
@@ -247,14 +247,14 @@ public class FileDXF_Composite extends FileDXF{
 		
 
     /**
-     * AddRectangle(bPoint,length,height)
+     * addRectangle(bPoint,length,height)
      * <pre>Add one rectangle into the Entities' Section
      * @param bPoint - insert point of the rectangle ;
      * @param length - the length of the rectangle ;
      * @param height - the height vertex of the rectangle ;
  	 *	</pre>
     */
-    public void AddRectangle(wPoint2D bPoint,double length,double height) {
+    public void addRectangle(wPoint2D bPoint,double length,double height) {
 		wPoint2D p1,p2,p3,p4;
 		
 		p1 = bPoint;
@@ -272,26 +272,26 @@ public class FileDXF_Composite extends FileDXF{
 	/**Add combined Entities**/
 
     /**
-     * AddRectangle(length,height)
+     * addRectangle(length,height)
      * <pre>Add one rectangle into the Entities' Section
      * @param length - the length of the rectangle ;
      * @param height - the height vertex of the rectangle ;
  	 *	</pre>
     */
-    public void AddRectangle(double length,double height) {
+    public void addRectangle(double length,double height) {
 		wPoint2D p1 = new wPoint2D(0,0);
 		
-		this.AddRectangle(p1,length,height);
+		this.addRectangle(p1,length,height);
     }
 
     /**
-     * AddRectangle(point1,point2)
+     * addRectangle(point1,point2)
      * <pre>Add one rectangle into the Entities' Section
      * @param point1 - the vertex of the rectangle ;
      * @param point2 - the other vertex of the rectangle ;
  	 *	</pre>
     */
-    public void AddRectangle(wPoint2D point1,wPoint2D point2) {
+    public void addRectangle(wPoint2D point1,wPoint2D point2) {
 		wPoint2D p1,p2,p3,p4;
 		
 		p1 = new wPoint2D(point1);
@@ -306,7 +306,7 @@ public class FileDXF_Composite extends FileDXF{
     }
 
     /**
-     * AddSector(bPoint,radius,sAngle,eAngle)
+     * addSector(bPoint,radius,sAngle,eAngle)
      * <pre>Add one arc into the Entities' Section
      * @param bPoint - Center point of the arc;
      * @param radius - radius of the arc;
@@ -314,7 +314,7 @@ public class FileDXF_Composite extends FileDXF{
      * @param eAngle - end angle of the arc;
  	 *	</pre>
     */
-    public void AddSector(wPoint2D bPoint,double radius,double sAngle,double eAngle) {
+    public void addSector(wPoint2D bPoint,double radius,double sAngle,double eAngle) {
 		wPoint2D sPoint,ePoint;
 		
 		sPoint = new wPoint2D(bPoint.x + radius * Math.cos(Math.toRadians(sAngle)),bPoint.y + radius * Math.sin(Math.toRadians(sAngle)));
@@ -325,37 +325,37 @@ public class FileDXF_Composite extends FileDXF{
     }
 	
  	/**
-     * AddSector(radius,sAngle,eAngle)
+     * addSector(radius,sAngle,eAngle)
      * <pre>Add one arc into the Entities' Section
      * @param radius - radius of the arc;
      * @param sAngle - start angle of the arc;
      * @param eAngle - end angle of the arc;
  	 *	</pre>
     */
-    public void AddSector(double radius,double sAngle,double eAngle) {
+    public void addSector(double radius,double sAngle,double eAngle) {
 		wPoint2D bPoint;
 		wPoint2D sPoint,ePoint;
 		
 		bPoint = new wPoint2D(0,0);
 
-		this.AddSector(bPoint,radius,sAngle,eAngle);
+		this.addSector(bPoint,radius,sAngle,eAngle);
 		}
 	
 	/**
-     * AddSector(radius,Angle)
+     * addSector(radius,Angle)
      * <pre>Add one arc into the Entities' Section
      * @param radius - radius of the arc;
      * @param Angle - the angle of the arc;
  	 *	</pre>
     */
-    public void AddSector(double radius,double Angle) {
+    public void addSector(double radius,double Angle) {
 		wPoint2D bPoint;
 		wPoint2D sPoint,ePoint;
 		double sAngle = 0;
 		double eAngle = Angle;
 		
 		bPoint = new wPoint2D(0,0);
-		this.AddSector(bPoint,radius,sAngle,eAngle);
+		this.addSector(bPoint,radius,sAngle,eAngle);
     }
 
 	/**
@@ -372,7 +372,7 @@ public class FileDXF_Composite extends FileDXF{
     }
 
    /**
-     * AddDonut(bPoint,r1,r2,sAngle,eAngle)
+     * addDonut(bPoint,r1,r2,sAngle,eAngle)
      * <pre>Add one donut into the Entities' Section
      * @param bPoint - Center point of the donut;
      * @param r1 - small radius of the donut;
@@ -381,7 +381,7 @@ public class FileDXF_Composite extends FileDXF{
      * @param eAngle - end angle of the donut;
  	 *	</pre>
     */
-    public void AddDonut(wPoint2D bPoint,double r1,double r2,double sAngle,double eAngle) {
+    public void addDonut(wPoint2D bPoint,double r1,double r2,double sAngle,double eAngle) {
 		wPoint2D sPoint,ePoint;
 		wPoint2D SPoint,EPoint;
 		
@@ -398,19 +398,19 @@ public class FileDXF_Composite extends FileDXF{
     }
 	
    /**
-     * AddDonut(r1,r2,Angle)
+     * addDonut(r1,r2,Angle)
      * <pre>Add one donut into the Entities' Section
      * @param r1 - small radius of the donut;
      * @param r2 - big radius of the donut;
      * @param Angle - angle of the donut (> 0);
  	 *	</pre>
     */
-    public void AddDonut(double r1,double r2,double Angle){
+    public void addDonut(double r1,double r2,double Angle){
 		wPoint2D bPoint;
 		
 		bPoint = new wPoint2D(0,0);
 		
-		this.AddDonut(bPoint,r1,r2,0.0,Angle);
+		this.addDonut(bPoint,r1,r2,0.0,Angle);
     }
 	
 
