@@ -48,6 +48,34 @@ public class GC_ClassUnit extends GroupCode{
 		GC_EntityFlag.setValue(unit.EntityFlag);
 	}
 	
+	public void setRecordName(String recordName){
+		GC_RecordName.setValue(recordName);
+	}
+	
+	public void setClassName(String className){
+		GC_ClassName.setValue(className);
+	}
+	
+	public void setAppName(String appName){
+		GC_AppName.setValue(appName);
+	}
+	
+	public void setProxyFlag(String proxyFlag){
+		GC_ProxyFlag.setValue(proxyFlag);
+	}
+	
+	public void setInstanceCount(String instanceCount){
+		GC_InstanceCount.setValue(instanceCount);
+	}
+	
+	public void setWasAProxyFlag(String wasAProxyFlag){
+		GC_WasAProxyFlag.setValue(wasAProxyFlag);
+	}
+	
+	public void setEntityFlag(String entityFlag){
+		GC_EntityFlag.setValue(entityFlag);
+	}
+	
 	public List<String> getDXF(){
         List<String> DXF_STR = new ArrayList<>();
 
@@ -66,7 +94,12 @@ public class GC_ClassUnit extends GroupCode{
 
 
 	public static void main(String[] args) {
-
+		GC_ClassUnit myGC_classUnit;
+		ClassUnit myclassUnit = new ClassUnit("ACDBDICTIONARYWDFLT","AcDbDictionaryWithDefault","ObjectDBX Classes",0,1,(short)0,(short)0);
+		myGC_classUnit = new GC_ClassUnit(myclassUnit);
 		
+		System.out.println(myGC_classUnit.getDXF());
+		System.out.println();
+		System.out.println(myGC_classUnit);
 	}	
 }

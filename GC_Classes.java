@@ -25,11 +25,10 @@ public class GC_Classes extends GroupCode{
 
 	public static void main(String[] args) {
 		GC_Classes myGC_Classes = new GC_Classes();
-		
-		GC_wPoint myGC_point = new GC_wPoint(10,22,55);
-		
-		GC_ClassUnit myGC_Var = new GC_ClassUnit("INBASE",myGC_point);
-		myGC_Classes.addVar(myGC_Var);
+		GC_ClassUnit myGC_classUnit;
+		ClassUnit myclassUnit = new ClassUnit("ACDBDICTIONARYWDFLT","AcDbDictionaryWithDefault","ObjectDBX Classes",0,1,(short)0,(short)0);
+		myGC_classUnit = new GC_ClassUnit(myclassUnit);
+		myGC_Classes.addClassUnit(myGC_classUnit);
 		
 		System.out.println(myGC_Classes.getDXF());
 		System.out.println();
