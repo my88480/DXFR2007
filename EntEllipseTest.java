@@ -19,7 +19,7 @@ public class EntEllipseTest {
         myEllipse.printAll();
         System.out.println();
 
-        List<String []>  myMap = myEllipse.GetPairData();
+        List<String []>  myMap = myEllipse.getPairData();
         System.out.println("List's Size: "+myMap.size());
 
 		for (String [] key : myMap) {

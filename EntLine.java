@@ -126,10 +126,10 @@ public class EntLine extends EntBase {
     }
 
     /**
-    * GetLength()
+    * getLength()
     * Get the length of the line;
     */
-    public double GetLength() {
+    public double getLength() {
         double Length = 0.0;
         double dx,dy,dz;
 

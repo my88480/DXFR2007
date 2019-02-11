@@ -206,7 +206,7 @@ public class EntEllipse extends EntBase {
      * @param Pb - Short axis point of the Ellipse;
      */
     public EntEllipse(wPoint2D Pc,wPoint2D Pa,wPoint2D Pb) {
-        this(new wPoint(Pc),new wPoint(Pa),Pc.GetDistance(Pb) / Pc.GetDistance(Pa),0,2 * Math.PI);
+        this(new wPoint(Pc),new wPoint(Pa),Pc.getDistance(Pb) / Pc.getDistance(Pa),0,2 * Math.PI);
     }
 
     /**
@@ -237,29 +237,29 @@ public class EntEllipse extends EntBase {
     public double GetRadius() {
         double Radius;
 
-        Radius = this.cPoint.GetDistance(lPoint);
+        Radius = this.cPoint.getDistance(lPoint);
 
         return Radius;
     }
 
     /**
-     * Getradius()
+     * getRadius()
      * Get the radius of the Ellipse
      */
-    public double Getradius() {
+    public double getRadius() {
         double Radius,radius;
 
-        Radius = this.cPoint.GetDistance(lPoint);
+        Radius = this.cPoint.getDistance(lPoint);
         radius = Radius * this.ratio;
 
         return radius;
     }
 
     /**
-     * GetAngle()
+     * getAngle()
      * Get the angle of the Ellipse
      */
-    public double GetAngle() {
+    public double getAngle() {
         double angle;
 
         angle = this.eAngle - this.sAngle;
@@ -275,7 +275,7 @@ public class EntEllipse extends EntBase {
         double Radius,radius;
         double parimeter;
 
-        Radius = this.cPoint.GetDistance(lPoint);
+        Radius = this.cPoint.getDistance(lPoint);
         radius = Radius * this.ratio;
 
         parimeter = 2 * Math.PI * radius + 4 * (Radius - radius);
@@ -284,14 +284,14 @@ public class EntEllipse extends EntBase {
     }
 
     /**
-     * GetArea()
+     * getArea()
      * Get the area of the Ellipse
      */
-    public double GetArea() {
+    public double getArea() {
         double Radius,radius;
         double area;
 
-        Radius = this.cPoint.GetDistance(lPoint);
+        Radius = this.cPoint.getDistance(lPoint);
         radius = Radius * this.ratio;
 
         area = Math.PI * Radius * radius;

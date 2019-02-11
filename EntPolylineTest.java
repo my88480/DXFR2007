@@ -12,20 +12,20 @@ public class EntPolylineTest {
     public static void  main(String[] args) {
         EntPolyline myPolyline = new EntPolyline();
 
-        myPolyline.AddVertex(new wPoint(2,2));
-        myPolyline.AddVertex(new wPoint(6,8));
-        myPolyline.AddVertex(new wPoint(10,10));
-        myPolyline.AddVertex(new wPoint(15,8));
-        myPolyline.AddVertex(new wPoint(10,5));
-        myPolyline.AddVertex(new wPoint(8,0));
+        myPolyline.addVertex(new wPoint(2,2));
+        myPolyline.addVertex(new wPoint(6,8));
+        myPolyline.addVertex(new wPoint(10,10));
+        myPolyline.addVertex(new wPoint(15,8));
+        myPolyline.addVertex(new wPoint(10,5));
+        myPolyline.addVertex(new wPoint(8,0));
 
         System.out.println( myPolyline);
         System.out.println();
 
-        System.out.println("The length of the polyline: " + myPolyline.GetLength());
+        System.out.println("The length of the polyline: " + myPolyline.getLength());
         System.out.println();
 
-        System.out.println("The size of the polyline: " + myPolyline.GetSize());
+        System.out.println("The size of the polyline: " + myPolyline.getSize());
         System.out.println();
 
         System.out.println("List's Size: " + myPolyline.vertexs.size());
@@ -38,7 +38,7 @@ public class EntPolylineTest {
             System.out.println();
         }
 
-        List<String []>  myMap = myPolyline.GetPairData();
+        List<String []>  myMap = myPolyline.getPairData();
         System.out.println("List's Size: "+myMap.size());
 
         int no = 1;

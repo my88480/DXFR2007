@@ -75,7 +75,7 @@ public class EntBase {
     }
 
     public void printAll() {
-        List<String []>  myMap = this.GetPairData();
+        List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -83,7 +83,7 @@ public class EntBase {
         System.out.println();
     }
 
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params =new ArrayList<>();
 
         List<String > DXFStr = new ArrayList<>();

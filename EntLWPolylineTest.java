@@ -12,20 +12,20 @@ public class EntLWPolylineTest {
     public static void  main(String[] args) {
         EntLWPolyline myLWPolyline = new EntLWPolyline();
 
-        myLWPolyline.AddVertex(new wPoint(2,2));
-        myLWPolyline.AddVertex(new wPoint(6,8));
-        myLWPolyline.AddVertex(new wPoint(10,10));
-        myLWPolyline.AddVertex(new wPoint(15,8));
-        myLWPolyline.AddVertex(new wPoint(10,5));
-        myLWPolyline.AddVertex(new wPoint(8,0));
+        myLWPolyline.addVertex(new wPoint(2,2));
+        myLWPolyline.addVertex(new wPoint(6,8));
+        myLWPolyline.addVertex(new wPoint(10,10));
+        myLWPolyline.addVertex(new wPoint(15,8));
+        myLWPolyline.addVertex(new wPoint(10,5));
+        myLWPolyline.addVertex(new wPoint(8,0));
 
         System.out.println( myLWPolyline);
         System.out.println();
 
-        System.out.println("The length of the LWPolyline: " + myLWPolyline.GetLength());
+        System.out.println("The length of the LWPolyline: " + myLWPolyline.getLength());
         System.out.println();
 
-        System.out.println("The size of the LWPolyline: " + myLWPolyline.GetSize());
+        System.out.println("The size of the LWPolyline: " + myLWPolyline.getSize());
         System.out.println();
 
         System.out.println("List's Size: " + myLWPolyline.Vertexs.size());
@@ -34,12 +34,11 @@ public class EntLWPolylineTest {
             System.out.println("NO. " + i);
             System.out.println(myLWPolyline.Vertexs.get(i));
             System.out.println(myLWPolyline.Vertexs.get(i).x);
-            myLWPolyline.Vertexs.get(i).Print3D();
             myLWPolyline.Vertexs.get(i).printAll();
             System.out.println();
         }
 
-        List<String []>  myMap = myLWPolyline.GetPairData();
+        List<String []>  myMap = myLWPolyline.getPairData();
         System.out.println("List's Size: "+myMap.size());
 
         int no = 1;

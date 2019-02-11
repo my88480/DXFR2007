@@ -19,7 +19,7 @@ public class EntArcTest {
         myarc.printAll();
         System.out.println();
 
-        List<String []>  myMap = myarc.GetPairData();
+        List<String []>  myMap = myarc.getPairData();
         System.out.println("List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

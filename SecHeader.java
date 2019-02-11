@@ -202,7 +202,7 @@ public class SecHeader {
      * </pre>
      */
     public void printAll() {
-        List<String []>  myMap = this.GetPairData();
+        List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: "+myMap.size());
 for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -234,19 +234,19 @@ for (String [] key : myMap) {
     }
 
     /**
-     * GetPairData()
+     * getPairData()
      * @return Map of elements description of Entity LINE.
      * <pre>Output example:
      * </pre>
      */
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params=new ArrayList<>();
 
         for (int i=0; i< StdSectionStr_R2K01.length; i= i + 2) {
             params.add(new String[] {StdSectionStr_R2K01[i],StdSectionStr_R2K01[i+1]});
         }
 
-        //List<String []>  myMap = mySecHeader.GetPairData();
+        //List<String []>  myMap = mySecHeader.getPairData();
         //System.out.println("PairData's Size: "+myMap.size());
         //for (String [] key : myMap) {
         //   System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -260,19 +260,19 @@ for (String [] key : myMap) {
         params.add(new String[] {"  1",this.acadver});
 
         params.add(new String[] {"  9","$INSBASE"});
-        params.addAll(this.inserBasePoint.GetPairData());
+        params.addAll(this.inserBasePoint.getPairData());
 
         params.add(new String[] {"  9","$EXTMIN"});
-        params.addAll(this.extmin.GetPairData());
+        params.addAll(this.extmin.getPairData());
 
         params.add(new String[] {"  9","$EXTMAX"});
-        params.addAll(this.extmax.GetPairData());
+        params.addAll(this.extmax.getPairData());
 
         params.add(new String[] {"  9","$LIMMIN"});
-        params.addAll(this.limmin.GetPairData());
+        params.addAll(this.limmin.getPairData());
 
         params.add(new String[] {"  9","$LIMMAX"});
-        params.addAll(this.limmax.GetPairData());
+        params.addAll(this.limmax.getPairData());
 
         params.add(new String[] {"  0",this.SectionTail});
         */

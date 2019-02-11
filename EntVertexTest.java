@@ -32,7 +32,7 @@ public class EntVertexTest {
         vertex6.printAll();
         System.out.println("");
 
-        List<String []> myMap = vertex6.GetPairData();
+        List<String []> myMap = vertex6.getPairData();
         System.out.println("Map's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

@@ -19,7 +19,7 @@ public class EntLineTest {
         myline.printAll();
         System.out.println();
 
-        List<String []>  myMap = myline.GetPairData();
+        List<String []>  myMap = myline.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

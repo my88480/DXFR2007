@@ -19,7 +19,7 @@ public class SecObjectsTest {
         System.out.println(mySecObjects);
         System.out.println();
 
-        List<String []>  myMap = mySecObjects.GetPairData();
+        List<String []>  myMap = mySecObjects.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

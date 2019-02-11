@@ -116,7 +116,7 @@ public class EntPolyline extends EntBase {
 		this();
 
         for (int i=0;i < x_value.length;i++){
-			this.AddVertex(new wPoint(x_value[i],y_value[i]));
+			this.addVertex(new wPoint(x_value[i],y_value[i]));
 		}
     }
 
@@ -130,7 +130,7 @@ public class EntPolyline extends EntBase {
 		this();
 
         for (int i=0;i < x_value.length;i++){
-			this.AddVertex(new wPoint(x_value[i],y_value[i],z_value[i]));
+			this.addVertex(new wPoint(x_value[i],y_value[i],z_value[i]));
 		}
     }
 
@@ -143,9 +143,9 @@ public class EntPolyline extends EntBase {
 
         for (int i=0; i < points.length; i++) {
             if (points[i].length == 2) {
-                this.AddVertex(new wPoint(points[i][0],points[i][1]));
+                this.addVertex(new wPoint(points[i][0],points[i][1]));
             } else if (points[i].length == 3) {
-                this.AddVertex(new wPoint(points[i][0],points[i][1],points[i][2]));
+                this.addVertex(new wPoint(points[i][0],points[i][1],points[i][2]));
             }
         }
     }
@@ -184,18 +184,18 @@ public class EntPolyline extends EntBase {
     }
 
     /**
-     * AddVertex(point)
+     * addVertex(point)
      * @param point -one vertex to add class EntPolyline;
      */
-    public void AddVertex(wPoint2D point) {
-		this.AddVertex(new wPoint(point));
+    public void addVertex(wPoint2D point) {
+		this.addVertex(new wPoint(point));
     }
 
     /**
-     * AddVertex(point)
+     * addVertex(point)
      * @param point -one vertex to add class EntPolyline;
      */
-    public void AddVertex(wPoint point) {
+    public void addVertex(wPoint point) {
 		EntVertex myVertex;
 		
 		myVertex = new EntVertex(point);
@@ -207,27 +207,27 @@ public class EntPolyline extends EntBase {
     }
 
     /**
-     * AddVertex(one_vertex)
+     * addVertex(one_vertex)
      * @param one_vertex -one vertex to add class EntPolyline;
      */
     //Abandon this method to avoid the vertex's ObjectId is null
-	//public void AddVertex(EntVertex one_vertex) {
+	//public void addVertex(EntVertex one_vertex) {
     //    this.vertexs.add(new EntVertex(one_vertex,this.Handle));
     //}
 
     /**
-    * GetSize()
+    * getSize()
     * Get the number of the vertexs of the polyline;
     */
-    public int GetSize() {
+    public int getSize() {
         return this.vertexs.size();
     }
 
     /**
-    * GetLength()
+    * getLength()
     * Get the total length of the polyline;
     */
-    public double GetLength() {
+    public double getLength() {
         double Length = 0.0;
 
         for (int i = 1; i < this.vertexs.size(); i++) {

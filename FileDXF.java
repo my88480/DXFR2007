@@ -583,7 +583,7 @@ public class FileDXF {
     }
 
     /**
-     * AddVertex(one_point)
+     * addVertex(one_point)
      * @param one_point -one vertex to add class EntLWPolyline;
      */
     public void addLWPolylineVertex(EntLWPolyline theLWPolyline,wPoint one_point) {
@@ -762,7 +762,7 @@ public class FileDXF {
      * @param Pb - Short axis point of the Ellipse;
      */
     public void addEllipse(wPoint2D Pc,wPoint2D Pa,wPoint2D Pb) {
-        this.addEllipse(new wPoint(Pc),new wPoint(Pa),Pc.GetDistance(Pb) / Pc.GetDistance(Pa),0,2 * Math.PI);
+        this.addEllipse(new wPoint(Pc),new wPoint(Pa),Pc.getDistance(Pb) / Pc.getDistance(Pa),0,2 * Math.PI);
     }
 
     /**
@@ -789,19 +789,19 @@ public class FileDXF {
     */
 
     /**
-     * GetPairData()
+     * getPairData()
      * @return Map of elements description of DXF file.
      * <pre>Output example:
      *	</pre>
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params=new ArrayList<>();
 
-        params.addAll(this.secHeader.GetPairData());
-        params.addAll(this.secClasses.GetPairData());
-        params.addAll(this.secTables.GetPairData());
-        params.addAll(this.secBlocks.GetPairData());
-        params.addAll(this.secEntities.GetPairData());
-        params.addAll(this.secObjects.GetPairData());
+        params.addAll(this.secHeader.getPairData());
+        params.addAll(this.secClasses.getPairData());
+        params.addAll(this.secTables.getPairData());
+        params.addAll(this.secBlocks.getPairData());
+        params.addAll(this.secEntities.getPairData());
+        params.addAll(this.secObjects.getPairData());
 
         params.add(new String[] {"  0",this.DXFFileTail});
 
@@ -810,7 +810,7 @@ public class FileDXF {
      */
 
     public void printAll() {
-        List<String []>  myMap = this.GetPairData();
+        List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -818,7 +818,7 @@ public class FileDXF {
         System.out.println();
     }
 
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params =new ArrayList<>();
 
         List<String > DXFStr = new ArrayList<>();

@@ -35,32 +35,32 @@ public class FileDXFTest {
 		*/
 
         //Add the combined entities,From now restructure to the file FileDXF_ComplexTest
-        //myFileDXF.AddRectangle(200,150);
-        //myFileDXF.AddSector(new wPoint2D(50,25),50,45,90);
+        //myFileDXF.addRectangle(200,150);
+        //myFileDXF.addSector(new wPoint2D(50,25),50,45,90);
 
         //myFileDXF.secEntities.entities = new  ArrayList<Object>();
 
         EntLWPolyline myLWPolyline = new EntLWPolyline();
 
-        myLWPolyline.AddVertex(new wPoint(90,50));
-        myLWPolyline.AddVertex(new wPoint(80,40));
-        myLWPolyline.AddVertex(new wPoint(120,80));
-        myLWPolyline.AddVertex(new wPoint(150,100));
-        myLWPolyline.AddVertex(new wPoint(180,120));
-        myLWPolyline.AddVertex(new wPoint(200,80));
+        myLWPolyline.addVertex(new wPoint(90,50));
+        myLWPolyline.addVertex(new wPoint(80,40));
+        myLWPolyline.addVertex(new wPoint(120,80));
+        myLWPolyline.addVertex(new wPoint(150,100));
+        myLWPolyline.addVertex(new wPoint(180,120));
+        myLWPolyline.addVertex(new wPoint(200,80));
         myFileDXF.secEntities.entities.add(myLWPolyline);
 
         EntPolyline myPolyline = new EntPolyline();
 
 		//vertexs of the polyline shoud be created by the method of the polyline.
-        //myPolyline.AddVertex(new EntVertex(200,80));
+        //myPolyline.addVertex(new EntVertex(200,80));
 		
-        myPolyline.AddVertex(new wPoint2D(20,50));
-        myPolyline.AddVertex(new wPoint2D(80,50));
-        myPolyline.AddVertex(new wPoint2D(120,160));
-        myPolyline.AddVertex(new wPoint2D(160,220));
-        myPolyline.AddVertex(new wPoint2D(230,60));
-        myPolyline.AddVertex(new wPoint2D(300,400));
+        myPolyline.addVertex(new wPoint2D(20,50));
+        myPolyline.addVertex(new wPoint2D(80,50));
+        myPolyline.addVertex(new wPoint2D(120,160));
+        myPolyline.addVertex(new wPoint2D(160,220));
+        myPolyline.addVertex(new wPoint2D(230,60));
+        myPolyline.addVertex(new wPoint2D(300,400));
         myFileDXF.secEntities.entities.add(myPolyline);
 
         //myFileDXF.secEntities.entities.add(new EntVertex(2,2));
@@ -90,7 +90,7 @@ public class FileDXFTest {
             System.out.println(myFileDXF.secEntities.entities.get(i));
         }
 
-        List<String []>  myMap = myFileDXF.GetPairData();
+        List<String []>  myMap = myFileDXF.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

@@ -21,7 +21,7 @@ public class SecHeaderTest {
         System.out.println();
 
 
-        List<String []>  myMap = mySecHeader.GetPairData();
+        List<String []>  myMap = mySecHeader.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

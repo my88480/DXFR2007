@@ -172,10 +172,10 @@ public class EntArc extends EntBase {
     }
 
     /**
-     * GetAngle()
+     * getAngle()
      * Get the angle of the arc
      */
-    public double GetAngle() {
+    public double getAngle() {
         double angle;
 
         angle = this.eAngle - this.sAngle;
@@ -184,10 +184,10 @@ public class EntArc extends EntBase {
     }
 
     /**
-     * GetArcLength()
+     * getArcLength()
      * Get the arc length of the arc
      */
-    public double GetArcLength() {
+    public double getArcLength() {
         double arclength;
 
         arclength = 2 * Math.PI * this.radius * (this.eAngle - this.sAngle) / 360.0;
@@ -196,10 +196,10 @@ public class EntArc extends EntBase {
     }
 
     /**
-     * GetArea()
+     * getArea()
      * Get the area of the arc
      */
-    public double GetArea() {
+    public double getArea() {
         double area;
 
         area = Math.PI * Math.pow(this.radius,2) * (this.eAngle - this.sAngle) / 360.0;

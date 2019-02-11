@@ -39,7 +39,7 @@ public class EntTextTest {
         EntText text3 = new EntText(65,0,0,8,"This is mine.\r\nTo test 3D base point TEXT Construction\rline 3\nline 4");
         System.out.println("");
 
-        List<String []>  myMap = text3.GetPairData();
+        List<String []>  myMap = text3.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

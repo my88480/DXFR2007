@@ -95,12 +95,12 @@ public class SecEntities {
     }
 
     /**
-     * GetPairData()
+     * getPairData()
      * @return Map of elements description of Entity LINE.
      * <pre>Output example:
      * </pre>
      */
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params=new ArrayList<>();
 
         params.add(new String[] {"  0",this.SectionHeader});
@@ -110,22 +110,22 @@ public class SecEntities {
             Object myEntity=this.entities.get(i);
             if (myEntity instanceof EntLine) {
                 EntLine myLine= (EntLine) myEntity;
-                params.addAll(myLine.GetPairData());
+                params.addAll(myLine.getPairData());
             } else if (myEntity instanceof EntPolyline) {
                 EntPolyline myPolyline = (EntPolyline) myEntity;
-                params.addAll(myPolyline.GetPairData());
+                params.addAll(myPolyline.getPairData());
             } else if (myEntity instanceof EntPoint) {
                 EntPoint myPoint = (EntPoint) myEntity;
-                params.addAll(myPoint.GetPairData());
+                params.addAll(myPoint.getPairData());
             } else if (myEntity instanceof EntCircle) {
                 EntCircle myCircle = (EntCircle) myEntity;
-                params.addAll(myCircle.GetPairData());
+                params.addAll(myCircle.getPairData());
             } else if (myEntity instanceof EntArc) {
                 EntArc myArc = (EntArc) myEntity;
-                params.addAll(myArc.GetPairData());
+                params.addAll(myArc.getPairData());
             } else if (myEntity instanceof EntText) {
                 EntText myText = (EntText) myEntity;
-                params.addAll(myText.GetPairData());
+                params.addAll(myText.getPairData());
             } else if (myEntity instanceof EntVertex) {
             }
         }
@@ -224,7 +224,7 @@ public class SecEntities {
         return returnString;
     }
 
-    public int GetEntitiesSize() {
+    public int getEntitiesSize() {
         return this.entities.size();
     }
 }

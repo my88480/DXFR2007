@@ -34,7 +34,7 @@ public class EntPointTest {
         point6.printAll();
         System.out.println("");
 
-        List<String []>  myMap = point6.GetPairData();
+        List<String []>  myMap = point6.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

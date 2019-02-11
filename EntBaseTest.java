@@ -21,7 +21,7 @@ public class EntBaseTest {
         ent_base.printAll();
         System.out.println("");
 
-        List<String []>  myMap = ent_base.GetPairData();
+        List<String []>  myMap = ent_base.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

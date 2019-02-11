@@ -11,21 +11,15 @@ public class wPointTest {
 
     public static void  main(String[] args)  throws Exception {
         wPoint point1=new wPoint();
-        point1.Print2D();
         System.out.println("");
 
         wPoint point2=new wPoint(25,20);
-        point2.Print2D();
         System.out.println("");
 
         wPoint point3=new wPoint(12,55,22);
-        point3.Print3D();
-        point3.Print2D();
         System.out.println("");
 
         wPoint point4=new wPoint(point3);
-        point4.Print2D();
-        point4.Print3D();
         point4.printAll();
         System.out.println("");
 
@@ -48,11 +42,10 @@ public class wPointTest {
             point7.x=1000*(new Random().nextDouble());
             point7.y=1000*(new Random().nextDouble());
             point7.z=1000*(new Random().nextDouble());
-            point7.Print3D();
         }
         System.out.println("");
 
-        List<String []>  myMap = point7.GetPairData();
+        List<String []>  myMap = point7.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

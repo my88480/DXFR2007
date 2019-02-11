@@ -147,10 +147,10 @@ public class EntLWPolyline extends EntBase {
     }
 
     /**
-     * AddVertex(one_point)
+     * addVertex(one_point)
      * @param one_point -one vertex to add class EntLWPolyline;
      */
-    public void AddVertex(wPoint one_point) {
+    public void addVertex(wPoint one_point) {
         this.Vertexs.add(one_point);
     }
 
@@ -187,22 +187,22 @@ public class EntLWPolyline extends EntBase {
     }
 
     /**
-    * GetSize()
+    * getSize()
     * Get the number of the Vertexs of the LWPolyline;
     */
-    public int GetSize() {
+    public int getSize() {
         return this.Vertexs.size();
     }
 
     /**
-    * GetLength()
+    * getLength()
     * Get the total length of the LWPolyline;
     */
-    public double GetLength() {
+    public double getLength() {
         double Length = 0.0;
 
         for (int i = 1; i < this.Vertexs.size(); i++) {
-            Length = Length + this.Vertexs.get(i).GetDistance(this.Vertexs.get(i-1));
+            Length = Length + this.Vertexs.get(i).getDistance(this.Vertexs.get(i-1));
         }
         return Length;
     }

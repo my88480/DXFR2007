@@ -10,16 +10,13 @@ public class wPoint2DTest {
 
     public static void  main(String[] args)  throws Exception {
         wPoint2D point1=new wPoint2D();
-        point1.Print2D();
         System.out.println("");
 
         wPoint2D point2=new wPoint2D(25,20);
-        point2.Print2D();
         System.out.println("");
 
 
         wPoint2D point4=new wPoint2D(point2);
-        point4.Print2D();
         point4.printAll();
         System.out.println("");
 
@@ -41,11 +38,10 @@ public class wPoint2DTest {
         for (int i = 0; i < 16; i++) {
             point7.x=1000*(new Random().nextDouble());
             point7.y=1000*(new Random().nextDouble());
-            point7.Print2D();
         }
         System.out.println("");
 
-        List<String []>  myMap = point7.GetPairData();
+        List<String []>  myMap = point7.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

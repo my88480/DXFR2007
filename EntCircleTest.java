@@ -19,7 +19,7 @@ public class EntCircleTest {
         mycircle.printAll();
         System.out.println();
 
-        List<String []>  myMap = mycircle.GetPairData();
+        List<String []>  myMap = mycircle.getPairData();
         System.out.println("List's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

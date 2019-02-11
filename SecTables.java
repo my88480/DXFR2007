@@ -55,7 +55,7 @@ public class SecTables {
      * </pre>
      */
     public void printAll() {
-        List<String []>  myMap = this.GetPairData();
+        List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: "+myMap.size());
 for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -71,12 +71,12 @@ for (String [] key : myMap) {
     }
 
     /**
-     * GetPairData()
+     * getPairData()
      * @return Map of elements description of Entity LINE.
      * <pre>Output example:
      * </pre>
      */
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params=new ArrayList<>();
 
         for (int i=0; i< StdSectionStr_R2K.length; i= i + 2) {

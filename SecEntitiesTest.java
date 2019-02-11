@@ -16,12 +16,12 @@ public class SecEntitiesTest {
 
         EntPolyline myPolyline = new EntPolyline();
 
-        myPolyline.AddVertex(new wPoint(90,0));
-        myPolyline.AddVertex(new wPoint(80,40));
-        myPolyline.AddVertex(new wPoint(120,80));
-        myPolyline.AddVertex(new wPoint(150,100));
-        myPolyline.AddVertex(new wPoint(180,120));
-        myPolyline.AddVertex(new wPoint(200,80));
+        myPolyline.addVertex(new wPoint(90,0));
+        myPolyline.addVertex(new wPoint(80,40));
+        myPolyline.addVertex(new wPoint(120,80));
+        myPolyline.addVertex(new wPoint(150,100));
+        myPolyline.addVertex(new wPoint(180,120));
+        myPolyline.addVertex(new wPoint(200,80));
 
         mySecEntities.entities.add(new wPoint(2,2));
         mySecEntities.entities.add(new EntLine(-100,8,0,250,150,0));
@@ -46,7 +46,7 @@ public class SecEntitiesTest {
         }
         System.out.println();
 
-        List<String []>  myMap = mySecEntities.GetPairData();
+        List<String []>  myMap = mySecEntities.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);

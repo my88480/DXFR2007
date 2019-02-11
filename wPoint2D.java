@@ -110,10 +110,10 @@ public class wPoint2D {
     }
 
     /**
-    * GetDistance()
+    * getDistance()
     * Get the distance of two points;
     */
-    public double GetDistance(wPoint2D P) {
+    public double getDistance(wPoint2D P) {
         double Distance = 0.0;
         double dx,dy;
 
@@ -126,10 +126,10 @@ public class wPoint2D {
     }
 
     /**
-    * GetDistance()
+    * getDistance()
     * Get the distance of two points;
     */
-    public double GetDistance(wPoint2D P1,wPoint2D P2) {
+    public double getDistance(wPoint2D P1,wPoint2D P2) {
         double Distance = 0.0;
         double dx,dy;
 
@@ -142,7 +142,7 @@ public class wPoint2D {
     }
 
     public void printAll() {
-        List<String []>  myMap = this.GetPairData();
+        List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: " + myMap.size());
 		for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
@@ -150,7 +150,7 @@ public class wPoint2D {
         System.out.println();
     }
 
-    public List<String []> GetPairData() {
+    public List<String []> getPairData() {
         List<String []> params =new ArrayList<>();
 
         List<String > DXFStr = new ArrayList<>();

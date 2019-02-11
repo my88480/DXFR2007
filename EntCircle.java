@@ -100,10 +100,10 @@ public class EntCircle extends EntBase {
     }
 
     /**Perimeter
-     * GetPerimeter()
+     * getPerimeter()
      * Get the area of the circle
      */
-    public double GetPerimeter() {
+    public double getPerimeter() {
         double thePerimeter;
 
         thePerimeter = 2 * Math.PI * radius;
@@ -112,10 +112,10 @@ public class EntCircle extends EntBase {
     }
 
     /**
-     * GetArea()
+     * getArea()
      * Get the area of the circle
      */
-    public double GetArea() {
+    public double getArea() {
         double theArea;
 
         theArea = Math.PI * Math.pow(radius,2);
