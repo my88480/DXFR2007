@@ -18,53 +18,53 @@ Parts file<br>
 
   Vesatile Contructors:
   
-void	AddEllipse()<BR>
-AddEllipse(empty) default Ellipse.
+void	addEllipse()<BR>
+addEllipse(empty) default Ellipse.
 
-void	AddEllipse(double x_value, double y_value, double ratio_value)<BR>
-AddEllipse(x_value,y_value,ratio_value)
+void	addEllipse(double x_value, double y_value, double ratio_value)<BR>
+addEllipse(x_value,y_value,ratio_value)
 
-void	AddEllipse(double x_value, double y_value, double z_value, double ratio_value)<BR>
-AddEllipse(x_value,y_value,z_value,ratio_value)
+void	addEllipse(double x_value, double y_value, double z_value, double ratio_value)<BR>
+addEllipse(x_value,y_value,z_value,ratio_value)
 
-void	AddEllipse(double xc_value, double yc_value, double xl_value, double yl_value, double ratio_value)<BR>
-AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value)
+void	addEllipse(double xc_value, double yc_value, double xl_value, double yl_value, double ratio_value)<BR>
+addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value)
 
-void	AddEllipse(double x_value, double y_value, double z_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(x_value,y_value,z_value,ratio_value,sAngle_value,eAngle_value)
+void	addEllipse(double x_value, double y_value, double z_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(x_value,y_value,z_value,ratio_value,sAngle_value,eAngle_value)
 
-void	AddEllipse(double xc_value, double yc_value, double xl_value, double yl_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
+void	addEllipse(double xc_value, double yc_value, double xl_value, double yl_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
 
-void	AddEllipse(double xc_value, double yc_value, double zc_value, double xl_value, double yl_value, double zl_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
+void	addEllipse(double xc_value, double yc_value, double zc_value, double xl_value, double yl_value, double zl_value, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(xc_value, yc_value, zc_value, xl_value, yl_value, zl_value, ratio_value, sAngle_value,eAngle_value)
 
-void	AddEllipse(EntEllipse oneEllipse)<BR>
-AddEllipse(oneEllipse)
+void	addEllipse(EntEllipse oneEllipse)<BR>
+addEllipse(oneEllipse)
 
-void	AddEllipse(wPoint2D lP, double ratio_value)<BR>
-AddEllipse(lP,ratio_value)
+void	addEllipse(wPoint2D lP, double ratio_value)<BR>
+addEllipse(lP,ratio_value)
 
-void	AddEllipse(wPoint2D cP, double Radius, double radius)<BR>
-AddEllipse(cP,Radius,radius)
+void	addEllipse(wPoint2D cP, double Radius, double radius)<BR>
+addEllipse(cP,Radius,radius)
 
-void	AddEllipse(wPoint2D lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(lP,ratio_value,sAngle_value,eAngle_value)
+void	addEllipse(wPoint2D lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(lP,ratio_value,sAngle_value,eAngle_value)
 
-void	AddEllipse(wPoint2D cP, wPoint2D lP, double ratio_value)<BR>
-AddEllipse(cP,lP,ratio_value)
+void	addEllipse(wPoint2D cP, wPoint2D lP, double ratio_value)<BR>
+addEllipse(cP,lP,ratio_value)
 
-void	AddEllipse(wPoint2D cP, wPoint2D lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
+void	addEllipse(wPoint2D cP, wPoint2D lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
 
-void	AddEllipse(wPoint2D Pc, wPoint2D Pa, wPoint2D Pb)<BR>
-AddEllipse(Pc,Pa,Pb)
+void	addEllipse(wPoint2D Pc, wPoint2D Pa, wPoint2D Pb)<BR>
+addEllipse(Pc,Pa,Pb)
 
-void	AddEllipse(wPoint cP, wPoint lP, double ratio_value)<BR>
-AddEllipse(cP,lP,ratio_value)
+void	addEllipse(wPoint cP, wPoint lP, double ratio_value)<BR>
+addEllipse(cP,lP,ratio_value)
 
-void	AddEllipse(wPoint cP, wPoint lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
-AddEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
+void	addEllipse(wPoint cP, wPoint lP, double ratio_value, double sAngle_value, double eAngle_value)<BR>
+addEllipse(cP,lP,ratio_value,sAngle_value,eAngle_value)
 
 Example one:
 
@@ -115,26 +115,26 @@ Example one:
 			
 			switch (type){
 				case 1:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
-					this.AddArc(PC,PA,PB);
-					this.AddArc(Pc,Pb,Pa);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
+					this.addCircle(PC,PA,PB);
+					this.addCircle(Pc,Pb,Pa);
 					break;
 				case 2:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
-					this.AddCircle(Pc,r);
-					this.AddCircle(PC,R);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
+					this.addCircle(Pc,r);
+					this.addCircle(PC,R);
 					break;
 				case 3:
-					this.AddLine(Pa,PA);
-					this.AddLine(Pb,PB);
+					this.addLine(Pa,PA);
+					this.addLine(Pb,PB);
 					break;
 				case 4:
-					this.AddLine(Pa,PA);
+					this.addLine(Pa,PA);
 					break;
 				case 5:
-					this.AddLine(Pb,PB);
+					this.addLine(Pb,PB);
 					break;
 				default:
 					break;
