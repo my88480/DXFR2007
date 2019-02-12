@@ -11,6 +11,8 @@ Supported ENTITIES:<BR>
 ----ELLIPSE<BR>
 ----VERTEX<BR>
 ----POLYLINE<BR>
+ ----Ray<BR>
+ ----Xline<BR>
   
 Parts file<br>
 <img src="examples/R2K_Parts.png" alt="parts" style="max-width:100%;">
