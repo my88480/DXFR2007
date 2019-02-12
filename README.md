@@ -1,5 +1,5 @@
 # DXFR2007
-Operate AutoCAD DXF file without AutoCAD environment. compatible with AutoCAD R2007 and above.
+Create AutoCAD DXF file without AutoCAD environment. compatible with AutoCAD R2007 and above.
 
 Supported ENTITIES:<BR>
 ----ARC<BR>
