@@ -33,6 +33,9 @@ public class SecEntitiesTest {
         //mySecEntities.entities.add(new EntEllipse(0,0,0,100,0,0,0.6,0.0,2*Math.PI));
         mySecEntities.entities.add(new EntText(0,0,0,8,"This is mine.÷–Œƒ≤‚ ‘\r\nApache Flink 1.7.0 Release Announcement\nMessage from David Wu\nState schema evolution now works out-of-the-box\rthe integration of complex event processing with streaming SQL "));
 
+        mySecEntities.entities.add(new EntRay(180,-25,250,400));
+        mySecEntities.entities.add(new EntXline(100,60,0,300,360,50));
+		
 
         System.out.println("Test toString: ");
         System.out.println(mySecEntities);

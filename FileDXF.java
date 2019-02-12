@@ -774,40 +774,218 @@ public class FileDXF {
     }
 
     /**
-     * printAll()
-     * <pre>Terminal output the description of DXF file
-     * Output example:
+     * addRay(xs_value,ys_value,xe_value,ye_value)
+     * <pre>Add one ray into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
      *	</pre>
-    public void printAll() {
-        this.secHeader.printAll();
-        this.secClasses.printAll();
-        this.secTables.printAll();
-        this.secBlocks.printAll();
-        this.secEntities.printAll();
-        this.secObjects.printAll();
-    }
     */
+    public void addRay(double xs_value,double ys_value,double xe_value,double ye_value) {
+        this.secEntities.entities.add(new EntRay(xs_value,ys_value,xe_value,ye_value));
+    }
 
     /**
-     * getPairData()
-     * @return Map of elements description of DXF file.
-     * <pre>Output example:
+     * addRay(xe_value,ye_value)
+     * <pre>Add one ray into the Entities' Section
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
      *	</pre>
-    public List<String []> getPairData() {
-        List<String []> params=new ArrayList<>();
-
-        params.addAll(this.secHeader.getPairData());
-        params.addAll(this.secClasses.getPairData());
-        params.addAll(this.secTables.getPairData());
-        params.addAll(this.secBlocks.getPairData());
-        params.addAll(this.secEntities.getPairData());
-        params.addAll(this.secObjects.getPairData());
-
-        params.add(new String[] {"  0",this.DXFFileTail});
-
-        return params;
+    */
+    public void addRay(double xe_value,double ye_value) {
+        this.addRay(0,0,xe_value,ye_value);
     }
-     */
+
+    /**
+     * addRay(sPoint,xe_value,ye_value)
+     * <pre>Add one ray into the Entities' Section
+     * @param sPoint - Axis Y;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     *	</pre>
+    */
+    public void addRay(wPoint2D sPoint,double xe_value,double ye_value) {
+        this.addRay(sPoint.x,sPoint.y,xe_value,ye_value);
+    }
+
+    /**
+     * addRay(xs_value,ys_value,ePoint)
+     * <pre>Add one ray into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param ePoint - wPoint2D End Point;
+     *	</pre>
+    */
+    public void addRay(double xs_value,double ys_value,wPoint2D ePoint) {
+        this.addRay(xs_value,ys_value,ePoint.x,ePoint.y);
+    }
+
+    /**
+     * addRay(sPoint,ePoint)
+     * <pre>Add one ray into the Entities' Section
+     * @param sPoint - Start point of the ray;
+     * @param ePoint - End point of the ray;
+     *	</pre>
+    */
+    public void addRay(wPoint2D sPoint,wPoint2D ePoint) {
+        this.secEntities.entities.add(new EntRay(sPoint,ePoint));
+    }
+
+    /**
+     * addRay(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value)
+     * <pre>Add one ray into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param zs_value - Axis Z;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     * @param ze_value - Axis Z;
+     *	</pre>
+    */
+    public void addRay(double xs_value,double ys_value,double zs_value,double xe_value,double ye_value,double ze_value) {
+        this.secEntities.entities.add(new EntRay(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value));
+    }
+
+    /**
+     * addRay(xe_value,ye_value,ze_value)
+     * <pre>Add one ray into the Entities' Section
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     * @param ze_value - Axis Z;
+     *	</pre>
+    */
+    public void addRay(double xe_value,double ye_value,double ze_value) {
+        this.addRay(0,0,0,xe_value,ye_value,ze_value);
+    }
+
+    /**
+     * addRay(sPoint,ePoint)
+     * <pre>Add one ray into the Entities' Section
+     * @param sPoint - Start point of the ray;
+     * @param ePoint - End point of the ray;
+     *	</pre>
+    */
+    public void addRay(wPoint sPoint,wPoint ePoint) {
+        this.secEntities.entities.add(new EntRay(sPoint,ePoint));
+    }
+
+    /**
+     * addRay(aRay)
+     * <pre>Add one ray into the Entities' Section
+     * @param aRay - Line Entity;
+     *	</pre>
+    */
+    public void addRay(EntRay aRay) {
+        this.secEntities.entities.add(new EntRay(aRay));
+    }
+
+    /**
+     * addXline(xs_value,ys_value,xe_value,ye_value)
+     * <pre>Add one xline into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     *	</pre>
+    */
+    public void addXline(double xs_value,double ys_value,double xe_value,double ye_value) {
+        this.secEntities.entities.add(new EntXline(xs_value,ys_value,xe_value,ye_value));
+    }
+
+    /**
+     * addXline(xe_value,ye_value)
+     * <pre>Add one xline into the Entities' Section
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     *	</pre>
+    */
+    public void addXline(double xe_value,double ye_value) {
+        this.addXline(0,0,xe_value,ye_value);
+    }
+
+    /**
+     * addXline(sPoint,xe_value,ye_value)
+     * <pre>Add one xline into the Entities' Section
+     * @param sPoint - Axis Y;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     *	</pre>
+    */
+    public void addXline(wPoint2D sPoint,double xe_value,double ye_value) {
+        this.addXline(sPoint.x,sPoint.y,xe_value,ye_value);
+    }
+
+    /**
+     * addXline(xs_value,ys_value,ePoint)
+     * <pre>Add one xline into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param ePoint - wPoint2D End Point;
+     *	</pre>
+    */
+    public void addXline(double xs_value,double ys_value,wPoint2D ePoint) {
+        this.addXline(xs_value,ys_value,ePoint.x,ePoint.y);
+    }
+
+    /**
+     * addXline(sPoint,ePoint)
+     * <pre>Add one xline into the Entities' Section
+     * @param sPoint - Start point of the xline;
+     * @param ePoint - End point of the xline;
+     *	</pre>
+    */
+    public void addXline(wPoint2D sPoint,wPoint2D ePoint) {
+        this.secEntities.entities.add(new EntXline(sPoint,ePoint));
+    }
+
+    /**
+     * addXline(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value)
+     * <pre>Add one xline into the Entities' Section
+     * @param xs_value - Axis X;
+     * @param ys_value - Axis Y;
+     * @param zs_value - Axis Z;
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     * @param ze_value - Axis Z;
+     *	</pre>
+    */
+    public void addXline(double xs_value,double ys_value,double zs_value,double xe_value,double ye_value,double ze_value) {
+        this.secEntities.entities.add(new EntXline(xs_value,ys_value,zs_value,xe_value,ye_value,ze_value));
+    }
+
+    /**
+     * addXline(xe_value,ye_value,ze_value)
+     * <pre>Add one xline into the Entities' Section
+     * @param xe_value - Axis X;
+     * @param ye_value - Axis Y;
+     * @param ze_value - Axis Z;
+     *	</pre>
+    */
+    public void addXline(double xe_value,double ye_value,double ze_value) {
+        this.addXline(0,0,0,xe_value,ye_value,ze_value);
+    }
+
+    /**
+     * addXline(sPoint,ePoint)
+     * <pre>Add one xline into the Entities' Section
+     * @param sPoint - Start point of the xline;
+     * @param ePoint - End point of the xline;
+     *	</pre>
+    */
+    public void addXline(wPoint sPoint,wPoint ePoint) {
+        this.secEntities.entities.add(new EntXline(sPoint,ePoint));
+    }
+
+    /**
+     * addXline(aXline)
+     * <pre>Add one xline into the Entities' Section
+     * @param aXline - Xline Entity;
+     *	</pre>
+    */
+    public void addXline(EntXline aXline) {
+        this.secEntities.entities.add(new EntXline(aXline));
+    }
 
     public void printAll() {
         List<String []>  myMap = this.getPairData();

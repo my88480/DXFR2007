@@ -77,6 +77,9 @@ public class FileDXFTest {
 
         myFileDXF.addEllipse(new wPoint(0,0,0),new wPoint(200,0,0),0.5,0,2*Math.PI);
         myFileDXF.addEllipse();
+		
+		myFileDXF.addRay(180,-25,250,400);
+		myFileDXF.addXline(100,60,0,300,360,50);
 
         /*
         System.out.println("Test toString method: ");
