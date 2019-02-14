@@ -107,7 +107,7 @@ public class EntText extends EntBase {
         StringBuffer sb = new StringBuffer();
         char [] source_char = source.toCharArray();
         String unicode = null;
-        for (int i=0; i<source_char.length; i++) {
+        for (int i = 0; i < source_char.length; i++) {
             char c = source_char[i];
             //  Standard ASCII
             if (c >= 0 && c <= 127) {
@@ -127,15 +127,15 @@ public class EntText extends EntBase {
     public void SliceText() {
         String lines = this.text;
 
-        lines=lines.replace("\r\n","\n");
-        lines=lines.replace("\n\r","\n");
-        lines=lines.replace("\r","\n");
-        splitText=lines.split("\n");
+        lines = lines.replace("\r\n","\n");
+        lines = lines.replace("\n\r","\n");
+        lines = lines.replace("\r","\n");
+        splitText = lines.split("\n");
         //System.out.println("splitText's length: " + splitText.length);
 
         Handle = new String[splitText.length];
         iPoint = new wPoint[splitText.length];
-        for (int i=0; i<splitText.length; i++) {
+        for (int i = 0; i < splitText.length; i++) {
 
             Handle[i] = FileDXF.applyHandle();
             iPoint[i] = new wPoint(this.bPoint.x,this.bPoint.y - (1.0 + 2.0 / 3.0) * this.height * i,this.bPoint.z);

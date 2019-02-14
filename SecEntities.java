@@ -1,6 +1,8 @@
 //package www
 //AutoCAD Section--ENTITIES
 import java.util.*;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 /**
 *@author David Wu<809758521@qq.com>
@@ -95,7 +97,9 @@ public class SecEntities {
         DXF_STR.add(this.SectionHeader);
         DXF_STR.add("  2");
         DXF_STR.add(this.SectionName);
-
+		
+		//The following Codes are working good.
+		/*
         for (int i  =  0; i < this.entities.size(); i++) {
             Object myEntity=this.entities.get(i);
             if (myEntity instanceof EntLine) {
@@ -136,12 +140,48 @@ public class SecEntities {
 				System.out.println("Unkown Entity Type, Please check it. Entity #" + i);
 			}
 
-            //this.entities.get(i).getDXF();
+			System.out.println(myEntity.getClass());
+			System.out.println(myEntity.getClass().getName());
+        }
+		*/
+		
+		//The following Codes are also working fine.
+		/*
+		for (int i = 0; i < this.entities.size(); i++) {
+            Object myEntity=this.entities.get(i);
 
-            //Method method = this.entities.get(i).getClass().getDeclaredMethod("GetDXF");
-            //method.invoke(this.entities.get(i));
-            //System.out.println(this.entities.get(i).printAll());
-            //DXF_STR.addAll(this.entities.get(i).getDXF());
+            try{
+				Method method = myEntity.getClass().getDeclaredMethod("getDXF");
+				
+				List<String> dxf = new ArrayList<>();
+				Object obj;
+				
+				obj = method.invoke(myEntity);
+
+				dxf = (ArrayList<String>)obj;
+				
+				DXF_STR.addAll(dxf);
+				
+			}	
+			catch(Exception e){  
+				System.out.printf("Exception occurs!!\r\n");  
+				System.out.println(e.getMessage());  //print the root cause  
+				System.out.printf("===========================\n");  
+				e.printStackTrace(); //print the info of function stuck.  
+			}
+		}
+		*/
+
+		for (int i = 0; i < this.entities.size(); i++) {
+            Object myEntity=this.entities.get(i);
+
+			String str = myEntity.toString();
+
+			String[] strArray = str.split("\r\n");
+			
+			for (int j=0; j < strArray.length;j++){
+				DXF_STR.add(strArray[j]);
+			}
         }
 
         DXF_STR.add("  0");
