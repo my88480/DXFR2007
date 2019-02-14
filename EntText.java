@@ -146,12 +146,12 @@ public class EntText extends EntBase {
      * Constructor (empty).
      */
     public EntText() {
-		this.EntityName = "TEXT";
-		this.ObjectId = "1F";
-		this.ClassLabel = "AcDbEntity";
-		this.SubClassLabel = "AcDbText";
-        
-		this.bPoint = new wPoint();
+        this.EntityName = "TEXT";
+        this.ObjectId = "1F";
+        this.ClassLabel = "AcDbEntity";
+        this.SubClassLabel = "AcDbText";
+
+        this.bPoint = new wPoint();
         this.second_point = new wPoint();
         this.height = 5.0;
         //this.text = null;
@@ -164,8 +164,8 @@ public class EntText extends EntBase {
      */
     public EntText(String str) {
         this();
-		
-		this.bPoint = new wPoint();
+
+        this.bPoint = new wPoint();
         this.second_point = new wPoint();
         this.height = 5.0;
         this.text = str;
@@ -178,7 +178,7 @@ public class EntText extends EntBase {
      */
     public EntText(double x_value,double height_value,String str) {
         this();
-		
+
         this.bPoint = new wPoint(x_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -193,7 +193,7 @@ public class EntText extends EntBase {
      */
     public EntText(double x_value,double y_value,double height_value,String str) {
         this();
-		
+
         this.bPoint = new wPoint(x_value,y_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -209,7 +209,7 @@ public class EntText extends EntBase {
      */
     public EntText(wPoint2D bPoint,double height_value,String str) {
         this();
-		
+
         this.bPoint = new wPoint(bPoint);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -227,7 +227,7 @@ public class EntText extends EntBase {
      */
     public EntText(double x_value,double y_value,double z_value,double height_value,String str) {
         this();
-		
+
         this.bPoint = new wPoint(x_value,y_value,z_value);
         this.second_point = new wPoint();
         this.height = height_value;
@@ -243,7 +243,7 @@ public class EntText extends EntBase {
      */
     public EntText(wPoint bPoint,double height_value,String str) {
         this();
-		
+
         this.bPoint = bPoint;
         this.second_point = new wPoint();
         this.height = height_value;
@@ -257,7 +257,7 @@ public class EntText extends EntBase {
      */
     public EntText(EntText oneText) {
         this();
-		
+
         this.bPoint = new wPoint(oneText.bPoint);
         this.second_point = new wPoint(oneText.second_point);
 
@@ -333,21 +333,21 @@ public class EntText extends EntBase {
 
         if (this.text.length()>0) {
             for (int i=0; i<splitText.length; i++) {
-				
-				super.Handle = this.Handle[i];
+
+                super.Handle = this.Handle[i];
                 DXF_STR.addAll(super.getDXF());
 
                 DXF_STR.addAll(iPoint[i].getDXF());
 
                 DXF_STR.add("  40");
                 DXF_STR.add(Double.toString(this.height));
-				
+
                 DXF_STR.add("  1");
                 DXF_STR.add(unicode(splitText[i]));
 
                 DXF_STR.add("  39");
                 DXF_STR.add(Double.toString(this.thickness));
-				
+
                 DXF_STR.add("  50");
                 DXF_STR.add(Double.toString(this.rotang));
 

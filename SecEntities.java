@@ -44,7 +44,7 @@ public class SecEntities {
      */
     public SecEntities(SecEntities one_entities_section) {
         this();
-		this.entities = one_entities_section.entities;
+        this.entities = one_entities_section.entities;
     }
 
     /**
@@ -56,7 +56,7 @@ public class SecEntities {
     public void printAll() {
         List<String []>  myMap = this.getPairData();
         System.out.println("Entity List's Size: " + myMap.size());
-		for (String [] key : myMap) {
+for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
         }
         System.out.println();
@@ -72,9 +72,9 @@ public class SecEntities {
         List<String []> params =new ArrayList<>();
 
         List<String > DXFStr = new ArrayList<>();
-		
-		DXFStr = this.getDXF();
-		
+
+        DXFStr = this.getDXF();
+
         for (int i = 0; i< DXFStr.size(); i = i + 2) {
             params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
         }
@@ -97,9 +97,9 @@ public class SecEntities {
         DXF_STR.add(this.SectionHeader);
         DXF_STR.add("  2");
         DXF_STR.add(this.SectionName);
-		
-		//The following Codes are working good.
-		/*
+
+        //The following Codes are working good.
+        /*
         for (int i  =  0; i < this.entities.size(); i++) {
             Object myEntity=this.entities.get(i);
             if (myEntity instanceof EntLine) {
@@ -137,51 +137,51 @@ public class SecEntities {
                 EntXline aEntity = (EntXline) myEntity;
                 DXF_STR.addAll(aEntity.getDXF());
             } else {
-				System.out.println("Unkown Entity Type, Please check it. Entity #" + i);
-			}
+        		System.out.println("Unkown Entity Type, Please check it. Entity #" + i);
+        	}
 
-			System.out.println(myEntity.getClass());
-			System.out.println(myEntity.getClass().getName());
+        	System.out.println(myEntity.getClass());
+        	System.out.println(myEntity.getClass().getName());
         }
-		*/
-		
-		//The following Codes are also working fine.
-		/*
-		for (int i = 0; i < this.entities.size(); i++) {
+        */
+
+        //The following Codes are also working fine.
+        /*
+        for (int i = 0; i < this.entities.size(); i++) {
             Object myEntity=this.entities.get(i);
 
             try{
-				Method method = myEntity.getClass().getDeclaredMethod("getDXF");
-				
-				List<String> dxf = new ArrayList<>();
-				Object obj;
-				
-				obj = method.invoke(myEntity);
+        		Method method = myEntity.getClass().getDeclaredMethod("getDXF");
 
-				dxf = (ArrayList<String>)obj;
-				
-				DXF_STR.addAll(dxf);
-				
-			}	
-			catch(Exception e){  
-				System.out.printf("Exception occurs!!\r\n");  
-				System.out.println(e.getMessage());  //print the root cause  
-				System.out.printf("===========================\n");  
-				e.printStackTrace(); //print the info of function stuck.  
-			}
-		}
-		*/
+        		List<String> dxf = new ArrayList<>();
+        		Object obj;
 
-		for (int i = 0; i < this.entities.size(); i++) {
+        		obj = method.invoke(myEntity);
+
+        		dxf = (ArrayList<String>)obj;
+
+        		DXF_STR.addAll(dxf);
+
+        	}
+        	catch(Exception e){
+        		System.out.printf("Exception occurs!!\r\n");
+        		System.out.println(e.getMessage());  //print the root cause
+        		System.out.printf("===========================\n");
+        		e.printStackTrace(); //print the info of function stuck.
+        	}
+        }
+        */
+
+        for (int i = 0; i < this.entities.size(); i++) {
             Object myEntity=this.entities.get(i);
 
-			String str = myEntity.toString();
+            String str = myEntity.toString();
 
-			String[] strArray = str.split("\r\n");
-			
-			for (int j=0; j < strArray.length;j++){
-				DXF_STR.add(strArray[j]);
-			}
+            String[] strArray = str.split("\r\n");
+
+            for (int j=0; j < strArray.length; j++) {
+                DXF_STR.add(strArray[j]);
+            }
         }
 
         DXF_STR.add("  0");
