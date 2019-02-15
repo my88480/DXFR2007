@@ -157,6 +157,8 @@ Change logs:
 
 2019/02/04 add GroupCode Class.
 
+2019/02/10 add two entities: XLine and Ray.
+
 2019/02/14 change the codes of SecEntities.java.
 
 2019/02/15  restruct two sections: Header,Classes(SecHeader.java SecClasses.java).
