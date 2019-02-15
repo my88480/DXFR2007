@@ -155,6 +155,6 @@ Our goal: elegant structure, less codes, more powerful functions.
 
 Change logs:
 
-2019/2/14 change the codes of SecEntities.java
+2019/2/14 change the codes of SecEntities.java.
 
-2019/2/15  restruct two sections: Header,Classes.
+2019/2/15  restruct two sections: Header,Classes(SecHeader.java SecClasses.java).
