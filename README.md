@@ -1,7 +1,7 @@
 # DXFR2007
 Create AutoCAD DXF file without AutoCAD environment. compatible with AutoCAD R2007 and above.
 
-Supported ENTITIES:<BR>
+Implement ENTITIES:<BR>
 ----ARC<BR>
 ----CIRCLE<BR>
 ----LINE<BR>
