@@ -151,7 +151,7 @@ Unicode convert：
   
   This project supports 180W+ Entities.
  
-Our goal: elegant structure, less codes, more powerful functions.
+Our Goal: Elegant structure, Less codes, More powerful functions.
 
 Change logs:
 
