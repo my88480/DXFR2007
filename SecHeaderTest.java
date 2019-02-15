@@ -13,6 +13,7 @@ public class SecHeaderTest {
 
         SecHeader mySecHeader = new SecHeader();
 
+        /*
         mySecHeader.printAll();
         System.out.println();
 
@@ -23,7 +24,7 @@ public class SecHeaderTest {
 
         List<String []>  myMap = mySecHeader.getPairData();
         System.out.println("PairData's Size: "+myMap.size());
-		for (String [] key : myMap) {
+				for (String [] key : myMap) {
             System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
         }
         System.out.println();
@@ -36,6 +37,11 @@ public class SecHeaderTest {
         for (int i  =  0; i < dxf_str.size(); i++) {
             System.out.println(dxf_str.get(i));
         }
+        */
+        
+        System.out.println(mySecHeader);
+        
+        //System.out.println(mySecHeader.$ACADVER);
 
     }
 

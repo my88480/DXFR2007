@@ -19,7 +19,17 @@ public class GroupCode{
 	
 	public GroupCode(String code,boolean value){
 		this.Code = code;
-		this.Value = Boolean.toString(value);
+		//this.Value = Boolean.toString(value);
+		
+		//java convert result: true or false
+		//this.Value = Boolean.toString(value);
+		
+		//dxf file;if the value is false ,it will be converted to "0",if the value is true,then it will be converted to "1"
+		if (value == true){
+				this.Value = "  1";
+		} else if (value == false ){
+				this.Value = "  0";
+		}				
 	}
 	
 	public GroupCode(String code,long value){
@@ -46,7 +56,15 @@ public class GroupCode{
 	}
 	
 	public void setValue(boolean value){
-		this.Value = Boolean.toString(value);
+		//java convert result: true or false
+		//this.Value = Boolean.toString(value);
+		
+		//dxf file;if the value is false ,it will be converted to "0",if the value is true,then it will be converted to "1"
+		if (value == true){
+				this.Value = "  1";
+		} else if (value == false ){
+				this.Value = "  0";
+		}				
 	}
 	
 	public void setValue(short value){
