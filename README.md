@@ -155,6 +155,8 @@ Our Goal: Elegant structure, Less codes, More powerful functions.
 
 Change logs:
 
-2019/2/14 change the codes of SecEntities.java.
+2019/02/04 add GroupCode Class.
 
-2019/2/15  restruct two sections: Header,Classes(SecHeader.java SecClasses.java).
+2019/02/14 change the codes of SecEntities.java.
+
+2019/02/15  restruct two sections: Header,Classes(SecHeader.java SecClasses.java).
