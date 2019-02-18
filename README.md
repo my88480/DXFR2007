@@ -144,6 +144,8 @@ Example one:
 		}
 	}
 		
+You could get the following graphic:<br>
+<img src="examples/CircleTanCircle.png" alt="parts" style="max-width:100%;">
 
 Now, this project supports chinese character set(use system truetype font Arial.ttf). Thanks to JadeChong https://github.com/JadeChong <BR>
 Unicode convert：
