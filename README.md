@@ -162,3 +162,9 @@ Change logs:
 2019/02/14 change the codes of SecEntities.java.
 
 2019/02/15  restruct two sections: Header,Classes(SecHeader.java SecClasses.java).
+
+2019/02/18  change the static description of the Section Header and Classes to variable definitions. <BR>
+	    add TableVPort.java<BR>
+	    fix the reference to hex_handle <BR>
+
+
