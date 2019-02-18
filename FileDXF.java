@@ -30,53 +30,53 @@ public class FileDXF {
     /**
      * dxf_filename -DXF File name.
      */
-    public String dxf_filename;
+    protected String dxf_filename;
 
     /**
      * DXF File overlap? - default value:no.
      * DXF File named loft_output_*** will not be overlapped.
      */
-    public boolean DXFFile_Overlap = false;
+    protected boolean DXFFile_Overlap = false;
 
     /**
      * jpg_filename -JPG File name.
      */
-    public String jpg_filename;
+    protected String jpg_filename;
 
 
-    public static String hex_handle = "2500";
+    protected static String hex_handle = "2500";
 
-    public static int int_handle = Integer.parseInt(hex_handle, 16);
+    protected static int int_handle = Integer.parseInt(hex_handle, 16);
 
     /**
      * Section Header.
      */
-    SecHeader secHeader;
+    protected SecHeader secHeader;
 
     /**
      * Section Classes.
      */
-    SecClasses secClasses;
+    protected SecClasses secClasses;
 
     /**
      * Section Tables.
      */
-    SecTables secTables;
+    protected SecTables secTables;
 
     /**
      * Section Blocks.
      */
-    SecBlocks secBlocks;
+    protected SecBlocks secBlocks;
 
     /**
      * Section Entities.
      */
-    SecEntities secEntities;
+    protected SecEntities secEntities;
 
     /**
      * Section Objects.
      */
-    SecObjects secObjects;
+    protected SecObjects secObjects;
 
     /**
      * code  0 -DXF File END tag.
@@ -88,13 +88,13 @@ public class FileDXF {
      * Constructor (empty).
      */
     public FileDXF() {
-        dxf_filename = new String();
-        secHeader = new SecHeader();
-        secClasses = new SecClasses();
-        secTables = new SecTables();
-        secBlocks = new SecBlocks();
-        secEntities = new SecEntities();
-        secObjects = new SecObjects();
+        this.dxf_filename = new String();
+        this.secHeader = new SecHeader();
+        this.secClasses = new SecClasses();
+        this.secTables = new SecTables();
+        this.secBlocks = new SecBlocks();
+        this.secEntities = new SecEntities();
+        this.secObjects = new SecObjects();
 
     }
 

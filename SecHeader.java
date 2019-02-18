@@ -314,7 +314,7 @@ public class SecHeader {
 
     public static short $SPLINESEGS =  8;
 
-    public static String $HANDSEED = "2521";
+    //public static String $HANDSEED = "2521";
 
     public static short $SURFTAB1 =  6;
 
@@ -686,7 +686,10 @@ public class SecHeader {
         this_GC_Header.addVar(new GC_Variable("$SPLFRAME",new GroupCode(" 70",$SPLFRAME)));
         this_GC_Header.addVar(new GC_Variable("$SPLINETYPE",new GroupCode(" 70",$SPLINETYPE)));
         this_GC_Header.addVar(new GC_Variable("$SPLINESEGS",new GroupCode(" 70",$SPLINESEGS)));
-        this_GC_Header.addVar(new GC_Variable("$HANDSEED",new GroupCode("  5",$HANDSEED)));
+		
+        //this_GC_Header.addVar(new GC_Variable("$HANDSEED",new GroupCode("  5",$HANDSEED)));
+        this_GC_Header.addVar(new GC_Variable("$HANDSEED",new GroupCode("  5",FileDXF.hex_handle)));
+		
         this_GC_Header.addVar(new GC_Variable("$SURFTAB1",new GroupCode(" 70",$SURFTAB1)));
         this_GC_Header.addVar(new GC_Variable("$SURFTAB2",new GroupCode(" 70",$SURFTAB2)));
         this_GC_Header.addVar(new GC_Variable("$SURFTYPE",new GroupCode(" 70",$SURFTYPE)));
@@ -1765,9 +1768,9 @@ public class SecHeader {
 	/**
 	 * @return Returns the $HANDSEED.
 	 */
-	public String get$HANDSEED(){
-		return this.$HANDSEED;
-	}
+	//public String get$HANDSEED(){
+	//	return this.$HANDSEED;
+	//}
 
 	/**
 	 * @return Returns the $SURFTAB1.
@@ -3550,9 +3553,9 @@ public class SecHeader {
 	/**
 	 * @param  $HANDSEED to set.
 	 */
-	public void set$HANDSEED(String var){
-		this.$HANDSEED = var;
-	}
+	//public void set$HANDSEED(String var){
+	//	this.$HANDSEED = var;
+	//}
 
 	/**
 	 * @param  $SURFTAB1 to set.
@@ -4431,53 +4434,6 @@ public class SecHeader {
     public List<String> getDXF() {
 
         List<String> DXF_STR = new ArrayList<>();
-        /*
-        DXF_STR.add("  0");
-        DXF_STR.add(this.SectionHeader);
-        DXF_STR.add("  2");
-        DXF_STR.add(this.SectionName);
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$ACADVER");
-        DXF_STR.add("  1");
-        DXF_STR.add(this.acadver);
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$INSBASE");
-        DXF_STR.addAll(this.inserBasePoint.getDXF());
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$EXTMIN");
-        DXF_STR.addAll(this.extmin.getDXF());
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$EXTMAX");
-        DXF_STR.addAll(this.extmax.getDXF());
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$LIMMIN");
-        DXF_STR.addAll(this.limmin.getDXF());
-
-        DXF_STR.add("  9");
-        DXF_STR.add("$LIMMAX");
-        DXF_STR.addAll(this.limmax.getDXF());
-
-
-        DXF_STR.add("  0");
-        DXF_STR.add(this.SectionTail);
-        */
-
-        /*
-        for (int i=0; i< StdSectionStr_R2K01.length; i++) {
-            DXF_STR.add(StdSectionStr_R2K01[i]);
-        }
-
-        DXF_STR.add(FileDXF.hex_handle );
-
-        for (int i=0; i< StdSectionStr_R2K02.length; i++) {
-            DXF_STR.add(StdSectionStr_R2K02[i]);
-        }
-        */
 
         DXF_STR.add("  0");
         DXF_STR.add(this.SectionHeader);
