@@ -8,12 +8,14 @@ import java.util.*;
 */
 
 public class TableVPortUnit {
+    private List<String> GC_TableVPortUnit;
+
     //Code 0 -- Object type
 	private String objectType = "VPORT";
     /**
      * code  5 - Handle.
      */
-    public String Handle;
+    public String Handle = "31";
 
     /**
      * code  330 - Object ID.
@@ -23,7 +25,7 @@ public class TableVPortUnit {
     /**
      * code  100 -Class Label.
      */
-	private String classLabe = "AcDbSymbolTableRecord";
+	private String classLabel = "AcDbSymbolTableRecord";
 	
     /**
      * code  100 -Sub Class Label.
@@ -31,76 +33,76 @@ public class TableVPortUnit {
 	private String subClassLabel = "AcDbViewportTableRecord";
 	
 	//Code 2 -- Viewport name
-	private String name = "";
+	private String name = "*Active";
 	
 	//Code 70 -- Standard flag values (bit-coded values)
-	private short standardMarker;
+	private short flags = 0;
 	
-    //Code 20,20 -- Lower-left corner of viewport
-	private wPoint2D lowerLeftCorner = new wPoint2D();
+    //Code 10,20 -- Lower-left corner of viewport
+	private wPoint2D lowerLeftCorner = new wPoint2D(0.0,0.0);
 	
     //Code 11,21 -- Upper-right corner of viewport
-	private wPoint2D upperRightCorner = new wPoint2D();
+	private wPoint2D upperRightCorner = new wPoint2D(1.0,1.0);
 	
     //Code 12,22 -- View center point (in DCS)
-	private wPoint2D centerPoint = new wPoint2D();
+	private wPoint2D centerPoint = new wPoint2D(132,-44);
 	
     //Code 13,23 -- Snap base point (in DCS)
-	private wPoint2D snapBasePoint = new wPoint2D();
+	private wPoint2D snapBasePoint = new wPoint2D(0,0);
 	
 	//Code 14,24 -- Snap spacing X and Y
-    private wPoint2D snapSpacingPoint = new wPoint2D();
+    private wPoint2D snapSpacingPoint = new wPoint2D(10,10);
 	
     //Code 15,25 -- Grid spacing X and Y
-	private wPoint2D gridSpacingPoint = new wPoint2D();
+	private wPoint2D gridSpacingPoint = new wPoint2D(10,10);
 	
     //Code 16,26,36 -- View direction from target point (in WCS) 
-	private wPoint viewDirectionPoint = new wPoint();
+	private wPoint viewDirectionPoint = new wPoint(0.0,0.0,1.0);
 	
     //Code 17,27,37 -- View target point (in WCS)
-	private wPoint viewTargetPoint = new wPoint();
+	private wPoint viewTargetPoint = new wPoint(0.0,0.0,0.0);
 	
     //Code 40 -- viewport height
-	private double height;
+	private double height = 840.0;
 	
     //Code none -- calculate: width = height * ratio;
 	private double width;
 	
     //Code 41 -- ratio = width / height;
-	private double ratio;
+	private double ratio = 1.86;
 	
 	//Code 42 -- Lens length
-    private double lensLength;
+    private double lensLength = 50.0;
 	
     //Code 43 -- Front clipping plane (offset from target point)
-	private double frontClippingPlane;
+	private double frontClippingPlane = 0.0;
 	
     //Code 44 -- Back clipping plane (offset from target point)
-	private double backClippingPlane;
+	private double backClippingPlane = 0.0;
 	
-    //Code 50 -- Snap rotation angle
-	private double rotationAngle;
+    //Code 50 -- Snap rotate angle
+	private double snapRotateAngle = 0.0;
 	
     //Code 51 -- View twist angle
-	private double viewTwistAngle;
+	private double viewTwistAngle = 0.0;
 	
     //Code 71 -- ViewPort mode
-	private int viewportMode;
+	private int viewportMode = 0;
 	
 	//Code 72 -- Circle zoom percent
-	private double circleZoom;
+	private double circleZoom = 100;
     
 	//Code 73 -- Fast zoom setting
-	private double fastZoom;
+	private double fastZoom = 1;
     
 	//Code 74 -- UCSICON setting
 	private int ucsiconSetting = 3;
     
 	//Code 75 -- Snap Status setting ON/OFF
-	private boolean snapMode;
+	private boolean snapMode = false;
     
 	//Code 76 -- Grid Status setting ON/OFF
-	private boolean gridDisplay;
+	private boolean gridDisplay = false;
     
     //Code 77 -- Snap style. AutoCAD command: SNAPSTYL
 	private int snapStyle = 0;
@@ -109,49 +111,49 @@ public class TableVPortUnit {
 	private int snapIsopair = 0;
 
 	//Code 281 -- Render mode  AutoCAD command: SHADEMODE
-	private int renderMode;
+	private int renderMode = 0;
 	
 	//Code 65 -- Value of UCSVP for this viewport. If set to 1, then viewport stores its own UCS which will become the current UCS whenever the viewport is activated. If set to 0, UCS will not change when this viewport is activated
 	private int UCSVP = 1;
 	
 	//Code 110,120,130 -- UCS origin  DXF: X value; APP: 3D point
-	private wPoint ucsOriginPoint;
+	private wPoint ucsOriginPoint = new wPoint(0.0,0.0,0.0);
 	
 	//Code 111,121,131 -- UCS X-axis
-	private wPoint ucsXAxis;
+	private wPoint ucsXAxis = new wPoint(1.0,0.0,0.0);
 	
 	//Code 112,122,132 -- UCS Y-axis
-	private wPoint ucsYAxis;
+	private wPoint ucsYAxis = new wPoint(0.0,1.0,0.0);
 	
 	//Code 79 -- Orthographic type of UCS, maybe be emun data type in AutoCAD
-	private int ucsOrthographicType;
+	private int ucsOrthographicType = 0;
 	
 	//Code 146 -- Elevation
-	private double elevation;
+	private double elevation = 0.0;
 	
 	//Code 348 -- Hard-pointer ID/handle to visual style object (optional)
-	private String hardPointerID;
+	private String hardPointerID = "F5";
 	
 	//Code 60 -- Grid Mode
-	private int gridMode;
+	private int gridMode = 3;
 	
 	//Code 61 -- Major grid lines
 	private int majorGridLines = 5;
 	
 	//Code 292 -- Default Lighting On flag
-	private boolean lightingOnFlag;
+	private boolean lightingOnFlag = true;
 	
 	//Code 282 -- Default Lighting type
-	private int lightingtype;
+	private int lightingtype = 1;
 	
 	//Code 141 -- Brightness
-	private double brightness;
+	private double brightness = 0.0;
 	
 	//Code 142 -- Constrast
-	private double constrast;
+	private double constrast = 0.0;
 	
 	//Code 63 -- Ambient color (only output when non-black)
-	private int ambientColorR;
+	private int ambientColorR = 250;
 	
 	//Code 421 -- Ambient color (only output when non-black)
 	private int ambientColorG = 3355443;
@@ -160,9 +162,7 @@ public class TableVPortUnit {
 	private int ambientColorB;
 	
 	//Code  -- 
-	private boolean active = false;
-
-
+	private boolean active = true;
 
 	/**
 	 * @return Returns the objectType.
@@ -186,6 +186,13 @@ public class TableVPortUnit {
 	}
 
 	/**
+	 * @return Returns the classLabel.
+	 */
+	public String getClassLabel(){
+		return this.classLabel;
+	}
+
+	/**
 	 * @return Returns the subClassLabel.
 	 */
 	public String getSubClassLabel(){
@@ -200,10 +207,10 @@ public class TableVPortUnit {
 	}
 
 	/**
-	 * @return Returns the standardMarker.
+	 * @return Returns the flags.
 	 */
-	public short getStandardMarker(){
-		return this.standardMarker;
+	public short getFlags(){
+		return this.flags;
 	}
 
 	/**
@@ -305,10 +312,10 @@ public class TableVPortUnit {
 	}
 
 	/**
-	 * @return Returns the rotationAngle.
+	 * @return Returns the snapRotateAngle.
 	 */
-	public double getRotationAngle(){
-		return this.rotationAngle;
+	public double getSnapRotateAngle(){
+		return this.snapRotateAngle;
 	}
 
 	/**
@@ -536,10 +543,10 @@ public class TableVPortUnit {
 	}
 
 	/**
-	 * @param  standardMarker to set.
+	 * @param  flags to set.
 	 */
-	public void setStandardMarker(short var){
-		this.standardMarker = var;
+	public void setFlags(short var){
+		this.flags = var;
 	}
 
 	/**
@@ -641,10 +648,10 @@ public class TableVPortUnit {
 	}
 
 	/**
-	 * @param  rotationAngle to set.
+	 * @param  snapRotateAngle to set.
 	 */
-	public void setRotationAngle(double var){
-		this.rotationAngle = var;
+	public void setsnapRotateAngle(double var){
+		this.snapRotateAngle = var;
 	}
 
 	/**
@@ -836,5 +843,975 @@ public class TableVPortUnit {
 		this.active = var;
 	}
 
+	//Code 0 -- Object type
+	private GroupCode GC_objectType;
+	
+    /**
+     * code  5 - Handle.
+     */
+	private GroupCode GC_Handle;
+	
+    /**
+     * code  330 - Object ID.
+     */
+	private GroupCode GC_ObjectId;
+	
+    /**
+     * code  100 -Class Label.
+     */
+	private GroupCode GC_ClassLabel;
+	
+    /**
+     * code  100 -Sub Class Label.
+     */
+	private GroupCode GC_SubClassLabel;
+	
+	//Code 2 -- Viewport name
+	private GroupCode GC_name;
+	
+	//Code 70 -- Standard flag values (bit-coded values)
+	private GroupCode GC_flags;
+	
+	//Code 10,20 -- Lower-left corner of viewport
+	private GC_wPoint2D GC_lowerLeftCorner;
+	
+	//Code 11,21 -- Upper-right corner of viewport
+	private GC_wPoint2D GC_upperRightCorner;
+	
+	//Code 12,22 -- View center point (in DCS)
+	private GC_wPoint2D GC_centerPoint;
+	
+	//Code 13,23 -- Snap base point (in DCS)
+	private GC_wPoint2D GC_snapBasePoint;
+	
+	//Code 14,24 -- Snap spacing X and Y
+	private GC_wPoint2D GC_snapSpacingPoint;
+	
+	//Code 15,25 -- Grid spacing X and Y
+	private GC_wPoint2D GC_gridSpacingPoint;
+	
+	//Code 16,26,36 -- View direction from target point (in WCS)
+	private GC_wPoint GC_viewDirectionPoint;
+	
+	//Code 17,27,37 -- View target point (in WCS)
+	private GC_wPoint GC_viewTargetPoint;
+	
+	//Code 40 -- viewport height
+	private GroupCode GC_height;
+	
+	//Code 41 -- ratio = width / height;
+	private GroupCode GC_ratio;
+	
+	//Code 42 -- Lens length
+	private GroupCode GC_lensLength;
+	
+	//Code 43 -- Front clipping plane (offset from target point)
+	private GroupCode GC_frontClippingPlane;
+	
+	//Code 44 -- Back clipping plane (offset from target point)
+	private GroupCode GC_backClippingPlane;
+	
+	//Code 50 -- Snap rotation angle
+	private GroupCode GC_snapRotateAngle;
+	
+	//Code 51 -- View twist angle
+	private GroupCode GC_viewTwistAngle;
+	
+	//Code 71 -- ViewPort mode
+	private GroupCode GC_viewportMode;
+	
+	//Code 72 -- Circle zoom percent
+	private GroupCode GC_circleZoom;
+	
+	//Code 73 -- Fast zoom setting
+	private GroupCode GC_fastZoom;
+	
+	//Code 74 -- UCSICON setting
+	private GroupCode GC_ucsiconSetting;
+	
+	//Code 75 -- Snap Status setting ON/OFF
+	private GroupCode GC_snapMode;
+	
+	//Code 76 -- Grid Status setting ON/OFF
+	private GroupCode GC_gridDisplay;
+	
+	//Code 77 -- Snap style. AutoCAD command: SNAPSTYL
+	private GroupCode GC_snapStyle;
+	
+	//Code 78 -- AutoCAD command: SNAPISOPAIR
+	private GroupCode GC_snapIsopair;
+	
+	//Code 281 -- Render mode  AutoCAD command: SHADEMODE
+	private GroupCode GC_renderMode;
+	
+	//Code 65 -- Value of UCSVP for this viewport. If set to 1, then viewport stores its own UCS which will become the current UCS whenever the viewport is activated. If set to 0, UCS will not change when this viewport is activated
+	private GroupCode GC_UCSVP;
+	
+	//Code 110,120,130 -- UCS origin  DXF: X value; APP: 3D point
+	private GC_wPoint GC_ucsOriginPoint;
+	
+	//Code 111,121,131 -- UCS X-axis
+	private GC_wPoint GC_ucsXAxis;
+	
+	//Code 112,122,132 -- UCS Y-axis
+	private GC_wPoint GC_ucsYAxis;
+	
+	//Code 79 -- Orthographic type of UCS, maybe be emun data type in AutoCAD
+	private GroupCode GC_ucsOrthographicType;
+	
+	//Code 146 -- Elevation
+	private GroupCode GC_elevation;
+	
+	//Code 348 -- Hard-pointer ID/handle to visual style object (optional)
+	private GroupCode GC_hardPointerID;
+	
+	//Code 60 -- Grid Mode
+	private GroupCode GC_gridMode;
+	
+	//Code 61 -- Major grid lines
+	private GroupCode GC_majorGridLines;
+	
+	//Code 292 -- Default Lighting On flag
+	private GroupCode GC_lightingOnFlag;
+	
+	//Code 282 -- Default Lighting type
+	private GroupCode GC_lightingtype;
+	
+	//Code 141 -- Brightness
+	private GroupCode GC_brightness;
+	
+	//Code 142 -- Constrast
+	private GroupCode GC_constrast;
+	
+	//Code 63 -- Ambient color (only output when non-black)
+	private GroupCode GC_ambientColorR;
+	
+	//Code 421 -- Ambient color (only output when non-black)
+	private GroupCode GC_ambientColorG;
+	
+	//Code 431 -- Ambient color (only output when non-black)
+	private GroupCode GC_ambientColorB;
+	
 
+	/**
+	 * @return Returns the GC_objectType.
+	 */
+	public GroupCode getGC_objectType(){
+		return this.GC_objectType;
+	}
+
+	/**
+	 * @return Returns the GC_Handle.
+	 */
+	public GroupCode getGC_Handle(){
+		return this.GC_Handle;
+	}
+
+	/**
+	 * @return Returns the GC_ObjectId.
+	 */
+	public GroupCode getGC_ObjectId(){
+		return this.GC_ObjectId;
+	}
+
+	/**
+	 * @return Returns the GC_ClassLabel.
+	 */
+	public GroupCode getGC_ClassLabel(){
+		return this.GC_ClassLabel;
+	}
+
+	/**
+	 * @return Returns the GC_SubClassLabel.
+	 */
+	public GroupCode getGC_SubClassLabel(){
+		return this.GC_SubClassLabel;
+	}
+
+	/**
+	 * @return Returns the GC_name.
+	 */
+	public GroupCode getGC_name(){
+		return this.GC_name;
+	}
+
+	/**
+	 * @return Returns the GC_flags.
+	 */
+	public GroupCode getGC_flags(){
+		return this.GC_flags;
+	}
+
+	/**
+	 * @return Returns the GC_lowerLeftCorner.
+	 */
+	public GC_wPoint2D getGC_lowerLeftCorner(){
+		return this.GC_lowerLeftCorner;
+	}
+
+	/**
+	 * @return Returns the GC_upperRightCorner.
+	 */
+	public GC_wPoint2D getGC_upperRightCorner(){
+		return this.GC_upperRightCorner;
+	}
+
+	/**
+	 * @return Returns the GC_centerPoint.
+	 */
+	public GC_wPoint2D getGC_centerPoint(){
+		return this.GC_centerPoint;
+	}
+
+	/**
+	 * @return Returns the GC_snapBasePoint.
+	 */
+	public GC_wPoint2D getGC_snapBasePoint(){
+		return this.GC_snapBasePoint;
+	}
+
+	/**
+	 * @return Returns the GC_snapSpacingPoint.
+	 */
+	public GC_wPoint2D getGC_snapSpacingPoint(){
+		return this.GC_snapSpacingPoint;
+	}
+
+	/**
+	 * @return Returns the GC_gridSpacingPoint.
+	 */
+	public GC_wPoint2D getGC_gridSpacingPoint(){
+		return this.GC_gridSpacingPoint;
+	}
+
+	/**
+	 * @return Returns the GC_viewDirectionPoint.
+	 */
+	public GC_wPoint getGC_viewDirectionPoint(){
+		return this.GC_viewDirectionPoint;
+	}
+
+	/**
+	 * @return Returns the GC_viewTargetPoint.
+	 */
+	public GC_wPoint getGC_viewTargetPoint(){
+		return this.GC_viewTargetPoint;
+	}
+
+	/**
+	 * @return Returns the GC_height.
+	 */
+	public GroupCode getGC_height(){
+		return this.GC_height;
+	}
+
+	/**
+	 * @return Returns the GC_ratio.
+	 */
+	public GroupCode getGC_ratio(){
+		return this.GC_ratio;
+	}
+
+	/**
+	 * @return Returns the GC_lensLength.
+	 */
+	public GroupCode getGC_lensLength(){
+		return this.GC_lensLength;
+	}
+
+	/**
+	 * @return Returns the GC_frontClippingPlane.
+	 */
+	public GroupCode getGC_frontClippingPlane(){
+		return this.GC_frontClippingPlane;
+	}
+
+	/**
+	 * @return Returns the GC_backClippingPlane.
+	 */
+	public GroupCode getGC_backClippingPlane(){
+		return this.GC_backClippingPlane;
+	}
+
+	/**
+	 * @return Returns the GC_snapRotateAngle.
+	 */
+	public GroupCode getGC_snapRotateAngle(){
+		return this.GC_snapRotateAngle;
+	}
+
+	/**
+	 * @return Returns the GC_viewTwistAngle.
+	 */
+	public GroupCode getGC_viewTwistAngle(){
+		return this.GC_viewTwistAngle;
+	}
+
+	/**
+	 * @return Returns the GC_viewportMode.
+	 */
+	public GroupCode getGC_viewportMode(){
+		return this.GC_viewportMode;
+	}
+
+	/**
+	 * @return Returns the GC_circleZoom.
+	 */
+	public GroupCode getGC_circleZoom(){
+		return this.GC_circleZoom;
+	}
+
+	/**
+	 * @return Returns the GC_fastZoom.
+	 */
+	public GroupCode getGC_fastZoom(){
+		return this.GC_fastZoom;
+	}
+
+	/**
+	 * @return Returns the GC_ucsiconSetting.
+	 */
+	public GroupCode getGC_ucsiconSetting(){
+		return this.GC_ucsiconSetting;
+	}
+
+	/**
+	 * @return Returns the GC_snapMode.
+	 */
+	public GroupCode getGC_snapMode(){
+		return this.GC_snapMode;
+	}
+
+	/**
+	 * @return Returns the GC_gridDisplay.
+	 */
+	public GroupCode getGC_gridDisplay(){
+		return this.GC_gridDisplay;
+	}
+
+	/**
+	 * @return Returns the GC_snapStyle.
+	 */
+	public GroupCode getGC_snapStyle(){
+		return this.GC_snapStyle;
+	}
+
+	/**
+	 * @return Returns the GC_snapIsopair.
+	 */
+	public GroupCode getGC_snapIsopair(){
+		return this.GC_snapIsopair;
+	}
+
+	/**
+	 * @return Returns the GC_renderMode.
+	 */
+	public GroupCode getGC_renderMode(){
+		return this.GC_renderMode;
+	}
+
+	/**
+	 * @return Returns the GC_UCSVP.
+	 */
+	public GroupCode getGC_UCSVP(){
+		return this.GC_UCSVP;
+	}
+
+	/**
+	 * @return Returns the GC_ucsOriginPoint.
+	 */
+	public GC_wPoint getGC_ucsOriginPoint(){
+		return this.GC_ucsOriginPoint;
+	}
+
+	/**
+	 * @return Returns the GC_ucsXAxis.
+	 */
+	public GC_wPoint getGC_ucsXAxis(){
+		return this.GC_ucsXAxis;
+	}
+
+	/**
+	 * @return Returns the GC_ucsYAxis.
+	 */
+	public GC_wPoint getGC_ucsYAxis(){
+		return this.GC_ucsYAxis;
+	}
+
+	/**
+	 * @return Returns the GC_ucsOrthographicType.
+	 */
+	public GroupCode getGC_ucsOrthographicType(){
+		return this.GC_ucsOrthographicType;
+	}
+
+	/**
+	 * @return Returns the GC_elevation.
+	 */
+	public GroupCode getGC_elevation(){
+		return this.GC_elevation;
+	}
+
+	/**
+	 * @return Returns the GC_hardPointerID.
+	 */
+	public GroupCode getGC_hardPointerID(){
+		return this.GC_hardPointerID;
+	}
+
+	/**
+	 * @return Returns the GC_gridMode.
+	 */
+	public GroupCode getGC_gridMode(){
+		return this.GC_gridMode;
+	}
+
+	/**
+	 * @return Returns the GC_majorGridLines.
+	 */
+	public GroupCode getGC_majorGridLines(){
+		return this.GC_majorGridLines;
+	}
+
+	/**
+	 * @return Returns the GC_lightingOnFlag.
+	 */
+	public GroupCode getGC_lightingOnFlag(){
+		return this.GC_lightingOnFlag;
+	}
+
+	/**
+	 * @return Returns the GC_lightingtype.
+	 */
+	public GroupCode getGC_lightingtype(){
+		return this.GC_lightingtype;
+	}
+
+	/**
+	 * @return Returns the GC_brightness.
+	 */
+	public GroupCode getGC_brightness(){
+		return this.GC_brightness;
+	}
+
+	/**
+	 * @return Returns the GC_constrast.
+	 */
+	public GroupCode getGC_constrast(){
+		return this.GC_constrast;
+	}
+
+	/**
+	 * @return Returns the GC_ambientColorR.
+	 */
+	public GroupCode getGC_ambientColorR(){
+		return this.GC_ambientColorR;
+	}
+
+	/**
+	 * @return Returns the GC_ambientColorG.
+	 */
+	public GroupCode getGC_ambientColorG(){
+		return this.GC_ambientColorG;
+	}
+
+	/**
+	 * @return Returns the GC_ambientColorB.
+	 */
+	public GroupCode getGC_ambientColorB(){
+		return this.GC_ambientColorB;
+	}
+
+	/**
+	 * @param  GC_objectType to set.
+	 */
+	public void setGC_objectType(GroupCode var){
+		this.GC_objectType = var;
+	}
+
+	/**
+	 * @param  GC_Handle to set.
+	 */
+	public void setGC_Handle(GroupCode var){
+		this.GC_Handle = var;
+	}
+
+	/**
+	 * @param  GC_ObjectId to set.
+	 */
+	public void setGC_ObjectId(GroupCode var){
+		this.GC_ObjectId = var;
+	}
+
+	/**
+	 * @param  GC_ClassLabel to set.
+	 */
+	public void setGC_ClassLabel(GroupCode var){
+		this.GC_ClassLabel = var;
+	}
+
+	/**
+	 * @param  GC_SubClassLabel to set.
+	 */
+	public void setGC_SubClassLabel(GroupCode var){
+		this.GC_SubClassLabel = var;
+	}
+
+	/**
+	 * @param  GC_name to set.
+	 */
+	public void setGC_name(GroupCode var){
+		this.GC_name = var;
+	}
+
+	/**
+	 * @param  GC_flags to set.
+	 */
+	public void setGC_flags(GroupCode var){
+		this.GC_flags = var;
+	}
+
+	/**
+	 * @param  GC_lowerLeftCorner to set.
+	 */
+	public void setGC_lowerLeftCorner(GC_wPoint2D var){
+		this.GC_lowerLeftCorner = var;
+	}
+
+	/**
+	 * @param  GC_upperRightCorner to set.
+	 */
+	public void setGC_upperRightCorner(GC_wPoint2D var){
+		this.GC_upperRightCorner = var;
+	}
+
+	/**
+	 * @param  GC_centerPoint to set.
+	 */
+	public void setGC_centerPoint(GC_wPoint2D var){
+		this.GC_centerPoint = var;
+	}
+
+	/**
+	 * @param  GC_snapBasePoint to set.
+	 */
+	public void setGC_snapBasePoint(GC_wPoint2D var){
+		this.GC_snapBasePoint = var;
+	}
+
+	/**
+	 * @param  GC_snapSpacingPoint to set.
+	 */
+	public void setGC_snapSpacingPoint(GC_wPoint2D var){
+		this.GC_snapSpacingPoint = var;
+	}
+
+	/**
+	 * @param  GC_gridSpacingPoint to set.
+	 */
+	public void setGC_gridSpacingPoint(GC_wPoint2D var){
+		this.GC_gridSpacingPoint = var;
+	}
+
+	/**
+	 * @param  GC_viewDirectionPoint to set.
+	 */
+	public void setGC_viewDirectionPoint(GC_wPoint var){
+		this.GC_viewDirectionPoint = var;
+	}
+
+	/**
+	 * @param  GC_viewTargetPoint to set.
+	 */
+	public void setGC_viewTargetPoint(GC_wPoint var){
+		this.GC_viewTargetPoint = var;
+	}
+
+	/**
+	 * @param  GC_height to set.
+	 */
+	public void setGC_height(GroupCode var){
+		this.GC_height = var;
+	}
+
+	/**
+	 * @param  GC_ratio to set.
+	 */
+	public void setGC_ratio(GroupCode var){
+		this.GC_ratio = var;
+	}
+
+	/**
+	 * @param  GC_lensLength to set.
+	 */
+	public void setGC_lensLength(GroupCode var){
+		this.GC_lensLength = var;
+	}
+
+	/**
+	 * @param  GC_frontClippingPlane to set.
+	 */
+	public void setGC_frontClippingPlane(GroupCode var){
+		this.GC_frontClippingPlane = var;
+	}
+
+	/**
+	 * @param  GC_backClippingPlane to set.
+	 */
+	public void setGC_backClippingPlane(GroupCode var){
+		this.GC_backClippingPlane = var;
+	}
+
+	/**
+	 * @param  GC_snapRotateAngle to set.
+	 */
+	public void setGC_snapRotateAngle(GroupCode var){
+		this.GC_snapRotateAngle = var;
+	}
+
+	/**
+	 * @param  GC_viewTwistAngle to set.
+	 */
+	public void setGC_viewTwistAngle(GroupCode var){
+		this.GC_viewTwistAngle = var;
+	}
+
+	/**
+	 * @param  GC_viewportMode to set.
+	 */
+	public void setGC_viewportMode(GroupCode var){
+		this.GC_viewportMode = var;
+	}
+
+	/**
+	 * @param  GC_circleZoom to set.
+	 */
+	public void setGC_circleZoom(GroupCode var){
+		this.GC_circleZoom = var;
+	}
+
+	/**
+	 * @param  GC_fastZoom to set.
+	 */
+	public void setGC_fastZoom(GroupCode var){
+		this.GC_fastZoom = var;
+	}
+
+	/**
+	 * @param  GC_ucsiconSetting to set.
+	 */
+	public void setGC_ucsiconSetting(GroupCode var){
+		this.GC_ucsiconSetting = var;
+	}
+
+	/**
+	 * @param  GC_snapMode to set.
+	 */
+	public void setGC_snapMode(GroupCode var){
+		this.GC_snapMode = var;
+	}
+
+	/**
+	 * @param  GC_gridDisplay to set.
+	 */
+	public void setGC_gridDisplay(GroupCode var){
+		this.GC_gridDisplay = var;
+	}
+
+	/**
+	 * @param  GC_snapStyle to set.
+	 */
+	public void setGC_snapStyle(GroupCode var){
+		this.GC_snapStyle = var;
+	}
+
+	/**
+	 * @param  GC_snapIsopair to set.
+	 */
+	public void setGC_snapIsopair(GroupCode var){
+		this.GC_snapIsopair = var;
+	}
+
+	/**
+	 * @param  GC_renderMode to set.
+	 */
+	public void setGC_renderMode(GroupCode var){
+		this.GC_renderMode = var;
+	}
+
+	/**
+	 * @param  GC_UCSVP to set.
+	 */
+	public void setGC_UCSVP(GroupCode var){
+		this.GC_UCSVP = var;
+	}
+
+	/**
+	 * @param  GC_ucsOriginPoint to set.
+	 */
+	public void setGC_ucsOriginPoint(GC_wPoint var){
+		this.GC_ucsOriginPoint = var;
+	}
+
+	/**
+	 * @param  GC_ucsXAxis to set.
+	 */
+	public void setGC_ucsXAxis(GC_wPoint var){
+		this.GC_ucsXAxis = var;
+	}
+
+	/**
+	 * @param  GC_ucsYAxis to set.
+	 */
+	public void setGC_ucsYAxis(GC_wPoint var){
+		this.GC_ucsYAxis = var;
+	}
+
+	/**
+	 * @param  GC_ucsOrthographicType to set.
+	 */
+	public void setGC_ucsOrthographicType(GroupCode var){
+		this.GC_ucsOrthographicType = var;
+	}
+
+	/**
+	 * @param  GC_elevation to set.
+	 */
+	public void setGC_elevation(GroupCode var){
+		this.GC_elevation = var;
+	}
+
+	/**
+	 * @param  GC_hardPointerID to set.
+	 */
+	public void setGC_hardPointerID(GroupCode var){
+		this.GC_hardPointerID = var;
+	}
+
+	/**
+	 * @param  GC_gridMode to set.
+	 */
+	public void setGC_gridMode(GroupCode var){
+		this.GC_gridMode = var;
+	}
+
+	/**
+	 * @param  GC_majorGridLines to set.
+	 */
+	public void setGC_majorGridLines(GroupCode var){
+		this.GC_majorGridLines = var;
+	}
+
+	/**
+	 * @param  GC_lightingOnFlag to set.
+	 */
+	public void setGC_lightingOnFlag(GroupCode var){
+		this.GC_lightingOnFlag = var;
+	}
+
+	/**
+	 * @param  GC_lightingtype to set.
+	 */
+	public void setGC_lightingtype(GroupCode var){
+		this.GC_lightingtype = var;
+	}
+
+	/**
+	 * @param  GC_brightness to set.
+	 */
+	public void setGC_brightness(GroupCode var){
+		this.GC_brightness = var;
+	}
+
+	/**
+	 * @param  GC_constrast to set.
+	 */
+	public void setGC_constrast(GroupCode var){
+		this.GC_constrast = var;
+	}
+
+	/**
+	 * @param  GC_ambientColorR to set.
+	 */
+	public void setGC_ambientColorR(GroupCode var){
+		this.GC_ambientColorR = var;
+	}
+
+	/**
+	 * @param  GC_ambientColorG to set.
+	 */
+	public void setGC_ambientColorG(GroupCode var){
+		this.GC_ambientColorG = var;
+	}
+
+	/**
+	 * @param  GC_ambientColorB to set.
+	 */
+	public void setGC_ambientColorB(GroupCode var){
+		this.GC_ambientColorB = var;
+	}
+
+	public void assembleDXF(){
+		GC_TableVPortUnit = new ArrayList<>();
+		
+		GC_objectType = new GroupCode("  0",this.objectType);
+		GC_Handle = new GroupCode("  5",this.Handle);
+		GC_ObjectId = new GroupCode("330",this.ObjectId);
+		GC_ClassLabel = new GroupCode("100",this.classLabel);
+		GC_SubClassLabel = new GroupCode("100",this.subClassLabel);
+		GC_name = new GroupCode("  2",this.name);
+		GC_flags = new GroupCode(" 70",this.flags);
+		GC_lowerLeftCorner = new GC_wPoint2D(this.lowerLeftCorner);
+		GC_upperRightCorner = new GC_wPoint2D(11,this.upperRightCorner);
+		GC_centerPoint = new GC_wPoint2D(12,this.centerPoint);
+		GC_snapBasePoint = new GC_wPoint2D(13,this.snapBasePoint);
+		GC_snapSpacingPoint = new GC_wPoint2D(14,this.snapSpacingPoint);
+		GC_gridSpacingPoint = new GC_wPoint2D(15,this.gridSpacingPoint);
+		GC_viewDirectionPoint = new GC_wPoint(16,this.viewDirectionPoint);
+		GC_viewTargetPoint = new GC_wPoint(17,this.viewTargetPoint);
+		GC_height = new GroupCode(" 40",this.height);
+		GC_ratio = new GroupCode(" 41",this.ratio);
+		GC_lensLength = new GroupCode(" 42",this.lensLength);
+		GC_frontClippingPlane = new GroupCode(" 43",this.frontClippingPlane);
+		GC_backClippingPlane = new GroupCode(" 44",this.backClippingPlane);
+		GC_snapRotateAngle = new GroupCode(" 50",this.snapRotateAngle);
+		GC_viewTwistAngle = new GroupCode(" 51",this.viewTwistAngle);
+		GC_viewportMode = new GroupCode(" 71",this.viewportMode);
+		GC_circleZoom = new GroupCode(" 72",this.circleZoom);
+		GC_fastZoom = new GroupCode(" 73",this.fastZoom);
+		GC_ucsiconSetting = new GroupCode(" 74",this.ucsiconSetting);
+		GC_snapMode = new GroupCode(" 75",this.snapMode);
+		GC_gridDisplay = new GroupCode(" 76",this.gridDisplay);
+		GC_snapStyle = new GroupCode(" 77",this.snapStyle);
+		GC_snapIsopair = new GroupCode(" 78",this.snapIsopair);
+		GC_renderMode = new GroupCode("281",this.renderMode);
+		GC_UCSVP = new GroupCode(" 65",this.UCSVP);
+		GC_ucsOriginPoint = new GC_wPoint(110,this.ucsOriginPoint);
+		GC_ucsXAxis = new GC_wPoint(111,this.ucsXAxis);
+		GC_ucsYAxis = new GC_wPoint(112,this.ucsYAxis);
+		GC_ucsOrthographicType = new GroupCode(" 79",this.ucsOrthographicType);
+		GC_elevation = new GroupCode("146",this.elevation);
+		GC_hardPointerID = new GroupCode("348",this.hardPointerID);
+		GC_gridMode = new GroupCode(" 60",this.gridMode);
+		GC_majorGridLines = new GroupCode(" 61",this.majorGridLines);
+		GC_lightingOnFlag = new GroupCode("292",this.lightingOnFlag);
+		GC_lightingtype = new GroupCode("282",this.lightingtype);
+		GC_brightness = new GroupCode("141",this.brightness);
+		GC_constrast = new GroupCode("142",this.constrast);
+		GC_ambientColorR = new GroupCode(" 63",this.ambientColorR);
+		GC_ambientColorG = new GroupCode("421",this.ambientColorG);
+		
+	
+		GC_TableVPortUnit.addAll(GC_objectType.getDXF());
+		GC_TableVPortUnit.addAll(GC_Handle.getDXF());
+		GC_TableVPortUnit.addAll(GC_ObjectId.getDXF());
+		GC_TableVPortUnit.addAll(GC_ClassLabel.getDXF());
+		GC_TableVPortUnit.addAll(GC_SubClassLabel.getDXF());
+		GC_TableVPortUnit.addAll(GC_name.getDXF());
+		GC_TableVPortUnit.addAll(GC_flags.getDXF());
+		GC_TableVPortUnit.addAll(GC_lowerLeftCorner.getDXF());
+		GC_TableVPortUnit.addAll(GC_upperRightCorner.getDXF());
+		GC_TableVPortUnit.addAll(GC_centerPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapBasePoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapSpacingPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_gridSpacingPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_viewDirectionPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_viewTargetPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_height.getDXF());
+		GC_TableVPortUnit.addAll(GC_ratio.getDXF());
+		GC_TableVPortUnit.addAll(GC_lensLength.getDXF());
+		GC_TableVPortUnit.addAll(GC_frontClippingPlane.getDXF());
+		GC_TableVPortUnit.addAll(GC_backClippingPlane.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapRotateAngle.getDXF());
+		GC_TableVPortUnit.addAll(GC_viewTwistAngle.getDXF());
+		GC_TableVPortUnit.addAll(GC_viewportMode.getDXF());
+		GC_TableVPortUnit.addAll(GC_circleZoom.getDXF());
+		GC_TableVPortUnit.addAll(GC_fastZoom.getDXF());
+		GC_TableVPortUnit.addAll(GC_ucsiconSetting.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapMode.getDXF());
+		GC_TableVPortUnit.addAll(GC_gridDisplay.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapStyle.getDXF());
+		GC_TableVPortUnit.addAll(GC_snapIsopair.getDXF());
+		GC_TableVPortUnit.addAll(GC_renderMode.getDXF());
+		GC_TableVPortUnit.addAll(GC_UCSVP.getDXF());
+		GC_TableVPortUnit.addAll(GC_ucsOriginPoint.getDXF());
+		GC_TableVPortUnit.addAll(GC_ucsXAxis.getDXF());
+		GC_TableVPortUnit.addAll(GC_ucsYAxis.getDXF());
+		GC_TableVPortUnit.addAll(GC_ucsOrthographicType.getDXF());
+		GC_TableVPortUnit.addAll(GC_elevation.getDXF());
+		GC_TableVPortUnit.addAll(GC_hardPointerID.getDXF());
+		GC_TableVPortUnit.addAll(GC_gridMode.getDXF());
+		GC_TableVPortUnit.addAll(GC_majorGridLines.getDXF());
+		GC_TableVPortUnit.addAll(GC_lightingOnFlag.getDXF());
+		GC_TableVPortUnit.addAll(GC_lightingtype.getDXF());
+		GC_TableVPortUnit.addAll(GC_brightness.getDXF());
+		GC_TableVPortUnit.addAll(GC_constrast.getDXF());
+		GC_TableVPortUnit.addAll(GC_ambientColorR.getDXF());
+		GC_TableVPortUnit.addAll(GC_ambientColorG.getDXF());
+		
+	}
+	
+	public TableVPortUnit(){
+		this.assembleDXF();
+	}	
+
+    public void printAll() {
+        List<String []>  myMap = this.getPairData();
+        System.out.println("Entity List's Size: " + myMap.size());
+		for (String [] key : myMap) {
+            System.out.println("key= "+ key[0] + "\t\t\tvalue= " + key[1]);
+        }
+        System.out.println();
+    }
+
+    public List<String []> getPairData() {
+        List<String []> params =new ArrayList<>();
+
+        List<String > DXFStr = new ArrayList<>();
+		
+		DXFStr = this.getDXF();
+		
+        for (int i = 0; i< DXFStr.size(); i = i + 2) {
+            params.add(new String[] {DXFStr.get(i),DXFStr.get(i + 1)});
+        }
+
+        return params;
+    }
+
+    public List<String> getDXF() {
+        //List<String> DXF_STR = new ArrayList<>();
+
+		this.assembleDXF();
+		//DXF_STR.addAll(GC_TableVPortUnit);
+			
+        //return DXF_STR;
+        return GC_TableVPortUnit;
+    }
+
+    public String toString() {
+
+        List<String> DXF_STR = new ArrayList<>();
+        String str = new String();
+		String lineSeparator = System.lineSeparator();
+
+        DXF_STR = this.getDXF();
+
+        if (null != DXF_STR && DXF_STR.size() > 0) {
+            String[] mListArray = DXF_STR.toArray(new String[DXF_STR.size()]);
+            for (int i = 0; i < mListArray.length; i++) {
+                if (i < mListArray.length - 1) {
+                    str += mListArray[i] + lineSeparator;
+                } else {
+                    str += mListArray[i];
+                }
+            }
+        }
+		return str;
+	}
+	
+	public static void  main(String[] args){
+		TableVPortUnit unit = new TableVPortUnit();
+		
+		System.out.println(unit);
+	}	
 }
