@@ -148,6 +148,7 @@ public class EntArc extends EntBase {
     public EntArc(EntArc one_arc) {
         this();
 		
+		this.Layer = one_arc.Layer;
         this.cPoint = one_arc.cPoint;
         this.radius = one_arc.radius;
         this.sAngle = one_arc.sAngle;

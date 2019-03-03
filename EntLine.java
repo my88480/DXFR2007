@@ -20,6 +20,8 @@ public class EntLine extends EntBase {
      * Constructor (empty).
      */
     public EntLine() {
+		        System.out.println(FileDXF.hex_handle);
+
 		this.EntityName = "LINE";
 		this.ObjectId = "1F";
 		this.ClassLabel = "AcDbEntity";
@@ -43,7 +45,7 @@ public class EntLine extends EntBase {
     }
 
     /**
-     * Constructor (xs_value,ys_value,xe_value,ye_value)
+     * Constructor (xs_value,ys_value,zs_value,xe_value,ye_value,ze_value)
      * @param xs_value -x of start point;
      * @param ys_value -y of start point;
      * @param zs_value -z of start point;
@@ -87,8 +89,9 @@ public class EntLine extends EntBase {
         this();
         this.sPoint = one_line.sPoint;
         this.ePoint = one_line.ePoint;
-
-        this.thickness = one_line.thickness;
+		
+		this.Layer = one_line.Layer;
+		this.thickness = one_line.thickness;
         this.xExtrusionDirection = one_line.xExtrusionDirection;
         this.yExtrusionDirection = one_line.yExtrusionDirection;
         this.zExtrusionDirection = one_line.zExtrusionDirection;

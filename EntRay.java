@@ -103,6 +103,7 @@ public class EntRay extends EntBase {
     public EntRay(EntRay aRay) {
         this(aRay.sPoint,aRay.ePoint);
 
+		this.Layer = aRay.Layer;
         this.thickness = aRay.thickness;
         this.xExtrusionDirection = aRay.xExtrusionDirection;
         this.yExtrusionDirection = aRay.yExtrusionDirection;

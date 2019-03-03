@@ -174,6 +174,8 @@ public class EntVertex extends EntBase {
      */
     public EntVertex(EntVertex oneVertex) {
         this();
+		
+		this.Layer = oneVertex.Layer;
 		this.ObjectId = oneVertex.ObjectId;
 		this.bPoint = oneVertex.bPoint;
     }

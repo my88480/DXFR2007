@@ -103,7 +103,8 @@ public class EntXline extends EntBase {
     public EntXline(EntXline aXline) {
         this(aXline.sPoint,aXline.ePoint);
 
-        this.thickness = aXline.thickness;
+        this.Layer = aXline.Layer;
+		this.thickness = aXline.thickness;
         this.xExtrusionDirection = aXline.xExtrusionDirection;
         this.yExtrusionDirection = aXline.yExtrusionDirection;
         this.zExtrusionDirection = aXline.zExtrusionDirection;

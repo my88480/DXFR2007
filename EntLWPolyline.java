@@ -161,6 +161,7 @@ public class EntLWPolyline extends EntBase {
     public EntLWPolyline(EntLWPolyline one_LWPolyline) {
 		this();
 
+		this.Layer = one_LWPolyline.Layer;
         //this.DummyPoint = new wPoint(one_LWPolyline.DummyPoint);
 
         //this works ok.

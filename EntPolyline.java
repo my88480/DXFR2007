@@ -157,6 +157,7 @@ public class EntPolyline extends EntBase {
     public EntPolyline(EntPolyline one_polyline) {
 		this();
      
+		this.Layer = one_polyline.Layer;
 		this.DummyPoint = new wPoint(one_polyline.DummyPoint);
 
         //this works ok.

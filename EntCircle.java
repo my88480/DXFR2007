@@ -91,7 +91,8 @@ public class EntCircle extends EntBase {
     public EntCircle(EntCircle one_circle) {
 		this();
 		
-        this.cPoint = one_circle.cPoint;
+        this.Layer = one_circle.Layer;
+		this.cPoint = one_circle.cPoint;
         this.radius = one_circle.radius;
         this.thickness = one_circle.thickness;
         this.xExtrusionDirection = one_circle.xExtrusionDirection;

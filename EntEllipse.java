@@ -215,6 +215,7 @@ public class EntEllipse extends EntBase {
      */
     public EntEllipse(EntEllipse oneEllipse) {
         this(oneEllipse.cPoint,oneEllipse.lPoint,oneEllipse.ratio,oneEllipse.sAngle,oneEllipse.eAngle);
+		this.Layer = oneEllipse.Layer;
     }
 
     /**

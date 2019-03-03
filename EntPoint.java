@@ -83,6 +83,8 @@ public class EntPoint extends EntBase {
      */
     public EntPoint(EntPoint P) {
         this();
+		this.Layer = P.Layer;
+
 		bPoint = P.bPoint;
 
         this.thickness = P.thickness;

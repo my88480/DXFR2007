@@ -258,6 +258,7 @@ public class EntText extends EntBase {
     public EntText(EntText oneText) {
         this();
 
+		this.Layer = oneText.Layer;
         this.bPoint = new wPoint(oneText.bPoint);
         this.second_point = new wPoint(oneText.second_point);
 
