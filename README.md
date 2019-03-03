@@ -169,4 +169,4 @@ Change logs:
 	    add TableVPort.java<BR>
 	    fix the reference to hex_handle <BR>
 
-
+2019/03/14  Add Layer propertity copy for all of the Entities copy(or ghost).
