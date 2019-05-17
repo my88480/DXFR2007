@@ -180,4 +180,4 @@ Change logs:
 
 if you have benifited from this project , let me know.
 
-This project is paused temporarily because i am busy on devoloping APS.
+This project is paused temporarily because i am busy on devoloping APS by C Sharp.
