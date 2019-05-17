@@ -174,7 +174,7 @@ Change logs:
 =========================================================================<BR>
 2019/03  this project is used to devolop a pipe manufacture management system.
 
-2019/04  this project is used to devolop a municipal design management system.
+2019/04  this project is used to devolop a municipal facilities design management system.
 
 2019/05  this project is used to devolop GIS android application.
 
