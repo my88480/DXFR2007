@@ -171,7 +171,7 @@ Change logs:
 
 2019/03/14  Add Layer propertity copy for all of the Entities copy(or ghost).
 
-=================================================================================
+=========================================================================
 2019/03  this project is used to devolop a pipe manufacture management system.
 
 2019/04  this project is used to devolop a municipal design management system.
