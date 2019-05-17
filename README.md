@@ -170,3 +170,12 @@ Change logs:
 	    fix the reference to hex_handle <BR>
 
 2019/03/14  Add Layer propertity copy for all of the Entities copy(or ghost).
+
+=================================================================================
+2019/03  this project is used to devolop a pipe manufacture management system.
+
+2019/04  this project is used to devolop a municipal design management system.
+
+2019/05  this project is used to devolop GIS android application.
+
+if you have benifited from this project , let me know.
